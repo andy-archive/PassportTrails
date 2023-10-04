@@ -12,12 +12,15 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        configureHierarchy()
         setConstraints()
     }
     
     func configureView() {
         view.backgroundColor = .white
     }
+    
+    func configureHierarchy() { }
     
     func setConstraints() { }
 }
