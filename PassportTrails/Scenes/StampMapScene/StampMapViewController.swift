@@ -20,6 +20,23 @@ final class StampMapViewController: BaseViewController {
         
         configureLocationManager()
         configureMapView()
+        
+        fetchGeoJson(fileName: "place")
+    }
+    
+    private func fetchGeoJson(fileName: String) -> Void {
+        guard let geoJsonUrl = Bundle.main.url(forResource: fileName, withExtension: "geojson"),
+              let geoJsonData = try? Data.init(contentsOf: geoJsonUrl) else {
+            fatalError("Unable to fetch geojson")
+        }
+        
+        if let features = try? MKGeoJSONDecoder().decode(geoJsonData) as? [MKGeoJSONFeature] {
+            let storeAnnotations = features.map {
+                PlaceAnnotation(feature: $0)
+            }
+            mapView.addAnnotations(storeAnnotations)
+            mapView.showAnnotations(storeAnnotations, animated: true)
+        }
     }
     
     override func configureHierarchy() {
