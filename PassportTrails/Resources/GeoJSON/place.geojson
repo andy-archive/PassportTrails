@@ -1,0 +1,85 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Urban forest",
+                "subtitle": "도심 속 자연의 이미지를 표현한 작품",
+                "category": "공공미술품",
+                "address": "서울특별시 영등포구 선유로9길 30",
+                "town": "문래동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/05/08/22/artwork-8295159_1280.jpg",
+                "detail": "풍부한 녹음과 자연이 스며 있는 도시 속 싱그러운 자연과 어우러져 숲을 이루는 3그루의 나무 이미지를 형상화 하였다. 2020년 조각가 윤성욱"
+            },
+            "geometry": {
+                "coordinates": [
+                    126.88658425063113,
+                    37.518275230600935
+                ],
+                "type": "Point"
+            },
+            "id": 0
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "문래소공원",
+                "subtitle": "문래의 작은 공원",
+                "category": "공원",
+                "address": "서울특별시 영등포구 선유로13길 20 소공원",
+                "town": "문래동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/05/09/49/park-8295311_1280.jpg",
+                "detail": ""
+            },
+            "geometry": {
+                "coordinates": [
+                    126.88694348456971,
+                    37.51983860515908
+                ],
+                "type": "Point"
+            },
+            "id": 1
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "구 경성방직 사무동",
+                "subtitle": "영등포의 근대문화유산",
+                "category": "근대문화유산",
+                "address": "서울특별시 영등포구 영중로 15",
+                "town": "영등포동",
+                "image": "",
+                "detail": "1936년 일제강점기에 민족 자본으로 설립한 (주) 경성방직의 사무동"
+            },
+            "geometry": {
+                "coordinates": [
+                    126.90440624640325,
+                    37.51686611394271
+                ],
+                "type": "Point"
+            },
+            "id": 2
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "문래근린공원",
+                "subtitle": "문래역 옆의 공원",
+                "category": "공원",
+                "address": "서울특별시 영등포구 문래동3가 61",
+                "town": "문래동",
+                "image": "",
+                "detail": ""
+            },
+            "geometry": {
+                "coordinates": [
+                    126.89401568257836,
+                    37.51702659372603
+                ],
+                "type": "Point"
+            },
+            "id": 3
+        }
+    ]
+}

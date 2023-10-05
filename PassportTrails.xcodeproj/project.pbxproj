@@ -18,6 +18,9 @@
 		388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */; };
 		388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */; };
 		388C90742ACD505C0072C3F1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 388C90732ACD505C0072C3F1 /* .gitignore */; };
+		388C907A2ACED16A0072C3F1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90792ACED16A0072C3F1 /* Place.swift */; };
+		388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */; };
+		388C90882ACEE4D20072C3F1 /* place.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 388C90872ACEE4D20072C3F1 /* place.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportListViewController.swift; sourceTree = "<group>"; };
 		388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		388C90732ACD505C0072C3F1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		388C90792ACED16A0072C3F1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		388C90872ACEE4D20072C3F1 /* place.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = place.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,8 @@
 				388C90162AC2D3560072C3F1 /* Assets.xcassets */,
 				388C901B2AC2D3560072C3F1 /* Info.plist */,
 				388C90182AC2D3560072C3F1 /* LaunchScreen.storyboard */,
+				388C90782ACED15F0072C3F1 /* Model */,
+				388C90752ACE90AC0072C3F1 /* Resources */,
 				388C90292AC2D4E40072C3F1 /* Scenes */,
 				388C90282AC2D4C80072C3F1 /* Utils */,
 			);
@@ -126,6 +134,7 @@
 			children = (
 				388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */,
 				388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */,
+				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -144,6 +153,30 @@
 				388C90262AC2D4A10072C3F1 /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		388C90752ACE90AC0072C3F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				388C90762ACE90B50072C3F1 /* GeoJSON */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		388C90762ACE90B50072C3F1 /* GeoJSON */ = {
+			isa = PBXGroup;
+			children = (
+				388C90872ACEE4D20072C3F1 /* place.geojson */,
+			);
+			path = GeoJSON;
+			sourceTree = "<group>";
+		};
+		388C90782ACED15F0072C3F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				388C90792ACED16A0072C3F1 /* Place.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				388C901A2AC2D3560072C3F1 /* LaunchScreen.storyboard in Resources */,
+				388C90882ACEE4D20072C3F1 /* place.geojson in Resources */,
 				388C90742ACD505C0072C3F1 /* .gitignore in Resources */,
 				388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */,
 			);
@@ -219,10 +253,12 @@
 			files = (
 				388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */,
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
+				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* CustomAnnotationView.swift in Sources */,
 				388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */,
 				388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */,
+				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
 				388C90672ACD42E60072C3F1 /* CustomClusterAnnotationView.swift in Sources */,
 			);
