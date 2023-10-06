@@ -12,8 +12,7 @@
 		388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388C90162AC2D3560072C3F1 /* Assets.xcassets */; };
 		388C901A2AC2D3560072C3F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388C90182AC2D3560072C3F1 /* LaunchScreen.storyboard */; };
 		388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90262AC2D4A10072C3F1 /* Observable.swift */; };
-		388C90652ACD428C0072C3F1 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */; };
-		388C90672ACD42E60072C3F1 /* CustomClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */; };
+		388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */; };
 		388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90682ACD43930072C3F1 /* StampMapViewController.swift */; };
 		388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */; };
 		388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */; };
@@ -31,8 +30,7 @@
 		388C90192AC2D3560072C3F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		388C901B2AC2D3560072C3F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		388C90262AC2D4A10072C3F1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
-		388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClusterAnnotationView.swift; sourceTree = "<group>"; };
+		388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		388C90682ACD43930072C3F1 /* StampMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampMapViewController.swift; sourceTree = "<group>"; };
 		388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportListViewController.swift; sourceTree = "<group>"; };
 		388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -132,8 +130,7 @@
 		388C90632ACD42290072C3F1 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */,
-				388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */,
+				388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */,
 				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
 			);
 			path = Custom;
@@ -255,12 +252,11 @@
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
-				388C90652ACD428C0072C3F1 /* CustomAnnotationView.swift in Sources */,
+				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
 				388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */,
 				388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */,
 				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
-				388C90672ACD42E60072C3F1 /* CustomClusterAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

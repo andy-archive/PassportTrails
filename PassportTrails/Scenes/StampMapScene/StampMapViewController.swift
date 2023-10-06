@@ -54,6 +54,8 @@ final class StampMapViewController: BaseViewController {
     }
     
     private func configureMapView() {
+        mapView.delegate = self
+        mapView.register(PlaceAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.mapType = .standard
         mapView.showsUserLocation = true
         mapView.showsCompass = true
@@ -119,6 +121,20 @@ final class StampMapViewController: BaseViewController {
             locationManager.startUpdatingLocation()
         @unknown default:
             print("GPS default")
+        }
+    }
+}
+
+//MARK: MKMapViewDelegate
+
+extension StampMapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        } else {
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
+            return view
         }
     }
 }
