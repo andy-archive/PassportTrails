@@ -24,6 +24,30 @@ final class StampMapViewController: BaseViewController {
         fetchGeoJson(fileName: "place")
     }
     
+    private func findNearestAnnotation(_ currentLocation: CLLocationCoordinate2D) -> MKAnnotation? {
+        let annotations = mapView.annotations
+        guard annotations.count > 0 else { return nil }
+
+        var nearestAnnotation: MKAnnotation?
+        var nearestDistance: CLLocationDistance = Double.infinity
+
+        let currentUserLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+
+        for annotation in annotations {
+            guard annotation !== mapView.userLocation else { continue }
+
+            let annotationCoordinate = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+            let distance = currentUserLocation.distance(from: annotationCoordinate)
+
+            if distance < nearestDistance {
+                nearestDistance = distance
+                nearestAnnotation = annotation
+            }
+        }
+        
+        return nearestAnnotation
+    }
+    
     private func fetchGeoJson(fileName: String) -> Void {
         guard let geoJsonUrl = Bundle.main.url(forResource: fileName, withExtension: "geojson"),
               let geoJsonData = try? Data.init(contentsOf: geoJsonUrl) else {
@@ -31,11 +55,10 @@ final class StampMapViewController: BaseViewController {
         }
         
         if let features = try? MKGeoJSONDecoder().decode(geoJsonData) as? [MKGeoJSONFeature] {
-            let storeAnnotations = features.map {
-                PlaceAnnotation(feature: $0)
-            }
-            mapView.addAnnotations(storeAnnotations)
-            mapView.showAnnotations(storeAnnotations, animated: true)
+            let placeAnnotations = features.map { PlaceAnnotation(feature: $0) }
+            
+            mapView.addAnnotations(placeAnnotations)
+            mapView.showAnnotations(placeAnnotations, animated: true)
         }
     }
     
@@ -145,6 +168,9 @@ extension StampMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
+            guard let nearestAnnotation = findNearestAnnotation(coordinate) else { return }
+            self.mapView.selectAnnotation(nearestAnnotation, animated: true)
+            
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1500, longitudinalMeters: 1500)
             mapView.setRegion(region, animated: true)
         }
