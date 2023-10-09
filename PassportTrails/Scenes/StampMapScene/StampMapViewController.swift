@@ -24,6 +24,30 @@ final class StampMapViewController: BaseViewController {
         fetchGeoJson(fileName: "place")
     }
     
+    private func findNearestAnnotation(_ currentLocation: CLLocationCoordinate2D) -> MKAnnotation? {
+        let annotations = mapView.annotations
+        guard annotations.count > 0 else { return nil }
+
+        var nearestAnnotation: MKAnnotation?
+        var nearestDistance: CLLocationDistance = Double.infinity
+
+        let currentUserLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+
+        for annotation in annotations {
+            guard annotation !== mapView.userLocation else { continue }
+
+            let annotationCoordinate = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+            let distance = currentUserLocation.distance(from: annotationCoordinate)
+
+            if distance < nearestDistance {
+                nearestDistance = distance
+                nearestAnnotation = annotation
+            }
+        }
+        
+        return nearestAnnotation
+    }
+    
     private func fetchGeoJson(fileName: String) -> Void {
         guard let geoJsonUrl = Bundle.main.url(forResource: fileName, withExtension: "geojson"),
               let geoJsonData = try? Data.init(contentsOf: geoJsonUrl) else {
