@@ -20,6 +20,7 @@ final class StampMapViewController: BaseViewController {
         
         configureLocationManager()
         configureMapView()
+        configureUserTrackingButton()
         
         fetchGeoJson(fileName: "place")
     }
@@ -83,13 +84,35 @@ final class StampMapViewController: BaseViewController {
         mapView.showsUserLocation = true
         mapView.showsCompass = true
         mapView.showsScale = true
-        mapView.userTrackingMode = .follow
     }
     
     private func configureLocationManager() {
         locationManager.delegate = self
         
         checkDeviceLocationAuthorization()
+    }
+    
+    private func configureUserTrackingButton() {
+        let trackingButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        trackingButton.customView?.tintColor = .black
+        trackingButton.customView?.frame.size = CGSize(width: 50, height: 50)
+        
+        let toolBarFrame = CGRect(origin: .zero, size: CGSize(width: 50, height: 50))
+        let toolbar = UIToolbar(frame: toolBarFrame)
+        toolbar.barTintColor = UIColor.white
+        toolbar.isTranslucent = false
+        
+        let flex: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbar.items = [flex, trackingButton, flex]
+        
+        let origin = CGPoint(x: self.view.frame.size.width - 85, y: 60)
+        let roundedSquare = UIView(frame: CGRect(origin: origin, size: CGSize(width: 50, height: 50)))
+        roundedSquare.backgroundColor = UIColor.white
+        roundedSquare.layer.cornerRadius = 5
+        roundedSquare.layer.masksToBounds = true
+        
+        mapView.addSubview(roundedSquare)
+        roundedSquare.addSubview(toolbar)
     }
     
     //MARK: LocationAuthorization
