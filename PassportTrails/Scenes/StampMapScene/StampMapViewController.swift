@@ -31,11 +31,10 @@ final class StampMapViewController: BaseViewController {
         }
         
         if let features = try? MKGeoJSONDecoder().decode(geoJsonData) as? [MKGeoJSONFeature] {
-            let storeAnnotations = features.map {
-                PlaceAnnotation(feature: $0)
-            }
-            mapView.addAnnotations(storeAnnotations)
-            mapView.showAnnotations(storeAnnotations, animated: true)
+            let placeAnnotations = features.map { PlaceAnnotation(feature: $0) }
+            
+            mapView.addAnnotations(placeAnnotations)
+            mapView.showAnnotations(placeAnnotations, animated: true)
         }
     }
     
