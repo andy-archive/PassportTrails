@@ -72,18 +72,20 @@ final class StampMapViewController: BaseViewController {
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
     private func configureMapView() {
         mapView.delegate = self
         mapView.register(PlaceAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
         mapView.mapType = .standard
         mapView.showsUserLocation = true
         mapView.showsCompass = true
         mapView.showsScale = true
-        mapView.userTrackingMode = .follow
+        
+        mapView.configureUserTrackingButton()
     }
     
     private func configureLocationManager() {
