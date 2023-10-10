@@ -1,5 +1,5 @@
 //
-//  HalfHeightModalViewController.swift
+//  PlaceArrivalViewController.swift
 //  PassportTrails
 //
 //  Created by Taekwon Lee on 2023/10/10.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HalfHeightModalViewController: BaseViewController {
+class PlaceArrivalViewController: BaseViewController {
     
     private let titleLabel = {
         let view = UILabel()

@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     func presentPlaceArrivalView() {
-        let vc = HalfHeightModalViewController()
+        let vc = PlaceArrivalViewController()
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom(identifier: .medium, resolver: { context in
                 return UIScreen.main.bounds.height * 0.35
