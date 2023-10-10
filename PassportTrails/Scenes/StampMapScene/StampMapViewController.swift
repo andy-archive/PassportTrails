@@ -172,6 +172,18 @@ extension StampMapViewController: MKMapViewDelegate {
         
         if nearestDistance <= 20 {
             mapView.selectAnnotation(nearestAnnotation, animated: true)
+            
+            let vc = HalfHeightModalViewController()
+            if let sheet = vc.sheetPresentationController {
+                sheet.detents = [.custom(identifier: .medium, resolver: { context in
+                    return UIScreen.main.bounds.height * 0.35
+                })]
+                sheet.preferredCornerRadius = 30
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            present(vc, animated: true)
+        } else {
+            mapView.deselectAnnotation(nearestAnnotation, animated: true)
         }
     }
 }
