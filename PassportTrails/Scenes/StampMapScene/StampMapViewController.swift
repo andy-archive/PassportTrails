@@ -162,6 +162,18 @@ extension StampMapViewController: MKMapViewDelegate {
             return view
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
+        
+        let nearestAnnotationLocation = CLLocation(latitude: nearestAnnotation.coordinate.latitude, longitude: nearestAnnotation.coordinate.longitude)
+        let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
+        
+        if nearestDistance <= 20 {
+            mapView.selectAnnotation(nearestAnnotation, animated: true)
+        }
+    }
 }
 
 //MARK: CLLocationManagerDelegate
@@ -171,9 +183,10 @@ extension StampMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             guard let nearestAnnotation = findNearestAnnotation(coordinate) else { return }
-            self.mapView.selectAnnotation(nearestAnnotation, animated: true)
             
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1500, longitudinalMeters: 1500)
+            mapView.selectAnnotation(nearestAnnotation, animated: true)
+            
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
             mapView.setRegion(region, animated: true)
         }
         locationManager.stopUpdatingLocation()
