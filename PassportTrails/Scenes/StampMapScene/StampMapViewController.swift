@@ -13,6 +13,9 @@ final class StampMapViewController: BaseViewController {
     private let locationManager = CLLocationManager()
     private let mapView = MKMapView()
     
+    private var nearestAnnotation: MKAnnotation?
+    private var isArrivedToPlace = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -165,16 +168,24 @@ extension StampMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
+        self.nearestAnnotation = nearestAnnotation
         
         let nearestAnnotationLocation = CLLocation(latitude: nearestAnnotation.coordinate.latitude, longitude: nearestAnnotation.coordinate.longitude)
         let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
-        if nearestDistance <= 20 {
+        if nearestDistance <= 20 && isArrivedToPlace == false {
             mapView.selectAnnotation(nearestAnnotation, animated: true)
+            
             presentPlaceArrivalView()
-        } else {
-            mapView.deselectAnnotation(nearestAnnotation, animated: true)
+            isArrivedToPlace = true
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        guard let nearestAnnotation else { return }
+        if isArrivedToPlace == true && annotation === nearestAnnotation {
+            presentPlaceArrivalView()
         }
     }
 }

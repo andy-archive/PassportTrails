@@ -14,8 +14,10 @@ extension UIViewController {
             sheet.detents = [.custom(identifier: .medium, resolver: { context in
                 return UIScreen.main.bounds.height * 0.35
             })]
+            
+            sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 30
-            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.largestUndimmedDetentIdentifier = .large
         }
         present(vc, animated: true)
     }
