@@ -174,11 +174,14 @@ extension StampMapViewController: MKMapViewDelegate {
         let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
-        if nearestDistance <= 20 && isArrivedToPlace == false {
+        if nearestDistance <= 15 && isArrivedToPlace == false {
             mapView.selectAnnotation(nearestAnnotation, animated: true)
-            
             presentPlaceArrivalView()
             isArrivedToPlace = true
+        } else if nearestDistance >= 35 && isArrivedToPlace == true {
+            mapView.deselectAnnotation(nearestAnnotation, animated: true)
+            dismiss(animated: true)
+            isArrivedToPlace = false
         }
     }
     
