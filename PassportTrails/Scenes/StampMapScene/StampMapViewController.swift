@@ -19,7 +19,7 @@ final class StampMapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.topViewController?.title = "스탬프 지도"
+        navigationController?.navigationBar.isHidden = true
         
         configureLocationManager()
         configureMapView()
