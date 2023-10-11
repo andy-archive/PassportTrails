@@ -21,6 +21,8 @@
 		388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */; };
 		388C90882ACEE4D20072C3F1 /* place.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 388C90872ACEE4D20072C3F1 /* place.geojson */; };
 		388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */; };
+		38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */; };
+		38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C48B2AD5730B007EA06F /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		388C90872ACEE4D20072C3F1 /* place.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = place.geojson; sourceTree = "<group>"; };
 		388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+.swift"; sourceTree = "<group>"; };
+		38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceArrivalViewController.swift; sourceTree = "<group>"; };
+		38E1C48B2AD5730B007EA06F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			children = (
 				388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */,
 				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
+				38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */,
+				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			files = (
 				388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */,
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
+				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
@@ -269,6 +276,7 @@
 				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
 				388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */,
+				38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

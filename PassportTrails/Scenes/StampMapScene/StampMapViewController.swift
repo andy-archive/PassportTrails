@@ -13,10 +13,13 @@ final class StampMapViewController: BaseViewController {
     private let locationManager = CLLocationManager()
     private let mapView = MKMapView()
     
+    private var nearestAnnotation: MKAnnotation?
+    private var isArrivedToPlace = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.topViewController?.title = "스탬프 지도"
+        navigationController?.navigationBar.isHidden = true
         
         configureLocationManager()
         configureMapView()
@@ -162,6 +165,32 @@ extension StampMapViewController: MKMapViewDelegate {
             return view
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
+        self.nearestAnnotation = nearestAnnotation
+        
+        let nearestAnnotationLocation = CLLocation(latitude: nearestAnnotation.coordinate.latitude, longitude: nearestAnnotation.coordinate.longitude)
+        let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
+        
+        if nearestDistance <= 15 && isArrivedToPlace == false {
+            mapView.selectAnnotation(nearestAnnotation, animated: true)
+            presentPlaceArrivalView()
+            isArrivedToPlace = true
+        } else if nearestDistance >= 35 && isArrivedToPlace == true {
+            mapView.deselectAnnotation(nearestAnnotation, animated: true)
+            dismiss(animated: true)
+            isArrivedToPlace = false
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        guard let nearestAnnotation else { return }
+        if isArrivedToPlace == true && annotation === nearestAnnotation {
+            presentPlaceArrivalView()
+        }
+    }
 }
 
 //MARK: CLLocationManagerDelegate
@@ -171,9 +200,10 @@ extension StampMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             guard let nearestAnnotation = findNearestAnnotation(coordinate) else { return }
-            self.mapView.selectAnnotation(nearestAnnotation, animated: true)
             
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1500, longitudinalMeters: 1500)
+            mapView.selectAnnotation(nearestAnnotation, animated: true)
+            
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
             mapView.setRegion(region, animated: true)
         }
         locationManager.stopUpdatingLocation()
