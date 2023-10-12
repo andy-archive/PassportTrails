@@ -6,38 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-
-        let firstNav = UINavigationController(rootViewController: StampMapViewController())
-        let secondNav = UINavigationController(rootViewController: PassportListViewController())
-
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .white
-        tabBarController.tabBar.unselectedItemTintColor = .systemGray4
-        tabBarController.tabBar.backgroundColor = .gray.withAlphaComponent(0.9)
-        tabBarController.setViewControllers([firstNav, secondNav], animated: true)
-
-        if let items = tabBarController.tabBar.items {
-            items[0].image = UIImage(systemName: "map")
-            items[0].selectedImage = UIImage(systemName: "map.fill")
-            items[0].title = "지도"
-            
-            items[1].image = UIImage(systemName: "wallet.pass")
-            items[1].selectedImage = UIImage(systemName: "wallet.pass.fill")
-            items[1].title = "목록"
-        }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
+        let config = Realm.Configuration(schemaVersion: 0)
+        
+        Realm.Configuration.defaultConfiguration = config
+        
+        return true
     }
 
     // MARK: UISceneSession Lifecycle
