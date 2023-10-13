@@ -67,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38668CF92AD9122D0038E852 /* PlaceArrivalScene */ = {
+			isa = PBXGroup;
+			children = (
+				38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */,
+			);
+			path = PlaceArrivalScene;
+			sourceTree = "<group>";
+		};
 		388C90012AC2D3530072C3F1 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				388C90622ACD41F50072C3F1 /* PassportListScene */,
+				38668CF92AD9122D0038E852 /* PlaceArrivalScene */,
 				388C90612ACD41D10072C3F1 /* StampMapScene */,
 			);
 			path = Scenes;
@@ -149,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */,
-				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
-				38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				388C90792ACED16A0072C3F1 /* Place.swift */,
+				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
