@@ -8,14 +8,42 @@
 import UIKit
 import MapKit
 
+private let placeClusterID = "placeCluster"
+
 final class PlaceAnnotationView: MKMarkerAnnotationView {
+    
+    static let reuseIdentifier = "placeAnnotation"
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
         clusteringIdentifier = "place"
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForDisplay() {
+        super.prepareForDisplay()
         
-        canShowCallout = true
+        displayPriority = .defaultHigh
+        markerTintColor = .systemYellow
+        glyphTintColor = .black
+        glyphImage = UIImage(systemName: "star")
+        selectedGlyphImage = UIImage(systemName: "star.fill")
+    }
+}
+
+final class VisitedPlaceAnnotationView: MKMarkerAnnotationView {
+    
+    static let reuseIdentifier = "visitedPlaceAnnotation"
+    
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        
+        clusteringIdentifier = "placeCluster"
     }
     
     @available(*, unavailable)
@@ -27,8 +55,9 @@ final class PlaceAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         
         displayPriority = .defaultLow
-        markerTintColor = .systemYellow
-        glyphTintColor = .black
-        selectedGlyphImage = UIImage(systemName: "star.fill")
+        markerTintColor = .darkGray
+        glyphTintColor = .systemGray6
+        glyphImage = UIImage(systemName: "checkmark.circle")
+        selectedGlyphImage = UIImage(systemName: "checkmark.circle.fill")
     }
 }

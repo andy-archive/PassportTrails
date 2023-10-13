@@ -18,7 +18,8 @@ class PlaceAnnotation: NSObject, MKAnnotation {
         place?.subtitle
     }
     
-    var coordinate: CLLocationCoordinate2D
+    @objc
+    dynamic var coordinate: CLLocationCoordinate2D
     
     init(feature: MKGeoJSONFeature) {
         coordinate = feature.geometry[0].coordinate
