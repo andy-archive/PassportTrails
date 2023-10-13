@@ -14,7 +14,7 @@
 		388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90262AC2D4A10072C3F1 /* Observable.swift */; };
 		388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */; };
 		388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90682ACD43930072C3F1 /* StampMapViewController.swift */; };
-		388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */; };
+		388C906B2ACD44EE0072C3F1 /* StampListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */; };
 		388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */; };
 		388C90742ACD505C0072C3F1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 388C90732ACD505C0072C3F1 /* .gitignore */; };
 		388C907A2ACED16A0072C3F1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90792ACED16A0072C3F1 /* Place.swift */; };
@@ -40,7 +40,7 @@
 		388C90262AC2D4A10072C3F1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		388C90682ACD43930072C3F1 /* StampMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampMapViewController.swift; sourceTree = "<group>"; };
-		388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportListViewController.swift; sourceTree = "<group>"; };
+		388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListViewController.swift; sourceTree = "<group>"; };
 		388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		388C90732ACD505C0072C3F1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		388C90792ACED16A0072C3F1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		388C90292AC2D4E40072C3F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				388C90622ACD41F50072C3F1 /* PassportListScene */,
+				388C90622ACD41F50072C3F1 /* StampListScene */,
 				38668CF92AD9122D0038E852 /* PlaceArrivalScene */,
 				388C90612ACD41D10072C3F1 /* StampMapScene */,
 			);
@@ -146,12 +146,12 @@
 			path = StampMapScene;
 			sourceTree = "<group>";
 		};
-		388C90622ACD41F50072C3F1 /* PassportListScene */ = {
+		388C90622ACD41F50072C3F1 /* StampListScene */ = {
 			isa = PBXGroup;
 			children = (
-				388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */,
+				388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */,
 			);
-			path = PassportListScene;
+			path = StampListScene;
 			sourceTree = "<group>";
 		};
 		388C90632ACD42290072C3F1 /* Custom */ = {
@@ -308,7 +308,7 @@
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
-				388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */,
+				388C906B2ACD44EE0072C3F1 /* StampListViewController.swift in Sources */,
 				38E1C4B22AD7CC12007EA06F /* Notification+.swift in Sources */,
 				388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */,
 				38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */,
