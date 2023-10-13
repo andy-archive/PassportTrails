@@ -17,7 +17,7 @@ extension UIViewController {
             
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 30
-            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.largestUndimmedDetentIdentifier = .medium
         }
         present(vc, animated: true)
     }

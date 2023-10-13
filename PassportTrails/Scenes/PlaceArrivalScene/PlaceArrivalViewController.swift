@@ -24,7 +24,7 @@ class PlaceArrivalViewController: BaseViewController {
         return view
     }()
     
-    private let getButton = {
+    private let stampButton = {
         let view = UIButton()
         view.backgroundColor = .systemBlue
         view.titleLabel?.font = .boldSystemFont(ofSize: 20)
@@ -38,16 +38,35 @@ class PlaceArrivalViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.post(name: NSNotification.Name.selectAnnotation, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.post(name: NSNotification.Name.deselectAnnotation, object: nil)
+    }
+    
+    @objc
+    private func stampButtonClicked() {
+        NotificationCenter.default.post(name: NSNotification.Name.stampButtonClicked, object: nil)
+        dismiss(animated: true)
+    }
+    
+    //MARK: BaseView
+    
     override func configureView() {
         super.configureView()
-        
-        view.backgroundColor = .white
         
         titleLabel.text = "🎉 장소에 도착했습니다 🎉"
         
         subtitleLabel.text = "아래 버튼을 눌러 스탬프를 받으세요 👇"
         
-        getButton.setTitle("스탬프 받기", for: .normal)
+        stampButton.setTitle("스탬프 받기", for: .normal)
+        stampButton.addTarget(self, action: #selector(stampButtonClicked), for: .touchUpInside)
     }
     
     override func configureHierarchy() {
@@ -55,7 +74,7 @@ class PlaceArrivalViewController: BaseViewController {
         
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(getButton)
+        view.addSubview(stampButton)
     }
     
     override func setConstraints() {
@@ -74,13 +93,13 @@ class PlaceArrivalViewController: BaseViewController {
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
-        getButton.translatesAutoresizingMaskIntoConstraints = false
+        stampButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            getButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            getButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            getButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            getButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            getButton.heightAnchor.constraint(equalToConstant: 60)
+            stampButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            stampButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stampButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stampButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stampButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

@@ -7,14 +7,19 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 final class StampMapViewController: BaseViewController {
     
     private let locationManager = CLLocationManager()
     private let mapView = MKMapView()
     
-    private var nearestAnnotation: MKAnnotation?
+    private var placeAnnotations = [PlaceAnnotation]()
+    private var nearestAnnotation: PlaceAnnotation?
     private var isArrivedToPlace = false
+    
+    private let repository = PlaceRepository()
+    private let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,31 +30,92 @@ final class StampMapViewController: BaseViewController {
         configureMapView()
         
         fetchGeoJson(fileName: "place")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotation), name: NSNotification.Name.stampButtonClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectAnnotation), name: NSNotification.Name.selectAnnotation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deselectAnnotation), name: NSNotification.Name.deselectAnnotation, object: nil)
     }
     
-    private func findNearestAnnotation(_ currentLocation: CLLocationCoordinate2D) -> MKAnnotation? {
-        let annotations = mapView.annotations
+    //MARK: Annotation Functions
+    
+    @objc
+    private func updateAnnotation() {
+        saveAnnotationToRealm()
+        toggleAnnotation()
+    }
+    
+    @objc
+    private func selectAnnotation() {
+        guard let nearestAnnotation else { return }
+        mapView.selectAnnotation(nearestAnnotation, animated: true)
+    }
+    
+    @objc
+    private func deselectAnnotation() {
+        guard let nearestAnnotation else { return }
+        mapView.deselectAnnotation(nearestAnnotation, animated: true)
+    }
+    
+    private func saveAnnotationToRealm() {
+        guard let nearestAnnotation = nearestAnnotation,
+              let place = nearestAnnotation.place else { return }
+        
+        let task = PlaceRealm(
+            title: place.title,
+            subtitle: place.subtitle,
+            category: place.category,
+            address: place.address,
+            town: place.town,
+            image: place.image,
+            url: place.url,
+            detail: place.detail,
+            isCreatedAt: Date()
+        )
+        
+        repository.createItem(task)
+    }
+    
+    private func toggleAnnotation() {
+        guard let nearestAnnotation = nearestAnnotation else { return }
+        
+        mapView.removeAnnotation(nearestAnnotation)
+        
+        let visitedAnnotationView = VisitedPlaceAnnotationView(annotation: nearestAnnotation, reuseIdentifier: VisitedPlaceAnnotationView.reuseIdentifier)
+        
+        guard let visitedAnnotation = visitedAnnotationView.annotation else { return }
+        
+        mapView.addAnnotation(visitedAnnotation)
+        
+        placeAnnotations = placeAnnotations.filter { $0 !== nearestAnnotation }
+        
+        isArrivedToPlace = false
+    }
+    
+    private func findNearestAnnotation(_ currentLocation: CLLocationCoordinate2D) -> PlaceAnnotation? {
+        let annotations = placeAnnotations
         guard annotations.count > 0 else { return nil }
-
-        var nearestAnnotation: MKAnnotation?
-        var nearestDistance: CLLocationDistance = Double.infinity
-
+        
+        var nearestAnnotation: PlaceAnnotation?
+        var nearestDistance = Double.infinity
+        
         let currentUserLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
-
+        
         for annotation in annotations {
-            guard annotation !== mapView.userLocation else { continue }
-
-            let annotationCoordinate = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-            let distance = currentUserLocation.distance(from: annotationCoordinate)
-
+            let annotationLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+            let distance = currentUserLocation.distance(from: annotationLocation)
+            
+            guard distance <= 60 else { continue }
+            
             if distance < nearestDistance {
-                nearestDistance = distance
                 nearestAnnotation = annotation
+                nearestDistance = distance
             }
         }
         
         return nearestAnnotation
     }
+    
+    //MARK: GeoJSON
     
     private func fetchGeoJson(fileName: String) -> Void {
         guard let geoJsonUrl = Bundle.main.url(forResource: fileName, withExtension: "geojson"),
@@ -64,6 +130,8 @@ final class StampMapViewController: BaseViewController {
             mapView.showAnnotations(placeAnnotations, animated: true)
         }
     }
+    
+    //MARK: BaseView
     
     override func configureHierarchy() {
         view.addSubview(mapView)
@@ -81,7 +149,8 @@ final class StampMapViewController: BaseViewController {
     
     private func configureMapView() {
         mapView.delegate = self
-        mapView.register(PlaceAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(PlaceAnnotationView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotationView.reuseIdentifier)
+        mapView.register(VisitedPlaceAnnotationView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotationView.reuseIdentifier)
         
         mapView.mapType = .standard
         mapView.showsUserLocation = true
@@ -158,11 +227,19 @@ final class StampMapViewController: BaseViewController {
 extension StampMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
+        
+        if annotation is MKUserLocation { return nil }
+        
+        guard let annotation = annotation as? PlaceAnnotation,
+              let title = annotation.title else { return nil }
+        
+        let data = repository.fetchByWord(word: title)
+        
+        if data.isEmpty {
+            placeAnnotations.append(annotation)
+            return PlaceAnnotationView(annotation: annotation, reuseIdentifier: PlaceAnnotationView.reuseIdentifier)
         } else {
-            let view = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
-            return view
+            return VisitedPlaceAnnotationView(annotation: annotation, reuseIdentifier: VisitedPlaceAnnotationView.reuseIdentifier)
         }
     }
     
@@ -175,21 +252,26 @@ extension StampMapViewController: MKMapViewDelegate {
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
         if nearestDistance <= 15 && isArrivedToPlace == false {
-            mapView.selectAnnotation(nearestAnnotation, animated: true)
-            presentPlaceArrivalView()
             isArrivedToPlace = true
-        } else if nearestDistance >= 35 && isArrivedToPlace == true {
-            mapView.deselectAnnotation(nearestAnnotation, animated: true)
-            dismiss(animated: true)
+            presentPlaceArrivalView()
+        } else if nearestDistance >= 45 && isArrivedToPlace == true {
             isArrivedToPlace = false
+            dismiss(animated: true)
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        guard let nearestAnnotation else { return }
-        if isArrivedToPlace == true && annotation === nearestAnnotation {
-            presentPlaceArrivalView()
-        }
+        guard isArrivedToPlace == true else { return }
+        
+        guard let nearestAnnotation,
+              let annotation = annotation as? PlaceAnnotation,
+              let title = annotation.title else { return }
+        
+        guard annotation === nearestAnnotation else { return }
+        
+        let data = repository.fetchByWord(word: title)
+        
+        if data.isEmpty { presentPlaceArrivalView() }
     }
 }
 
@@ -199,16 +281,12 @@ extension StampMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            guard let nearestAnnotation = findNearestAnnotation(coordinate) else { return }
-            
-            mapView.selectAnnotation(nearestAnnotation, animated: true)
-            
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
             mapView.setRegion(region, animated: true)
         }
         locationManager.stopUpdatingLocation()
     }
-
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkDeviceLocationAuthorization()
     }

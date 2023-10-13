@@ -14,5 +14,6 @@ struct Place: Decodable {
     let address: String
     let town: String
     let image: String
+    let url: String
     let detail: String
 }
