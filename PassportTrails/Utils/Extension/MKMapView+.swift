@@ -10,7 +10,7 @@ import MapKit
 extension MKMapView {
     func configureUserTrackingButton() {
         let trackingButton = MKUserTrackingBarButtonItem(mapView: self)
-        trackingButton.customView?.tintColor = .systemBlue
+        trackingButton.customView?.tintColor = .label
         trackingButton.customView?.frame.size = CGSize(width: 42, height: 42)
         
         let toolBarFrame = CGRect(origin: .zero, size: CGSize(width: 42, height: 42))

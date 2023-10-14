@@ -17,6 +17,7 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
         super.configureView()
         
+        contentView.backgroundColor = .systemGray6
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 10
         
