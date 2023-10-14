@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         let firstNav = UINavigationController(rootViewController: StampMapViewController())
-        let secondNav = UINavigationController(rootViewController: PassportListViewController())
+        let secondNav = UINavigationController(rootViewController: StampListViewController())
 
         let tabBarController = UITabBarController()
         tabBarController.tabBar.tintColor = .black
