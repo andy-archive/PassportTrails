@@ -10,7 +10,7 @@ import UIKit
 final class StampListViewController: BaseViewController {
     
     private lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 3, sectionSpacing: 4, itemSpacing: 4))
+        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 3, sectionSpacing: 6, itemSpacing: 6))
         return view
     }()
 
