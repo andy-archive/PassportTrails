@@ -17,12 +17,7 @@ final class StampListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNavigationBar()
-    }
-    
-    private func configureNavigationBar() {
         navigationController?.navigationBar.topItem?.title = "스탬프 목록"
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func configureView() {

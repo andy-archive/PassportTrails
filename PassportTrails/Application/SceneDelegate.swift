@@ -14,38 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        if #available(iOS 15.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithDefaultBackground()
-            navigationBarAppearance.backgroundColor = .systemBackground
-            
-            navigationBarAppearance.largeTitleTextAttributes = [
-                .font: UIFont.boldSystemFont(ofSize: 30),
-                .foregroundColor: UIColor.label
-            ]
-            navigationBarAppearance.titleTextAttributes = [
-                .font: UIFont.boldSystemFont(ofSize: 17),
-                .foregroundColor: UIColor.label
-            ]
-            
-            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-            
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = .systemBackground
-            
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        }
-
         let firstNav = UINavigationController(rootViewController: StampMapViewController())
         let secondNav = UINavigationController(rootViewController: StampListViewController())
 
+        firstNav.configureAppearance()
+        secondNav.configureAppearance()
+
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .label
-        tabBarController.tabBar.unselectedItemTintColor = .systemBackground
+        
+        tabBarController.configureAppearance()
         tabBarController.setViewControllers([firstNav, secondNav], animated: true)
 
         if let items = tabBarController.tabBar.items {
