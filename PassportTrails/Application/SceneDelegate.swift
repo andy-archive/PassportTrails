@@ -19,6 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             navigationBarAppearance.configureWithDefaultBackground()
             navigationBarAppearance.backgroundColor = .systemBackground
             
+            navigationBarAppearance.largeTitleTextAttributes = [
+                .font: UIFont.boldSystemFont(ofSize: 30),
+                .foregroundColor: UIColor.label
+            ]
+            navigationBarAppearance.titleTextAttributes = [
+                .font: UIFont.boldSystemFont(ofSize: 17),
+                .foregroundColor: UIColor.label
+            ]
+            
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
