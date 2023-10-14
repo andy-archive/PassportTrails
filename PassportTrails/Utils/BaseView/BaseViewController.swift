@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     }
     
     func configureView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     
     func configureHierarchy() { }

@@ -14,16 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-
         let firstNav = UINavigationController(rootViewController: StampMapViewController())
         let secondNav = UINavigationController(rootViewController: StampListViewController())
 
+        firstNav.configureAppearance()
+        secondNav.configureAppearance()
+
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .black
-        tabBarController.tabBar.unselectedItemTintColor = .systemGray
-        tabBarController.tabBar.backgroundColor = .white
+        
+        tabBarController.configureAppearance()
         tabBarController.setViewControllers([firstNav, secondNav], animated: true)
 
         if let items = tabBarController.tabBar.items {
@@ -35,6 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             items[1].selectedImage = UIImage(systemName: "list.bullet.rectangle.fill")
             items[1].title = "목록"
         }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
