@@ -6,18 +6,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class StampListViewController: BaseViewController {
     
     private lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 3, sectionSpacing: 6, itemSpacing: 6))
+        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 6, itemSpacing: 6))
         return view
     }()
+    
+    private let repository = PlaceRepository()
+    private let realm = try! Realm()
+    private var tasks: Results<PlaceRealm>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.topItem?.title = "스탬프 목록"
+        
+        tasks = repository.fetchByDate()
     }
     
     override func configureView() {
@@ -41,6 +48,11 @@ final class StampListViewController: BaseViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    @objc
+    private func updateStampImage() {
+        collectionView.reloadData()
+    }
 }
 
 //MARK: UICollectionViewDelegate, UICollectionViewDataSource
@@ -48,12 +60,16 @@ final class StampListViewController: BaseViewController {
 extension StampListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return tasks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StampListCollectionViewCell.reuseIdentifier, for: indexPath) as? StampListCollectionViewCell else { return UICollectionViewCell() }
-
+        
+        let row = tasks[indexPath.row]
+        
+        cell.fetchStampImage(string: row.image)
+        
         return cell
     }
 }

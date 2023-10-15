@@ -10,7 +10,8 @@ import UIKit
 class StampListCollectionViewCell: BaseCollectionViewCell {
     
     private let stampImage = {
-        let view = UIImageView(image: UIImage(systemName: "building.columns"))
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
@@ -37,5 +38,21 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
             stampImage.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor),
             stampImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
+    }
+    
+    func fetchStampImage(string: String) {
+        if string.isEmpty {
+            self.stampImage.image = UIImage(systemName: "building.columns")
+        }
+        
+        guard let url = URL(string: string) else { return }
+        
+        url.fetchImage { [weak self] image in
+            guard let image else { return }
+            
+            DispatchQueue.main.async {
+                self?.stampImage.image = image
+            }
+        }
     }
 }
