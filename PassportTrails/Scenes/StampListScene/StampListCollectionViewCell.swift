@@ -42,7 +42,9 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     func fetchStampImage(string: String) {
         if string.isEmpty {
-            self.stampImage.image = UIImage(systemName: "building.columns")
+            DispatchQueue.main.async {
+                self.stampImage.image = UIImage(systemName: "leaf")
+            }
         }
         
         guard let url = URL(string: string) else { return }
