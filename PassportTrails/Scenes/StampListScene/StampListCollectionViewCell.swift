@@ -13,7 +13,7 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         let view = UIStackView()
         view.axis = .vertical
         view.distribution = .fill
-        view.spacing = 4
+        view.spacing = 6
         return view
     }()
     
@@ -41,9 +41,10 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
         super.configureView()
         
-        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.3)
+        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.5)
         contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = contentView.frame.size.width / 8
+        contentView.layer.borderColor = UIColor.systemGray4.cgColor
+        contentView.layer.borderWidth = 0.5
     }
     
     override func configureHierarchy() {
@@ -70,10 +71,12 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        let cloverConstant = contentView.frame.size.width / 15
+        
         cloverLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cloverLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            cloverLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+            cloverLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cloverConstant),
+            cloverLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cloverConstant),
         ])
     }
     
@@ -84,8 +87,10 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     func fetchStampImage(string: String) {
         if string.isEmpty {
+            let leafImage = UIImage(systemName: "leaf.circle")
+            
             DispatchQueue.main.async {
-                self.stampImage.image = UIImage(systemName: "leaf")
+                self.stampImage.image = leafImage?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
             }
         }
         
