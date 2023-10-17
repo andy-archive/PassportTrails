@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIViewController {
+    var selectedTabBarViewController: UIViewController? {
+        return tabBarController?.selectedViewController
+    }
+    
     func presentPlaceArrivalView() {
         let vc = PlaceArrivalViewController()
         if let sheet = vc.sheetPresentationController {
@@ -20,5 +24,15 @@ extension UIViewController {
             sheet.largestUndimmedDetentIdentifier = .medium
         }
         present(vc, animated: true)
+    }
+    
+    func isStampMapViewController(viewController: UIViewController) -> Bool {
+        guard let selectedViewController = viewController.selectedTabBarViewController as? UINavigationController,
+              let rootViewController = selectedViewController.rootViewController
+        else { return false }
+        
+        guard rootViewController is StampMapViewController else { return false }
+        
+        return true
     }
 }

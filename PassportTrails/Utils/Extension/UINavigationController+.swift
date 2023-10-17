@@ -8,6 +8,10 @@
 import UIKit
 
 extension UINavigationController {
+    var rootViewController: UIViewController? {
+        return viewControllers.first
+    }
+    
     func configureAppearance() {
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
