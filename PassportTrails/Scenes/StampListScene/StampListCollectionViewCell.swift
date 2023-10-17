@@ -61,7 +61,7 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         
         url.fetchImage { [weak self] image in
             guard let image,
-                  let stampImage = image.roundedImageWithFilter()
+                  let stampImage = image.roundedImageWithGloomFilter()
             else { return }
             
             DispatchQueue.main.async {

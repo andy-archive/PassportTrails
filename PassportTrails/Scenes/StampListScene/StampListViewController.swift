@@ -12,6 +12,7 @@ final class StampListViewController: BaseViewController {
     
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 6, itemSpacing: 6))
+        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 0, itemSpacing: 0))
         return view
     }()
     
@@ -70,6 +71,7 @@ extension StampListViewController: UICollectionViewDelegate, UICollectionViewDat
         let row = tasks[indexPath.row]
         
         cell.fetchStampImage(string: row.image)
+        cell.fetchStampTitle(string: row.title)
         
         return cell
     }
