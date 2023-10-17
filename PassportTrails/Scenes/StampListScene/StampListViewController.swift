@@ -11,7 +11,6 @@ import RealmSwift
 final class StampListViewController: BaseViewController {
     
     private lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 6, itemSpacing: 6))
         let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 0, itemSpacing: 0))
         return view
     }()
