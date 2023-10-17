@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
 		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
 		38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D072AD970820038E852 /* ReusableViewProtocol.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D072AD970820038E852 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
 				38668D0F2ADBD20F0038E852 /* URL+.swift */,
+				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
 				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
 				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
+				382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
