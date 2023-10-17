@@ -11,4 +11,5 @@ extension Notification.Name {
     static let stampButtonClicked = Notification.Name("stampButtonClicked")
     static let selectAnnotation = Notification.Name("selectAnnotation")
     static let deselectAnnotation = Notification.Name("deselectAnnotation")
+    static let fetchStampImage = Notification.Name("fetchStampImage")
 }

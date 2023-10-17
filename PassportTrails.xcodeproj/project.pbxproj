@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
 		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
 		38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D072AD970820038E852 /* ReusableViewProtocol.swift */; };
 		38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */; };
 		38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0B2ADA73770038E852 /* UINavigationController+.swift */; };
 		38668D0E2ADA75F00038E852 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0D2ADA75F00038E852 /* UITabBarController+.swift */; };
+		38668D102ADBD20F0038E852 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0F2ADBD20F0038E852 /* URL+.swift */; };
 		388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900D2AC2D3540072C3F1 /* AppDelegate.swift */; };
 		388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */; };
 		388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388C90162AC2D3560072C3F1 /* Assets.xcassets */; };
@@ -37,12 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D072AD970820038E852 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+.swift"; sourceTree = "<group>"; };
 		38668D0B2ADA73770038E852 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		38668D0D2ADA75F00038E852 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
+		38668D0F2ADBD20F0038E852 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		388C900A2AC2D3540072C3F1 /* PassportTrails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassportTrails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388C900D2AC2D3540072C3F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */,
 				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
+				38668D0F2ADBD20F0038E852 /* URL+.swift */,
+				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
 				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
 				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
+				382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
@@ -338,6 +345,7 @@
 				38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */,
 				38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
+				38668D102ADBD20F0038E852 /* URL+.swift in Sources */,
 				388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */,
 				38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */,
 			);
