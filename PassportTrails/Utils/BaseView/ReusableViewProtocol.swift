@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import MapKit
 
 protocol ReusableViewProtocol: AnyObject {
     static var reuseIdentifier: String { get }
 }
 
+extension MKAnnotationView: ReusableViewProtocol {
+    public static var reuseIdentifier: String {
+        return NSStringFromClass(self)
+    }
+}
+
 extension UICollectionViewCell: ReusableViewProtocol {
     public static var reuseIdentifier: String {
-        return String(describing: self)
+        return NSStringFromClass(self)
     }
 }
