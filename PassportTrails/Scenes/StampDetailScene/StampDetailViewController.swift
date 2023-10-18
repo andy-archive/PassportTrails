@@ -127,7 +127,6 @@ final class StampDetailViewController: BaseViewController {
             titleSeparator.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 2),
             titleSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             titleSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
-            titleSeparator.heightAnchor.constraint(equalToConstant: Constants.Design.separatorWidth),
             titleSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
@@ -149,7 +148,6 @@ final class StampDetailViewController: BaseViewController {
             detailSeparator.topAnchor.constraint(equalTo: detailButton.bottomAnchor, constant: Constants.Design.verticalConstant / 4),
             detailSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             detailSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
-            detailSeparator.heightAnchor.constraint(equalToConstant: Constants.Design.separatorWidth),
             detailSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         

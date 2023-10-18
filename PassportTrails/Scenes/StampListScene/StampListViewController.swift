@@ -16,9 +16,8 @@ final class StampListViewController: BaseViewController {
     }()
     
     private let repository = PlaceRepository()
-    private let realm = try! Realm()
     private var tasks: Results<PlaceRealm>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,18 +58,17 @@ final class StampListViewController: BaseViewController {
 //MARK: UICollectionViewDelegate, UICollectionViewDataSource
 
 extension StampListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tasks.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StampListCollectionViewCell.reuseIdentifier, for: indexPath) as? StampListCollectionViewCell else { return UICollectionViewCell() }
         
-        let row = tasks[indexPath.row]
+        let place = tasks[indexPath.row]
         
-        cell.fetchStampImage(string: row.image)
-        cell.fetchStampTitle(string: row.title)
+        cell.fetchStampImage(string: place.image)
+        cell.fetchStampTitle(string: place.title)
         
         return cell
     }

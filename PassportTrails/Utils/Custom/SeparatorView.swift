@@ -21,6 +21,6 @@ final class SeparatorView: UIView {
     
     private func configureView() {
         layer.backgroundColor = UIColor.systemGray3.cgColor
-        heightAnchor.constraint(equalToConstant: 1).isActive = true
+        heightAnchor.constraint(equalToConstant: Constants.Design.separatorWidth).isActive = true
     }
 }
