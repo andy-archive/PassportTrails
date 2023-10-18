@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040D92AE037FD00B79C43 /* UILabel+.swift */; };
+		380040DC2AE0456600B79C43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DB2AE0456600B79C43 /* Constants.swift */; };
 		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		380040D92AE037FD00B79C43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		380040DB2AE0456600B79C43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,11 +149,12 @@
 		388C90282AC2D4C80072C3F1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				388C906D2ACD4E000072C3F1 /* BaseView */,
+				380040DB2AE0456600B79C43 /* Constants.swift */,
+				388C90632ACD42290072C3F1 /* Custom */,
 				38E1C4972AD6E680007EA06F /* Database */,
 				388C908C2AD3EF300072C3F1 /* Extension */,
 				388C906E2ACD4E0D0072C3F1 /* Observable */,
-				388C906D2ACD4E000072C3F1 /* BaseView */,
-				388C90632ACD42290072C3F1 /* Custom */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
 				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
 				382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */,
+				380040DC2AE0456600B79C43 /* Constants.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
