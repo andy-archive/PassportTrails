@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
 		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380F5A6E2ADFE233007E3BF5 /* StampDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */,
+			);
+			path = StampDetailScene;
+			sourceTree = "<group>";
+		};
 		38668CF92AD9122D0038E852 /* PlaceArrivalScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +157,9 @@
 		388C90292AC2D4E40072C3F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				388C90622ACD41F50072C3F1 /* StampListScene */,
 				38668CF92AD9122D0038E852 /* PlaceArrivalScene */,
+				380F5A6E2ADFE233007E3BF5 /* StampDetailScene */,
+				388C90622ACD41F50072C3F1 /* StampListScene */,
 				388C90612ACD41D10072C3F1 /* StampMapScene */,
 			);
 			path = Scenes;
@@ -326,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */,
+				380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */,
 				38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */,
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
 				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
