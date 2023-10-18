@@ -29,7 +29,7 @@ final class StampDetailViewController: BaseViewController {
     }()
     
     private lazy var titleSeparator = {
-        let view = UIView()
+        let view = SeparatorView()
         view.layer.backgroundColor = UIColor.systemGray3.cgColor
         return view
     }()
@@ -50,8 +50,7 @@ final class StampDetailViewController: BaseViewController {
     }()
     
     private lazy var detailSeparator = {
-        let view = UIView()
-        view.layer.backgroundColor = UIColor.systemGray3.cgColor
+        let view = SeparatorView()
         return view
     }()
     
