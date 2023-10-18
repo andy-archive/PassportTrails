@@ -37,8 +37,15 @@ final class StampDetailViewController: BaseViewController {
     private lazy var detailLabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 15)
-        view.numberOfLines = 0
+        view.numberOfLines = 3
         view.textColor = .label
+        return view
+    }()
+    
+    private lazy var detailButton = {
+        let view = UIButton()
+        let buttonImage = UIImage(systemName: "chevron.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        view.setImage(buttonImage, for: .normal)
         return view
     }()
     
@@ -51,13 +58,24 @@ final class StampDetailViewController: BaseViewController {
     private lazy var addressLabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 15)
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.textColor = .label
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @objc
+    func detailButtonClicked() {
+        detailButton.isHidden = true
+        detailLabel.numberOfLines = 0
+        
+        let verticalConstant: CGFloat = 30.0
+        NSLayoutConstraint.activate([
+            detailSeparator.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: verticalConstant / 2)
+        ])
     }
     
     private func fetchPlaceData() {
@@ -74,6 +92,7 @@ final class StampDetailViewController: BaseViewController {
         
         fetchPlaceData()
         detailLabel.configureSpaceBetweenLines(lineSpacing: 4)
+        detailButton.addTarget(self, action: #selector(detailButtonClicked), for: .touchUpInside)
     }
     
     override func configureHierarchy() {
@@ -83,6 +102,7 @@ final class StampDetailViewController: BaseViewController {
         view.addSubview(subtitleLabel)
         view.addSubview(titleSeparator)
         view.addSubview(detailLabel)
+        view.addSubview(detailButton)
         view.addSubview(detailSeparator)
         view.addSubview(addressLabel)
     }
@@ -125,9 +145,15 @@ final class StampDetailViewController: BaseViewController {
             detailLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
         ])
         
+        detailButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailButton.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: verticalConstant / 4),
+            detailButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
         detailSeparator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailSeparator.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: verticalConstant / 2),
+            detailSeparator.topAnchor.constraint(equalTo: detailButton.bottomAnchor, constant: verticalConstant / 4),
             detailSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             detailSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
             detailSeparator.heightAnchor.constraint(equalToConstant: separatorWidth),
@@ -136,7 +162,7 @@ final class StampDetailViewController: BaseViewController {
         
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addressLabel.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: verticalConstant),
+            addressLabel.topAnchor.constraint(equalTo: detailSeparator.bottomAnchor, constant: verticalConstant / 2),
             addressLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             addressLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
         ])
