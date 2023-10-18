@@ -74,4 +74,10 @@ extension StampListViewController: UICollectionViewDelegate, UICollectionViewDat
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let place = tasks[indexPath.row]
+        
+        presentStampDetailView(place: place)
+    }
 }

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class StampDetailViewController: BaseViewController {
+    
+    var place: PlaceRealm?
     
     private lazy var titleLabel = {
         let view = UILabel()
