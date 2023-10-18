@@ -15,20 +15,20 @@ final class StampDetailViewController: BaseViewController {
     private lazy var titleLabel = {
         let view = UILabel()
         view.font = .boldSystemFont(ofSize: 30)
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.textColor = .label
         return view
     }()
     
     private lazy var subtitleLabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 15)
-        view.numberOfLines = 2
-        view.textColor = .label
+        view.font = .systemFont(ofSize: 17)
+        view.numberOfLines = 0
+        view.textColor = .secondaryLabel
         return view
     }()
     
-    private lazy var separatorLine = {
+    private lazy var titleSeparator = {
         let view = UIView()
         view.layer.backgroundColor = UIColor.systemGray3.cgColor
         return view
@@ -37,8 +37,14 @@ final class StampDetailViewController: BaseViewController {
     private lazy var detailLabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 15)
-        view.numberOfLines = 3
+        view.numberOfLines = 0
         view.textColor = .label
+        return view
+    }()
+    
+    private lazy var detailSeparator = {
+        let view = UIView()
+        view.layer.backgroundColor = UIColor.systemGray3.cgColor
         return view
     }()
     
@@ -54,15 +60,20 @@ final class StampDetailViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func configureView() {
-        super.configureView()
-        
+    private func fetchPlaceData() {
         guard let place else { return }
         
         titleLabel.text = place.title
         subtitleLabel.text = place.subtitle
-        detailLabel.text = (place.detail)
-        addressLabel.text = (place.address)
+        detailLabel.text = place.detail
+        addressLabel.text = place.address
+    }
+    
+    override func configureView() {
+        super.configureView()
+        
+        fetchPlaceData()
+        detailLabel.configureSpaceBetweenLines(lineSpacing: 4)
     }
     
     override func configureHierarchy() {
@@ -70,17 +81,18 @@ final class StampDetailViewController: BaseViewController {
         
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(separatorLine)
+        view.addSubview(titleSeparator)
         view.addSubview(detailLabel)
+        view.addSubview(detailSeparator)
         view.addSubview(addressLabel)
     }
     
     override func setConstraints() {
         super.setConstraints()
         
-        let horizontalConstantRatio = 0.08
+        let horizontalConstantRatio = 0.1
         let horizontalConstant = view.frame.width * horizontalConstantRatio
-        let verticalConstant: CGFloat = 16.0
+        let verticalConstant: CGFloat = 30.0
         let separatorWidth: CGFloat = 1.0
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -97,13 +109,13 @@ final class StampDetailViewController: BaseViewController {
             subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
         ])
         
-        separatorLine.translatesAutoresizingMaskIntoConstraints = false
+        titleSeparator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            separatorLine.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: verticalConstant / 2),
-            separatorLine.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            separatorLine.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
-            separatorLine.heightAnchor.constraint(equalToConstant: separatorWidth),
-            separatorLine.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            titleSeparator.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: verticalConstant / 2),
+            titleSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
+            titleSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
+            titleSeparator.heightAnchor.constraint(equalToConstant: separatorWidth),
+            titleSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -111,6 +123,15 @@ final class StampDetailViewController: BaseViewController {
             detailLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: verticalConstant),
             detailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             detailLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
+        ])
+        
+        detailSeparator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailSeparator.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: verticalConstant / 2),
+            detailSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
+            detailSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
+            detailSeparator.heightAnchor.constraint(equalToConstant: separatorWidth),
+            detailSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
