@@ -165,8 +165,8 @@
 		388C90622ACD41F50072C3F1 /* StampListScene */ = {
 			isa = PBXGroup;
 			children = (
-				388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */,
 				38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */,
+				388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */,
 			);
 			path = StampListScene;
 			sourceTree = "<group>";
@@ -182,8 +182,8 @@
 		388C906D2ACD4E000072C3F1 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
-				388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */,
 				38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */,
+				388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */,
 				38668D072AD970820038E852 /* ReusableViewProtocol.swift */,
 			);
 			path = BaseView;
@@ -227,12 +227,12 @@
 			children = (
 				388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */,
 				38E1C4B12AD7CC12007EA06F /* Notification+.swift */,
-				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
 				38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */,
+				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
 				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
+				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
 				38668D0F2ADBD20F0038E852 /* URL+.swift */,
-				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
