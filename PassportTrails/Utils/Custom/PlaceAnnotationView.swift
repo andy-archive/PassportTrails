@@ -12,8 +12,6 @@ private let placeClusterID = "placeCluster"
 
 final class PlaceAnnotationView: MKMarkerAnnotationView {
     
-    static let reuseIdentifier = "placeAnnotation"
-    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
@@ -29,16 +27,14 @@ final class PlaceAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         
         displayPriority = .defaultHigh
-        markerTintColor = .systemYellow
-        glyphTintColor = .black
-        glyphImage = UIImage(systemName: "star")
-        selectedGlyphImage = UIImage(systemName: "star.fill")
+        markerTintColor = .systemGray
+        glyphTintColor = .label
+        glyphImage = UIImage(systemName: "leaf")
+        selectedGlyphImage = UIImage(systemName: "leaf.fill")
     }
 }
 
 final class VisitedPlaceAnnotationView: MKMarkerAnnotationView {
-    
-    static let reuseIdentifier = "visitedPlaceAnnotation"
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -55,9 +51,9 @@ final class VisitedPlaceAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         
         displayPriority = .defaultLow
-        markerTintColor = .darkGray
-        glyphTintColor = .systemGray6
-        glyphImage = UIImage(systemName: "checkmark.circle")
-        selectedGlyphImage = UIImage(systemName: "checkmark.circle.fill")
+        markerTintColor = .systemGreen
+        glyphTintColor = .label
+        glyphImage = UIImage(systemName: "leaf")
+        selectedGlyphImage = UIImage(systemName: "leaf.fill")
     }
 }
