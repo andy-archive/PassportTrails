@@ -53,7 +53,7 @@ class PlaceArrivalViewController: BaseViewController {
     @objc
     private func stampButtonClicked() {
         NotificationCenter.default.post(name: NSNotification.Name.stampButtonClicked, object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name.fetchStampImage, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.reloadStampCollectionView, object: nil)
         dismiss(animated: true)
     }
     

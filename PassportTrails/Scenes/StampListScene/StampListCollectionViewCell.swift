@@ -66,7 +66,6 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         NSLayoutConstraint.activate([
             stampImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7),
             stampImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.7),
-            
         ])
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

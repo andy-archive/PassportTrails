@@ -24,7 +24,12 @@ final class StampListViewController: BaseViewController {
         navigationController?.navigationBar.topItem?.title = "스탬프 목록"
         
         tasks = repository.fetchByDate()
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchStampImage), name: NSNotification.Name.deselectAnnotation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadStampCollectionView), name: NSNotification.Name.reloadStampCollectionView, object: nil)
+    }
+    
+    @objc
+    private func reloadStampCollectionView() {
+        collectionView.reloadData()
     }
     
     override func configureView() {
@@ -47,11 +52,6 @@ final class StampListViewController: BaseViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-    }
-    
-    @objc
-    private func fetchStampImage() {
-        collectionView.reloadData()
     }
 }
 

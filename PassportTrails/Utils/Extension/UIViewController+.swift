@@ -16,11 +16,11 @@ extension UIViewController {
         let vc = PlaceArrivalViewController()
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom(identifier: .medium, resolver: { context in
-                return UIScreen.main.bounds.height * 0.35
+                return UIScreen.main.bounds.height * Constants.Sheet.mediumHeightRatio
             })]
             
             sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+            sheet.preferredCornerRadius = Constants.Sheet.cornerRadius
             sheet.largestUndimmedDetentIdentifier = .medium
         }
         present(vc, animated: true)
@@ -32,18 +32,14 @@ extension UIViewController {
         
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [
-                .custom(identifier: UISheetPresentationController.Detent.Identifier("small"), resolver: { context in
-                    return UIScreen.main.bounds.height * 0.2
-                }),
                 .custom(identifier: .medium, resolver: { context in
-                    return UIScreen.main.bounds.height * 0.4
+                    return UIScreen.main.bounds.height * Constants.Sheet.mediumHeightRatio
                 }),
-                .custom(identifier: .large, resolver: { context in
-                    return UIScreen.main.bounds.height * 0.6
-                }),
+                .large()
             ]
+            sheet.selectedDetentIdentifier = .medium
             sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+            sheet.preferredCornerRadius = Constants.Sheet.cornerRadius
         }
         present(vc, animated: true)
     }
