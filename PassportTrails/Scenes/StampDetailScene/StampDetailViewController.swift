@@ -39,6 +39,7 @@ final class StampDetailViewController: BaseViewController {
         view.font = .systemFont(ofSize: Constants.FontSize.detail)
         view.numberOfLines = 3
         view.textColor = .label
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -67,10 +68,16 @@ final class StampDetailViewController: BaseViewController {
     }
     
     @objc
-    func detailButtonClicked() {
+    private func detailLabelClicked(_ sender: UITapGestureRecognizer) {
         detailButton.isHidden = true
         detailLabel.numberOfLines = 0
-        
+        detailSeparator.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 2).isActive = true
+    }
+    
+    @objc
+    private func detailButtonClicked() {
+        detailButton.isHidden = true
+        detailLabel.numberOfLines = 0
         detailSeparator.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 2).isActive = true
     }
     
@@ -88,6 +95,10 @@ final class StampDetailViewController: BaseViewController {
         
         fetchPlaceData()
         detailLabel.configureSpaceBetweenLines(lineSpacing: Constants.Design.lineSpacing)
+        
+        let detailLabelClicked = UITapGestureRecognizer(target: self, action: #selector(detailLabelClicked(_:)))
+        
+        detailLabel.addGestureRecognizer(detailLabelClicked)
         detailButton.addTarget(self, action: #selector(detailButtonClicked), for: .touchUpInside)
     }
     
@@ -117,7 +128,7 @@ final class StampDetailViewController: BaseViewController {
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 2),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 4),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
             subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
         ])
