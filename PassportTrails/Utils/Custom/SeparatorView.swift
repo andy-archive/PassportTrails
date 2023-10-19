@@ -20,7 +20,7 @@ final class SeparatorView: UIView {
     }
     
     private func configureView() {
-        layer.backgroundColor = UIColor.systemGray3.cgColor
+        layer.backgroundColor = Constants.Color.separator
         heightAnchor.constraint(equalToConstant: Constants.Design.separatorWidth).isActive = true
     }
 }

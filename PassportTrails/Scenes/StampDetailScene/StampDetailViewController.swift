@@ -17,7 +17,7 @@ final class StampDetailViewController: BaseViewController {
         let view = UILabel()
         view.font = .boldSystemFont(ofSize: Constants.FontSize.title)
         view.numberOfLines = 0
-        view.textColor = .label
+        view.textColor = Constants.Color.label
         return view
     }()
     
@@ -25,14 +25,13 @@ final class StampDetailViewController: BaseViewController {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.FontSize.subtitle)
         view.numberOfLines = 0
-        view.textColor = .secondaryLabel
+        view.textColor = Constants.Color.secondaryLabel
         return view
     }()
     
     private lazy var dismissButton = {
         let view = UIButton()
-        let upChevron = UIImage(systemName: "chevron.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        view.setImage(upChevron, for: .normal)
+        view.setImage(Constants.Image.downChevron, for: .normal)
         return view
     }()
     
@@ -44,7 +43,7 @@ final class StampDetailViewController: BaseViewController {
     
     private lazy var titleSeparator = {
         let view = SeparatorView()
-        view.layer.backgroundColor = UIColor.systemGray3.cgColor
+        view.layer.backgroundColor = Constants.Color.separator
         return view
     }()
     
@@ -59,8 +58,7 @@ final class StampDetailViewController: BaseViewController {
     
     private lazy var detailButton = {
         let view = UIButton()
-        let buttonImage = UIImage(systemName: "chevron.compact.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        view.setImage(buttonImage, for: .normal)
+        view.setImage(Constants.Image.compactDownChevron, for: .normal)
         return view
     }()
     
@@ -73,7 +71,7 @@ final class StampDetailViewController: BaseViewController {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.FontSize.detail)
         view.numberOfLines = 0
-        view.textColor = .label
+        view.textColor = Constants.Color.label
         return view
     }()
     
@@ -99,14 +97,11 @@ final class StampDetailViewController: BaseViewController {
     }
     
     private func changeDetail() {
-        let upChevron = UIImage(systemName: "chevron.compact.up")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        let downChevron = UIImage(systemName: "chevron.compact.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        
         if isDetailed {
-            detailButton.setImage(upChevron, for: .normal)
+            detailButton.setImage(Constants.Image.compactUpChevron, for: .normal)
             detailLabel.numberOfLines = 0
         } else {
-            detailButton.setImage(downChevron, for: .normal)
+            detailButton.setImage(Constants.Image.compactDownChevron, for: .normal)
             detailLabel.numberOfLines = 3
         }
     }
@@ -174,26 +169,24 @@ final class StampDetailViewController: BaseViewController {
     override func setConstraints() {
         super.setConstraints()
         
-        let horizontalConstant = view.frame.width * Constants.Design.horizontalRatio
-        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.Design.verticalConstant),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: dismissButton.trailingAnchor, constant: -horizontalConstant),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: dismissButton.trailingAnchor, constant: -Constants.Design.horizontalConstant),
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 4),
-            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
+            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
         
         dismissButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dismissButton.topAnchor.constraint(equalTo: view.topAnchor, constant: horizontalConstant),
-            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalConstant)
+            dismissButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.Design.horizontalConstant),
+            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
         
         stampImage.translatesAutoresizingMaskIntoConstraints = false
@@ -207,16 +200,16 @@ final class StampDetailViewController: BaseViewController {
         titleSeparator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleSeparator.topAnchor.constraint(equalTo: stampImage.bottomAnchor, constant: Constants.Design.verticalConstant),
-            titleSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            titleSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
+            titleSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            titleSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant),
             titleSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             detailLabel.topAnchor.constraint(equalTo: titleSeparator.bottomAnchor, constant: Constants.Design.verticalConstant),
-            detailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            detailLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
+            detailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            detailLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
         
         detailButton.translatesAutoresizingMaskIntoConstraints = false
@@ -228,16 +221,16 @@ final class StampDetailViewController: BaseViewController {
         detailSeparator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             detailSeparator.topAnchor.constraint(equalTo: detailButton.bottomAnchor, constant: Constants.Design.verticalConstant / 2),
-            detailSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            detailSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant),
+            detailSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            detailSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant),
             detailSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             addressLabel.topAnchor.constraint(equalTo: detailSeparator.bottomAnchor, constant: Constants.Design.verticalConstant),
-            addressLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalConstant),
-            addressLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -horizontalConstant)
+            addressLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            addressLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
     }
 }

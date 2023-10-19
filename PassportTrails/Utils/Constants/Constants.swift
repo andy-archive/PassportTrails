@@ -17,8 +17,7 @@ enum Constants {
     enum Design {
         static let lineSpacing: CGFloat = 8
         static let verticalConstant: CGFloat = 30
-        static let horizontalConstant: CGFloat = 10
-        static let horizontalRatio = 0.1
+        static let horizontalConstant: CGFloat = 30
         static let separatorWidth: CGFloat = 1
     }
     
