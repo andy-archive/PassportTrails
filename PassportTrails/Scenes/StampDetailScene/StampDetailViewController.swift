@@ -108,10 +108,8 @@ final class StampDetailViewController: BaseViewController {
     
     private func fetchStampImage(string: String) {
         if string.isEmpty {
-            let leafImage = UIImage(systemName: "leaf.circle")
-            
             DispatchQueue.main.async {
-                self.stampImage.image = leafImage?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+                self.stampImage.image = Constants.Image.leafCircle
             }
         }
         
@@ -193,8 +191,8 @@ final class StampDetailViewController: BaseViewController {
         NSLayoutConstraint.activate([
             stampImage.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
             stampImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stampImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
-            stampImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3)
+            stampImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: Constants.Design.detailStampRatio),
+            stampImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.Design.detailStampRatio)
         ])
         
         titleSeparator.translatesAutoresizingMaskIntoConstraints = false

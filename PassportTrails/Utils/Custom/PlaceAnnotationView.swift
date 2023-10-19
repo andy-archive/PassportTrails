@@ -27,10 +27,10 @@ final class PlaceAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         
         displayPriority = .defaultHigh
-        markerTintColor = .systemGray
-        glyphTintColor = .label
-        glyphImage = UIImage(systemName: "leaf")
-        selectedGlyphImage = UIImage(systemName: "leaf.fill")
+        markerTintColor = Constants.Color.notVisitedAnnotation
+        glyphTintColor = Constants.Color.background
+        glyphImage = Constants.Image.leaf
+        selectedGlyphImage = Constants.Image.selectedLeaf
     }
 }
 
@@ -51,9 +51,9 @@ final class VisitedPlaceAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         
         displayPriority = .defaultLow
-        markerTintColor = .systemGreen
-        glyphTintColor = .label
-        glyphImage = UIImage(systemName: "leaf")
-        selectedGlyphImage = UIImage(systemName: "leaf.fill")
+        markerTintColor = Constants.Color.visitedAnnotation
+        glyphTintColor = Constants.Color.background
+        glyphImage = Constants.Image.leaf
+        selectedGlyphImage = Constants.Image.selectedLeaf
     }
 }

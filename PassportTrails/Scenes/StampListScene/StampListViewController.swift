@@ -11,7 +11,7 @@ import RealmSwift
 final class StampListViewController: BaseViewController {
     
     private lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: 2, sectionSpacing: 0, itemSpacing: 0))
+        let view = UICollectionView(frame: .zero, collectionViewLayout: .setCollectionViewLayout(numberOfItem: Constants.Cell.numberOfItem, sectionSpacing: Constants.Cell.sectionSpacing, itemSpacing: Constants.Cell.itemSpacing))
         return view
     }()
     
@@ -21,7 +21,7 @@ final class StampListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.title = "스탬프 목록"
+        navigationController?.navigationBar.topItem?.title = Constants.Text.stampListTitle
         
         tasks = repository.fetchByDate()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadStampCollectionView), name: NSNotification.Name.reloadStampCollectionView, object: nil)

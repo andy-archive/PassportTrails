@@ -12,13 +12,13 @@ extension UITabBarController {
         if #available(iOS 15.0, *) {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = .systemBackground
+            tabBarAppearance.backgroundColor = Constants.Color.background
             
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
             
-            tabBar.tintColor = .label
-            tabBar.unselectedItemTintColor = .systemBackground
+            tabBar.tintColor = Constants.Color.label
+            tabBar.unselectedItemTintColor = Constants.Color.background
         }
     }
 }

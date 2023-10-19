@@ -104,7 +104,7 @@ final class StampMapViewController: BaseViewController {
             let annotationLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
             let distance = currentUserLocation.distance(from: annotationLocation)
             
-            guard distance <= 60 else { continue }
+            guard distance <= Constants.Distance.isNearbyPlace else { continue }
             
             if distance < nearestDistance {
                 nearestAnnotation = annotation
@@ -253,10 +253,10 @@ extension StampMapViewController: MKMapViewDelegate {
         let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
-        if nearestDistance <= 15 && isArrivedToPlace == false {
+        if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true
             presentPlaceArrivalView()
-        } else if nearestDistance >= 45 && isArrivedToPlace == true {
+        } else if nearestDistance >= Constants.Distance.willLeavePlace && isArrivedToPlace == true {
             isArrivedToPlace = false
             dismiss(animated: true)
         }

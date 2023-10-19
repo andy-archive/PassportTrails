@@ -34,17 +34,16 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     private let cloverLabel = {
         let view = UILabel()
-        view.text = "🍀"
+        view.text = Constants.Text.clover
         return view
     }()
     
     override func configureView() {
         super.configureView()
         
-        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.5)
         contentView.clipsToBounds = true
-        contentView.layer.borderColor = UIColor.systemGray4.cgColor
-        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderColor = Constants.Color.cellBorder
+        contentView.layer.borderWidth = Constants.Cell.borderWidth
     }
     
     override func configureHierarchy() {
@@ -64,8 +63,8 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         
         stampImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stampImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7),
-            stampImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.7),
+            stampImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: Constants.Design.listStampRatio),
+            stampImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: Constants.Design.listStampRatio),
         ])
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,10 +85,8 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     func fetchStampImage(string: String) {
         if string.isEmpty {
-            let leafImage = UIImage(systemName: "leaf.circle")
-            
             DispatchQueue.main.async {
-                self.stampImage.image = leafImage?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+                self.stampImage.image = Constants.Image.leafCircle
             }
         }
         
