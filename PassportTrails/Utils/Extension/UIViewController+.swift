@@ -16,12 +16,30 @@ extension UIViewController {
         let vc = PlaceArrivalViewController()
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom(identifier: .medium, resolver: { context in
-                return UIScreen.main.bounds.height * 0.35
+                return UIScreen.main.bounds.height * Constants.Sheet.mediumHeightRatio
             })]
             
             sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+            sheet.preferredCornerRadius = Constants.Sheet.cornerRadius
             sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        present(vc, animated: true)
+    }
+    
+    func presentStampDetailView(place: PlaceRealm) {
+        let vc = StampDetailViewController()
+        vc.place = place
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [
+                .custom(identifier: .medium, resolver: { context in
+                    return UIScreen.main.bounds.height * Constants.Sheet.mediumHeightRatio
+                }),
+                .large()
+            ]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = Constants.Sheet.cornerRadius
         }
         present(vc, animated: true)
     }

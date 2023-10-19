@@ -16,16 +16,20 @@ final class StampListViewController: BaseViewController {
     }()
     
     private let repository = PlaceRepository()
-    private let realm = try! Realm()
     private var tasks: Results<PlaceRealm>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.topItem?.title = "스탬프 목록"
         
         tasks = repository.fetchByDate()
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchStampImage), name: NSNotification.Name.deselectAnnotation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadStampCollectionView), name: NSNotification.Name.reloadStampCollectionView, object: nil)
+    }
+    
+    @objc
+    private func reloadStampCollectionView() {
+        collectionView.reloadData()
     }
     
     override func configureView() {
@@ -49,29 +53,29 @@ final class StampListViewController: BaseViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-    
-    @objc
-    private func fetchStampImage() {
-        collectionView.reloadData()
-    }
 }
 
 //MARK: UICollectionViewDelegate, UICollectionViewDataSource
 
 extension StampListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tasks.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StampListCollectionViewCell.reuseIdentifier, for: indexPath) as? StampListCollectionViewCell else { return UICollectionViewCell() }
         
-        let row = tasks[indexPath.row]
+        let place = tasks[indexPath.row]
         
-        cell.fetchStampImage(string: row.image)
-        cell.fetchStampTitle(string: row.title)
+        cell.fetchStampImage(string: place.image)
+        cell.fetchStampTitle(string: place.title)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let place = tasks[indexPath.row]
+        
+        presentStampDetailView(place: place)
     }
 }

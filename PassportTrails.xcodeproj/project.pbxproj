@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040D92AE037FD00B79C43 /* UILabel+.swift */; };
+		380040DC2AE0456600B79C43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DB2AE0456600B79C43 /* Constants.swift */; };
+		380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DD2AE0531200B79C43 /* SeparatorView.swift */; };
+		380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E22AE10A3C00B79C43 /* Constants+UI.swift */; };
+		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
 		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
@@ -39,6 +44,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380040D92AE037FD00B79C43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		380040DB2AE0456600B79C43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		380040DD2AE0531200B79C43 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		380040E22AE10A3C00B79C43 /* Constants+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+UI.swift"; sourceTree = "<group>"; };
+		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380040E12AE109DA00B79C43 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				380040DB2AE0456600B79C43 /* Constants.swift */,
+				380040E22AE10A3C00B79C43 /* Constants+UI.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		380F5A6E2ADFE233007E3BF5 /* StampDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */,
+			);
+			path = StampDetailScene;
+			sourceTree = "<group>";
+		};
 		38668CF92AD9122D0038E852 /* PlaceArrivalScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,11 +162,12 @@
 		388C90282AC2D4C80072C3F1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				380040E12AE109DA00B79C43 /* Constants */,
+				388C906D2ACD4E000072C3F1 /* BaseView */,
+				388C90632ACD42290072C3F1 /* Custom */,
 				38E1C4972AD6E680007EA06F /* Database */,
 				388C908C2AD3EF300072C3F1 /* Extension */,
 				388C906E2ACD4E0D0072C3F1 /* Observable */,
-				388C906D2ACD4E000072C3F1 /* BaseView */,
-				388C90632ACD42290072C3F1 /* Custom */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -147,8 +175,9 @@
 		388C90292AC2D4E40072C3F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				388C90622ACD41F50072C3F1 /* StampListScene */,
 				38668CF92AD9122D0038E852 /* PlaceArrivalScene */,
+				380F5A6E2ADFE233007E3BF5 /* StampDetailScene */,
+				388C90622ACD41F50072C3F1 /* StampListScene */,
 				388C90612ACD41D10072C3F1 /* StampMapScene */,
 			);
 			path = Scenes;
@@ -175,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */,
+				380040DD2AE0531200B79C43 /* SeparatorView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -233,6 +263,7 @@
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
 				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
 				38668D0F2ADBD20F0038E852 /* URL+.swift */,
+				380040D92AE037FD00B79C43 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -326,11 +357,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */,
+				380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */,
 				38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */,
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
 				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
 				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
 				382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */,
+				380040DC2AE0456600B79C43 /* Constants.swift in Sources */,
 				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
 				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
@@ -340,7 +373,10 @@
 				38668D0E2ADA75F00038E852 /* UITabBarController+.swift in Sources */,
 				388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */,
 				38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */,
+				380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */,
 				38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */,
+				380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */,
+				380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */,
 				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */,
 				38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */,
