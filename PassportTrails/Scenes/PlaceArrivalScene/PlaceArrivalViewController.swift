@@ -11,14 +11,14 @@ class PlaceArrivalViewController: BaseViewController {
     
     private let titleLabel = {
         let view = UILabel()
-        view.font = .boldSystemFont(ofSize: 30)
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.title)
         view.numberOfLines = 1
         return view
     }()
     
     private let subtitleLabel = {
         let view = UILabel()
-        view.font = .boldSystemFont(ofSize: 20)
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.subtitle)
         view.textColor = .systemBlue
         view.numberOfLines = 1
         return view
@@ -26,11 +26,11 @@ class PlaceArrivalViewController: BaseViewController {
     
     private let stampButton = {
         let view = UIButton()
-        view.backgroundColor = .systemBlue
-        view.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        view.setTitleColor(.white, for: .normal)
+        view.backgroundColor = Constants.Color.buttonBackground
+        view.titleLabel?.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
+        view.setTitleColor(Constants.Color.buttonTitle, for: .normal)
+        view.layer.cornerRadius = Constants.Button.radius
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -62,11 +62,11 @@ class PlaceArrivalViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         
-        titleLabel.text = "🎉 장소에 도착했습니다 🎉"
+        titleLabel.text = Constants.Text.arrivedTitle
         
-        subtitleLabel.text = "아래 버튼을 눌러 스탬프를 받으세요 👇"
+        subtitleLabel.text = Constants.Text.arrivedSubtitle
         
-        stampButton.setTitle("스탬프 받기", for: .normal)
+        stampButton.setTitle(Constants.Text.arrivedButtonTitle, for: .normal)
         stampButton.addTarget(self, action: #selector(stampButtonClicked), for: .touchUpInside)
     }
     
@@ -83,24 +83,24 @@ class PlaceArrivalViewController: BaseViewController {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.Design.verticalConstant),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
             subtitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
         stampButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stampButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            stampButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stampButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stampButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant),
+            stampButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
+            stampButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant),
             stampButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stampButton.heightAnchor.constraint(equalToConstant: 60)
+            stampButton.heightAnchor.constraint(equalToConstant: Constants.Button.height)
         ])
     }
 }

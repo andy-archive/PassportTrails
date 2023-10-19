@@ -11,9 +11,9 @@ extension MKMapView {
     func configureUserTrackingButton() {
         let trackingButton = MKUserTrackingBarButtonItem(mapView: self)
         trackingButton.customView?.tintColor = .label
-        trackingButton.customView?.frame.size = CGSize(width: 42, height: 42)
+        trackingButton.customView?.frame.size = CGSize(width: Constants.UserTrackingButton.width, height: Constants.UserTrackingButton.height)
         
-        let toolBarFrame = CGRect(origin: .zero, size: CGSize(width: 42, height: 42))
+        let toolBarFrame = CGRect(origin: .zero, size: CGSize(width: Constants.UserTrackingButton.width, height: Constants.UserTrackingButton.height))
         let toolbar = UIToolbar(frame: toolBarFrame)
         toolbar.isTranslucent = false
         
@@ -21,16 +21,16 @@ extension MKMapView {
         toolbar.items = [flex, trackingButton, flex]
         
         let roundedSquare = UIView()
-        roundedSquare.layer.cornerRadius = 5
+        roundedSquare.layer.cornerRadius = Constants.UserTrackingButton.corderRadius
         roundedSquare.layer.masksToBounds = true
         
         self.addSubview(roundedSquare)
         roundedSquare.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            roundedSquare.widthAnchor.constraint(equalToConstant: 42),
-            roundedSquare.heightAnchor.constraint(equalToConstant: 42),
-            roundedSquare.topAnchor.constraint(equalTo: self.topAnchor, constant: 64),
-            roundedSquare.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            roundedSquare.widthAnchor.constraint(equalToConstant: Constants.UserTrackingButton.width),
+            roundedSquare.heightAnchor.constraint(equalToConstant: Constants.UserTrackingButton.height),
+            roundedSquare.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.UserTrackingButton.verticalConstant),
+            roundedSquare.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.UserTrackingButton.horizontalConstant),
         ])
         
         roundedSquare.addSubview(toolbar)

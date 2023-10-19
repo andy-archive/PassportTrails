@@ -16,15 +16,15 @@ extension UINavigationController {
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithDefaultBackground()
-            appearance.backgroundColor = .systemBackground
+            appearance.backgroundColor = Constants.Color.background
             
             appearance.largeTitleTextAttributes = [
                 .font: UIFont.boldSystemFont(ofSize: 30),
-                .foregroundColor: UIColor.label
+                .foregroundColor: Constants.Color.label
             ]
             appearance.titleTextAttributes = [
                 .font: UIFont.boldSystemFont(ofSize: 17),
-                .foregroundColor: UIColor.label
+                .foregroundColor: Constants.Color.label
             ]
             
             navigationBar.standardAppearance = appearance
