@@ -29,7 +29,7 @@ class PlaceArrivalViewController: BaseViewController {
         view.backgroundColor = Constants.Color.buttonBackground
         view.titleLabel?.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
         view.setTitleColor(Constants.Color.buttonTitle, for: .normal)
-        view.layer.cornerRadius = Constants.Button.radius
+        view.layer.cornerRadius = Constants.Button.cornerRadius
         view.layer.masksToBounds = true
         return view
     }()

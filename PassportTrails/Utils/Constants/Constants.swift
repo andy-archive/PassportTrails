@@ -39,7 +39,7 @@ enum Constants {
     
     enum Button {
         static let height: CGFloat = 60
-        static let radius: CGFloat = 20
+        static let cornerRadius: CGFloat = 20
     }
     
     enum UserTrackingButton {
@@ -48,6 +48,10 @@ enum Constants {
         static let corderRadius: CGFloat = 5
         static let horizontalConstant: CGFloat = 8
         static let verticalConstant: CGFloat = 64
+    }
+    
+    enum NearestDistanceView {
+        static let height: CGFloat = 120
     }
     
     enum Cell {
@@ -60,7 +64,7 @@ enum Constants {
     enum Distance {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
-        static let isNearbyPlace: Double = 45
+        static let isNearbyPlace: Double = 1000
     }
     
     enum Sheet {

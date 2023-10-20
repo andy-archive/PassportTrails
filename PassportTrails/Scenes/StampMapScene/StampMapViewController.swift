@@ -21,6 +21,22 @@ final class StampMapViewController: BaseViewController {
     private let repository = PlaceRepository()
     private let realm = try! Realm()
     
+    private lazy var distanceView = {
+        let view = UIView()
+        view.backgroundColor = Constants.Color.distanceViewBackgroundColor
+        view.layer.cornerRadius = Constants.Button.cornerRadius
+        return view
+    }()
+    
+    private lazy var distanceLabel = {
+        let view = UILabel()
+        view.textColor = Constants.Color.background
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.subtitle)
+        view.textAlignment = .left
+        view.numberOfLines = 0
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,12 +44,9 @@ final class StampMapViewController: BaseViewController {
         
         configureLocationManager()
         configureMapView()
-        
         fetchGeoJson(fileName: "place")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotation), name: NSNotification.Name.stampButtonClicked, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(selectAnnotation), name: NSNotification.Name.selectAnnotation, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deselectAnnotation), name: NSNotification.Name.deselectAnnotation, object: nil)
+        configureNotification()
     }
     
     //MARK: Annotation Functions
@@ -54,6 +67,12 @@ final class StampMapViewController: BaseViewController {
     private func deselectAnnotation() {
         guard let nearestAnnotation else { return }
         mapView.deselectAnnotation(nearestAnnotation, animated: true)
+    }
+    
+    private func configureNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotation), name: NSNotification.Name.stampButtonClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectAnnotation), name: NSNotification.Name.selectAnnotation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deselectAnnotation), name: NSNotification.Name.deselectAnnotation, object: nil)
     }
     
     private func saveAnnotationToRealm() {
@@ -135,6 +154,8 @@ final class StampMapViewController: BaseViewController {
     
     override func configureHierarchy() {
         view.addSubview(mapView)
+        mapView.addSubview(distanceView)
+        distanceView.addSubview(distanceLabel)
     }
     
     override func setConstraints() {
@@ -144,6 +165,22 @@ final class StampMapViewController: BaseViewController {
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+        
+        distanceView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            distanceView.topAnchor.constraint(equalTo: mapView.topAnchor, constant: Constants.Design.verticalConstant / 5),
+            distanceView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.Design.horizontalConstant / 5),
+            distanceView.trailingAnchor.constraint(lessThanOrEqualTo: mapView.trailingAnchor, constant: -Constants.Design.horizontalConstant * 3),
+            distanceView.heightAnchor.constraint(equalTo: distanceLabel.heightAnchor, multiplier: 1.2),
+            distanceView.widthAnchor.constraint(equalTo: distanceLabel.widthAnchor, multiplier: 1.2)
+        ])
+        
+        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            distanceLabel.leadingAnchor.constraint(equalTo: distanceView.leadingAnchor, constant: Constants.Design.horizontalConstant / 2),
+            distanceLabel.trailingAnchor.constraint(lessThanOrEqualTo: mapView.trailingAnchor, constant: -Constants.Design.horizontalConstant / 2),
+            distanceLabel.centerYAnchor.constraint(equalTo: distanceView.centerYAnchor)
         ])
     }
     
@@ -155,7 +192,6 @@ final class StampMapViewController: BaseViewController {
         mapView.mapType = .standard
         mapView.showsUserLocation = true
         mapView.showsCompass = true
-        mapView.showsScale = true
         
         mapView.configureUserTrackingButton()
     }
@@ -253,6 +289,10 @@ extension StampMapViewController: MKMapViewDelegate {
         let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
+        guard let annotationTitle = nearestAnnotation.title else { return }
+        let distanceText = "📐 \(String(format: "%.1f", nearestDistance)) m\n\n🍀 \(annotationTitle)"
+        distanceLabel.text = distanceText
+        
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true
             presentPlaceArrivalView()
@@ -280,7 +320,6 @@ extension StampMapViewController: MKMapViewDelegate {
 //MARK: CLLocationManagerDelegate
 
 extension StampMapViewController: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
