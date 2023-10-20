@@ -294,7 +294,11 @@ extension StampMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard isStampMapViewController(viewController: self) else { return }
         
-        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
+        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else {
+            distanceLabel.showNoNearbyPlace()
+            return
+        }
+        
         self.nearestAnnotation = nearestAnnotation
         
         let nearestDistance = userLocation.showDistance(from: nearestAnnotation)
