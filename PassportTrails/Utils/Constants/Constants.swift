@@ -33,6 +33,7 @@ enum Constants {
         static let borderWidth: CGFloat = 0.5
         static let listStampRatio = 0.7
         static let detailStampRatio = 0.3
+        static let gloomFilterIntensityRatio = 1.0
     }
     
     enum Button {
