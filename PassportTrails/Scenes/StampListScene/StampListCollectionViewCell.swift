@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class StampListCollectionViewCell: BaseCollectionViewCell {
     
@@ -17,8 +18,9 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    private let stampImage = {
+    private let stampImageView = {
         let view = UIImageView()
+        view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -38,10 +40,14 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    func fetchPlaceData(place: PlaceRealm) {
+        titleLabel.text = place.title
+        stampImageView.fetchStampImage(urlString: place.image, width: Constants.Screen.width * Constants.Design.listStampRatio, height: Constants.Screen.height * Constants.Design.listStampRatio)
+    }
+    
     override func configureView() {
         super.configureView()
         
-        contentView.clipsToBounds = true
         contentView.layer.borderColor = Constants.Color.cellBorder
         contentView.layer.borderWidth = Constants.Cell.borderWidth
     }
@@ -50,7 +56,7 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         contentView.addSubview(stampStackView)
         contentView.addSubview(cloverLabel)
         
-        stampStackView.addArrangedSubview(stampImage)
+        stampStackView.addArrangedSubview(stampImageView)
         stampStackView.addArrangedSubview(titleLabel)
     }
     
@@ -61,10 +67,10 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
             stampStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
         
-        stampImage.translatesAutoresizingMaskIntoConstraints = false
+        stampImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stampImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: Constants.Design.listStampRatio),
-            stampImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: Constants.Design.listStampRatio),
+            stampImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: Constants.Design.listStampRatio),
+            stampImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: Constants.Design.listStampRatio),
         ])
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -80,34 +86,7 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stampImage.image = nil
-    }
-    
-    func fetchStampImage(string: String) {
-        if string.isEmpty {
-            DispatchQueue.main.async {
-                self.stampImage.image = Constants.Image.leafCircle
-            }
-        }
         
-        guard let url = URL(string: string) else { return }
-        
-        url.fetchImage { [weak self] image in
-            guard let image,
-                  let stampImage = image.roundedImageWithGloomFilter()
-            else { return }
-            
-            DispatchQueue.main.async {
-                self?.stampImage.image = stampImage
-            }
-        }
-    }
-    
-    func fetchStampTitle(string: String) {
-        if string.isEmpty {
-            titleLabel.text = "제목이 없습니다"
-        }
-        
-        titleLabel.text = string
+        stampImageView.image = nil
     }
 }

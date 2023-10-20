@@ -35,7 +35,7 @@ extension UIImage {
             filteredImage.draw(in: roundedRect)
             
             context.cgContext.setStrokeColor(UIColor.label.cgColor)
-            context.cgContext.setLineWidth(10.0)
+            context.cgContext.setLineWidth(2.0)
             context.cgContext.addEllipse(in: roundedRect.offsetBy(dx: 0.0, dy: 0.0))
             context.cgContext.strokePath()
         }

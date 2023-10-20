@@ -35,8 +35,9 @@ final class StampDetailViewController: BaseViewController {
         return view
     }()
     
-    private lazy var stampImage = {
+    private lazy var stampImageView = {
         let view = UIImageView()
+        view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -106,25 +107,25 @@ final class StampDetailViewController: BaseViewController {
         }
     }
     
-    private func fetchStampImage(string: String) {
-        if string.isEmpty {
-            DispatchQueue.main.async {
-                self.stampImage.image = Constants.Image.leafCircle
-            }
-        }
-        
-        guard let url = URL(string: string) else { return }
-        
-        url.fetchImage { [weak self] image in
-            guard let image,
-                  let stampImage = image.roundedImageWithGloomFilter()
-            else { return }
-            
-            DispatchQueue.main.async {
-                self?.stampImage.image = stampImage
-            }
-        }
-    }
+//    private func fetchStampImage(string: String) {
+//        if string.isEmpty {
+//            DispatchQueue.main.async {
+//                self.stampImage.image = Constants.Image.leafCircle
+//            }
+//        }
+//
+//        guard let url = URL(string: string) else { return }
+//
+//        url.fetchImage { [weak self] image in
+//            guard let image,
+//                  let stampImage = image.roundedImageWithGloomFilter()
+//            else { return }
+//
+//            DispatchQueue.main.async {
+//                self?.stampImage.image = stampImage
+//            }
+//        }
+//    }
     
     private func fetchPlaceData() {
         guard let place else { return }
@@ -134,7 +135,7 @@ final class StampDetailViewController: BaseViewController {
         detailLabel.text = place.detail
         addressLabel.text = place.address
         
-        self.fetchStampImage(string: place.image)
+        stampImageView.fetchStampImage(urlString: place.image, width: Constants.Screen.width * Constants.Design.listStampRatio, height: Constants.Screen.height * Constants.Design.listStampRatio)
     }
     
     override func configureView() {
@@ -156,7 +157,7 @@ final class StampDetailViewController: BaseViewController {
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(dismissButton)
-        view.addSubview(stampImage)
+        view.addSubview(stampImageView)
         view.addSubview(titleSeparator)
         view.addSubview(detailLabel)
         view.addSubview(detailButton)
@@ -187,17 +188,17 @@ final class StampDetailViewController: BaseViewController {
             dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
         
-        stampImage.translatesAutoresizingMaskIntoConstraints = false
+        stampImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stampImage.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
-            stampImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stampImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: Constants.Design.detailStampRatio),
-            stampImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.Design.detailStampRatio)
+            stampImageView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
+            stampImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stampImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: Constants.Design.detailStampRatio),
+            stampImageView.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: Constants.Design.detailStampRatio)
         ])
         
         titleSeparator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleSeparator.topAnchor.constraint(equalTo: stampImage.bottomAnchor, constant: Constants.Design.verticalConstant),
+            titleSeparator.topAnchor.constraint(equalTo: stampImageView.bottomAnchor, constant: Constants.Design.verticalConstant),
             titleSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
             titleSeparator.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant),
             titleSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor)

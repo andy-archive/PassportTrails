@@ -12,6 +12,7 @@
 		380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DD2AE0531200B79C43 /* SeparatorView.swift */; };
 		380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E22AE10A3C00B79C43 /* Constants+UI.swift */; };
 		380040E62AE1233700B79C43 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 380040E52AE1233700B79C43 /* Kingfisher */; };
+		380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E72AE1589E00B79C43 /* UIImageView+.swift */; };
 		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
@@ -20,7 +21,6 @@
 		38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */; };
 		38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0B2ADA73770038E852 /* UINavigationController+.swift */; };
 		38668D0E2ADA75F00038E852 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0D2ADA75F00038E852 /* UITabBarController+.swift */; };
-		38668D102ADBD20F0038E852 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0F2ADBD20F0038E852 /* URL+.swift */; };
 		388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900D2AC2D3540072C3F1 /* AppDelegate.swift */; };
 		388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */; };
 		388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388C90162AC2D3560072C3F1 /* Assets.xcassets */; };
@@ -49,6 +49,7 @@
 		380040DB2AE0456600B79C43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		380040DD2AE0531200B79C43 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		380040E22AE10A3C00B79C43 /* Constants+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+UI.swift"; sourceTree = "<group>"; };
+		380040E72AE1589E00B79C43 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+.swift"; sourceTree = "<group>"; };
 		38668D0B2ADA73770038E852 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		38668D0D2ADA75F00038E852 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
-		38668D0F2ADBD20F0038E852 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		388C900A2AC2D3540072C3F1 /* PassportTrails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassportTrails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388C900D2AC2D3540072C3F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,11 +261,11 @@
 				38E1C4B12AD7CC12007EA06F /* Notification+.swift */,
 				38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */,
 				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
+				380040E72AE1589E00B79C43 /* UIImageView+.swift */,
+				380040D92AE037FD00B79C43 /* UILabel+.swift */,
 				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
 				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
-				38668D0F2ADBD20F0038E852 /* URL+.swift */,
-				380040D92AE037FD00B79C43 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -380,12 +380,12 @@
 				380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */,
 				38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */,
 				380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */,
+				380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */,
 				380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */,
 				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */,
 				38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
-				38668D102ADBD20F0038E852 /* URL+.swift in Sources */,
 				388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */,
 				38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */,
 			);
