@@ -169,11 +169,11 @@ final class StampMapViewController: BaseViewController {
         
         distanceView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            distanceView.topAnchor.constraint(equalTo: mapView.topAnchor, constant: Constants.Design.verticalConstant / 5),
-            distanceView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.Design.horizontalConstant / 5),
+            distanceView.topAnchor.constraint(equalTo: mapView.topAnchor, constant: Constants.MKButton.horizontalConstant),
+            distanceView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
             distanceView.trailingAnchor.constraint(lessThanOrEqualTo: mapView.trailingAnchor, constant: -Constants.Design.horizontalConstant * 3),
-            distanceView.heightAnchor.constraint(equalTo: distanceLabel.heightAnchor, multiplier: 1.2),
-            distanceView.widthAnchor.constraint(equalTo: distanceLabel.widthAnchor, multiplier: 1.2)
+            distanceView.heightAnchor.constraint(equalTo: distanceLabel.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
+            distanceView.widthAnchor.constraint(equalTo: distanceLabel.widthAnchor, multiplier: Constants.NearestDistanceView.sizeRatio)
         ])
         
         distanceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -191,9 +191,10 @@ final class StampMapViewController: BaseViewController {
         
         mapView.mapType = .standard
         mapView.showsUserLocation = true
-        mapView.showsCompass = true
+        mapView.showsCompass = false
         
         mapView.configureUserTrackingButton()
+        mapView.configureCompassButton()
     }
     
     private func configureLocationManager() {
@@ -290,7 +291,7 @@ extension StampMapViewController: MKMapViewDelegate {
         let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
         
         guard let annotationTitle = nearestAnnotation.title else { return }
-        let distanceText = "📐 \(String(format: "%.1f", nearestDistance)) m\n\n🍀 \(annotationTitle)"
+        let distanceText = "📐 \(String(format: "%.0f", nearestDistance)) m\n\n🍀 \(annotationTitle)"
         distanceLabel.text = distanceText
         
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {

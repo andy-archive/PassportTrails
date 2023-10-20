@@ -42,7 +42,7 @@ enum Constants {
         static let cornerRadius: CGFloat = 20
     }
     
-    enum UserTrackingButton {
+    enum MKButton {
         static let height: CGFloat = 42
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
@@ -52,6 +52,7 @@ enum Constants {
     
     enum NearestDistanceView {
         static let height: CGFloat = 120
+        static let sizeRatio: CGFloat = 1.4
     }
     
     enum Cell {
