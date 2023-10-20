@@ -12,6 +12,7 @@
 		380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DD2AE0531200B79C43 /* SeparatorView.swift */; };
 		380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E22AE10A3C00B79C43 /* Constants+UI.swift */; };
 		380040E62AE1233700B79C43 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 380040E52AE1233700B79C43 /* Kingfisher */; };
+		380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E72AE1589E00B79C43 /* UIImageView+.swift */; };
 		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
@@ -49,6 +50,7 @@
 		380040DB2AE0456600B79C43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		380040DD2AE0531200B79C43 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		380040E22AE10A3C00B79C43 /* Constants+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+UI.swift"; sourceTree = "<group>"; };
+		380040E72AE1589E00B79C43 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,11 +263,12 @@
 				38E1C4B12AD7CC12007EA06F /* Notification+.swift */,
 				38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */,
 				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
+				380040E72AE1589E00B79C43 /* UIImageView+.swift */,
+				380040D92AE037FD00B79C43 /* UILabel+.swift */,
 				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
 				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
 				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
 				38668D0F2ADBD20F0038E852 /* URL+.swift */,
-				380040D92AE037FD00B79C43 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */,
 				38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */,
 				380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */,
+				380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */,
 				380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */,
 				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
 				38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */,

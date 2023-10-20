@@ -33,4 +33,6 @@ extension Constants {
         static let compactUpChevron = UIImage(systemName: "chevron.compact.up")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         static let compactDownChevron = UIImage(systemName: "chevron.compact.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
     }
+    
+    static let Screen = UIScreen.main.bounds
 }

@@ -67,8 +67,7 @@ extension StampListViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let place = tasks[indexPath.row]
         
-        cell.fetchStampImage(string: place.image)
-        cell.fetchStampTitle(string: place.title)
+        cell.fetchPlaceData(place: place)
         
         return cell
     }
