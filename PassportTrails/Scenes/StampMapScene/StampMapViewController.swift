@@ -31,7 +31,7 @@ final class StampMapViewController: BaseViewController {
     private lazy var distanceLabel = {
         let view = UILabel()
         view.textColor = Constants.Color.background
-        view.font = .boldSystemFont(ofSize: Constants.FontSize.subtitle)
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
         view.textAlignment = .left
         view.numberOfLines = 0
         return view
@@ -40,12 +40,14 @@ final class StampMapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
+        fetchGeoJson(fileName: "place")
         
         configureLocationManager()
         configureMapView()
+        configureDistanceView()
         configureNotification()
-        fetchGeoJson(fileName: "place")
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: Annotation Functions
@@ -66,6 +68,17 @@ final class StampMapViewController: BaseViewController {
     private func deselectAnnotation() {
         guard let nearestAnnotation else { return }
         mapView.deselectAnnotation(nearestAnnotation, animated: true)
+    }
+    
+    @objc
+    private func distanceViewClicked(_ sender: UITapGestureRecognizer) {
+        guard let nearestAnnotation else { return }
+        mapView.setCenter(nearestAnnotation.coordinate, animated: true)
+    }
+    
+    private func configureDistanceView() {
+        let distanceViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(distanceViewClicked(_:)))
+        distanceView.addGestureRecognizer(distanceViewTapGesture)
     }
     
     private func configureNotification() {

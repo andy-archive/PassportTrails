@@ -124,11 +124,14 @@ final class StampDetailViewController: BaseViewController {
         fetchPlaceData()
         detailLabel.configureSpaceBetweenLines(lineSpacing: Constants.Design.lineSpacing)
         
-        let detailLabelClicked = UITapGestureRecognizer(target: self, action: #selector(detailLabelClicked(_:)))
+        
         
         dismissButton.addTarget(self, action: #selector(dismissButtonClicked), for: .touchUpInside)
-        detailLabel.addGestureRecognizer(detailLabelClicked)
         detailButton.addTarget(self, action: #selector(detailButtonClicked), for: .touchUpInside)
+        
+        let detailLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(detailLabelClicked(_:)))
+        detailLabel.addGestureRecognizer(detailLabelTapGesture)
+        
     }
     
     override func configureHierarchy() {
