@@ -8,6 +8,10 @@
 import UIKit
 
 extension UILabel {
+    func showPlaceTitleWithDistance(title: String, distance: Double) {
+        self.text = "📐 \(String(format: "%.0f", distance)) m\n\n🍀 \(title)"
+    }
+    
     func configureSpaceBetweenLines(lineSpacing: CGFloat) {
         guard let labelText = self.text else { return }
         

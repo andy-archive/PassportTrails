@@ -107,26 +107,6 @@ final class StampDetailViewController: BaseViewController {
         }
     }
     
-//    private func fetchStampImage(string: String) {
-//        if string.isEmpty {
-//            DispatchQueue.main.async {
-//                self.stampImage.image = Constants.Image.leafCircle
-//            }
-//        }
-//
-//        guard let url = URL(string: string) else { return }
-//
-//        url.fetchImage { [weak self] image in
-//            guard let image,
-//                  let stampImage = image.roundedImageWithGloomFilter()
-//            else { return }
-//
-//            DispatchQueue.main.async {
-//                self?.stampImage.image = stampImage
-//            }
-//        }
-//    }
-    
     private func fetchPlaceData() {
         guard let place else { return }
         

@@ -44,9 +44,8 @@ final class StampMapViewController: BaseViewController {
         
         configureLocationManager()
         configureMapView()
-        fetchGeoJson(fileName: "place")
-        
         configureNotification()
+        fetchGeoJson(fileName: "place")
     }
     
     //MARK: Annotation Functions
@@ -262,7 +261,6 @@ final class StampMapViewController: BaseViewController {
 //MARK: MKMapViewDelegate
 
 extension StampMapViewController: MKMapViewDelegate {
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation { return nil }
@@ -286,13 +284,11 @@ extension StampMapViewController: MKMapViewDelegate {
         guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
         self.nearestAnnotation = nearestAnnotation
         
-        let nearestAnnotationLocation = CLLocation(latitude: nearestAnnotation.coordinate.latitude, longitude: nearestAnnotation.coordinate.longitude)
-        let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
+        let nearestDistance = userLocation.showDistance(from: nearestAnnotation)
         
         guard let annotationTitle = nearestAnnotation.title else { return }
-        let distanceText = "📐 \(String(format: "%.0f", nearestDistance)) m\n\n🍀 \(annotationTitle)"
-        distanceLabel.text = distanceText
+        
+        distanceLabel.showPlaceTitleWithDistance(title: annotationTitle, distance: nearestDistance)
         
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true
