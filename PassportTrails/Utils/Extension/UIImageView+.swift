@@ -39,6 +39,7 @@ extension UIImageView {
                         self.image = sourceImage.roundedImageWithGloomFilter()
                     }
                 case .failure(let error):
+                    self.image = Constants.Image.leafCircle
                     print("\(error.localizedDescription)")
                 }
             }
