@@ -169,13 +169,13 @@ final class StampMapViewController: BaseViewController {
     override func configureHierarchy() {
         view.addSubview(mapView)
         mapView.addSubview(distanceView)
-        distanceView.addSubview(distanceLabel)
+        mapView.addSubview(distanceLabel)
     }
     
     override func setConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -183,17 +183,16 @@ final class StampMapViewController: BaseViewController {
         
         distanceView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            distanceView.topAnchor.constraint(equalTo: mapView.topAnchor, constant: Constants.MKButton.horizontalConstant),
-            distanceView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
-            distanceView.trailingAnchor.constraint(lessThanOrEqualTo: mapView.trailingAnchor, constant: -Constants.Design.horizontalConstant * 3),
+            distanceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
+            distanceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
             distanceView.heightAnchor.constraint(equalTo: distanceLabel.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
-            distanceView.widthAnchor.constraint(equalTo: distanceLabel.widthAnchor, multiplier: Constants.NearestDistanceView.sizeRatio)
+            distanceView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)//Constants.NearestDistanceView.sizeRatio)
         ])
         
         distanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            distanceLabel.leadingAnchor.constraint(equalTo: distanceView.leadingAnchor, constant: Constants.Design.horizontalConstant / 2),
-            distanceLabel.trailingAnchor.constraint(lessThanOrEqualTo: mapView.trailingAnchor, constant: -Constants.Design.horizontalConstant / 2),
+            distanceLabel.leadingAnchor.constraint(equalTo: distanceView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
+            distanceLabel.trailingAnchor.constraint(lessThanOrEqualTo: distanceView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
             distanceLabel.centerYAnchor.constraint(equalTo: distanceView.centerYAnchor)
         ])
     }
