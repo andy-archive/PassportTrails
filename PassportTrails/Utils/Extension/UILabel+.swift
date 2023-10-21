@@ -9,7 +9,7 @@ import UIKit
 
 extension UILabel {
     func showPlaceTitleWithDistance(title: String, distance: Double) {
-        self.text = "📐 \(Int(distance)) m\n\n🍀 \(title)"
+        self.text = "🍀 \(Int(distance))m\n\(title)"
     }
     
     func showNoNearbyPlace() {
