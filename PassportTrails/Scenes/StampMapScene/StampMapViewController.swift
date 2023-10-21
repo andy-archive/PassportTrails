@@ -73,6 +73,8 @@ final class StampMapViewController: BaseViewController {
     @objc
     private func distanceViewClicked(_ sender: UITapGestureRecognizer) {
         guard let nearestAnnotation else { return }
+        guard !mapView.centerCoordinate.isEqualTo(coordinate: nearestAnnotation.coordinate) else { return }
+        
         mapView.setCenter(nearestAnnotation.coordinate, animated: true)
     }
     

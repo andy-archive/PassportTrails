@@ -8,9 +8,13 @@
 import MapKit
 
 extension MKAnnotation {
+    var location: CLLocation {
+        return CLLocation(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude)
+    }
+    
     func showDistance(from: MKAnnotation) -> CLLocationDistance {
-        let startLocation = CLLocation(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude)
-        let endLocation = CLLocation(latitude: from.coordinate.latitude, longitude: from.coordinate.longitude)
+        let startLocation =  self.location
+        let endLocation = from.location
         return startLocation.distance(from: endLocation)
     }
 }
