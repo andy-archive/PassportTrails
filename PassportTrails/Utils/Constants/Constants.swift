@@ -65,7 +65,7 @@ enum Constants {
     enum Distance {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
-        static let isNearbyPlace: Double = 1000
+        static let isNearbyPlace: Double = 300
     }
     
     enum Sheet {

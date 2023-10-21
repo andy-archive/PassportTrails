@@ -21,16 +21,32 @@ final class StampMapViewController: BaseViewController {
     private let repository = PlaceRepository()
     private let realm = try! Realm()
     
-    private lazy var distanceView = {
+    private lazy var radarView = {
         let view = UIView()
-        view.backgroundColor = Constants.Color.distanceViewBackgroundColor
+        view.backgroundColor = Constants.Color.buttonBackground.withAlphaComponent(0.8)
         view.layer.cornerRadius = Constants.Button.cornerRadius
+        return view
+    }()
+    
+    private let labelStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
         return view
     }()
     
     private lazy var distanceLabel = {
         let view = UILabel()
-        view.textColor = Constants.Color.background
+        view.textColor = Constants.Color.buttonTitle
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.title)
+        view.textAlignment = .left
+        view.numberOfLines = 0
+        return view
+    }()
+    
+    private lazy var placeTitleLabel = {
+        let view = UILabel()
+        view.textColor = Constants.Color.buttonTitle
         view.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
         view.textAlignment = .left
         view.numberOfLines = 0
@@ -80,7 +96,7 @@ final class StampMapViewController: BaseViewController {
     
     private func configureDistanceView() {
         let distanceViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(distanceViewClicked(_:)))
-        distanceView.addGestureRecognizer(distanceViewTapGesture)
+        radarView.addGestureRecognizer(distanceViewTapGesture)
     }
     
     private func configureNotification() {
@@ -168,8 +184,10 @@ final class StampMapViewController: BaseViewController {
     
     override func configureHierarchy() {
         view.addSubview(mapView)
-        mapView.addSubview(distanceView)
-        mapView.addSubview(distanceLabel)
+        view.addSubview(radarView)
+        view.addSubview(labelStackView)
+        labelStackView.addArrangedSubview(distanceLabel)
+        labelStackView.addArrangedSubview(placeTitleLabel)
     }
     
     override func setConstraints() {
@@ -181,19 +199,19 @@ final class StampMapViewController: BaseViewController {
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
         
-        distanceView.translatesAutoresizingMaskIntoConstraints = false
+        radarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            distanceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
-            distanceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
-            distanceView.heightAnchor.constraint(equalTo: distanceLabel.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
-            distanceView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)//Constants.NearestDistanceView.sizeRatio)
+            radarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
+            radarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
+            radarView.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
+            radarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)//Constants.NearestDistanceView.sizeRatio)
         ])
         
-        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            distanceLabel.leadingAnchor.constraint(equalTo: distanceView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
-            distanceLabel.trailingAnchor.constraint(lessThanOrEqualTo: distanceView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
-            distanceLabel.centerYAnchor.constraint(equalTo: distanceView.centerYAnchor)
+            labelStackView.leadingAnchor.constraint(equalTo: radarView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
+            labelStackView.trailingAnchor.constraint(lessThanOrEqualTo: radarView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
+            labelStackView.centerYAnchor.constraint(equalTo: radarView.centerYAnchor)
         ])
     }
     
@@ -296,7 +314,7 @@ extension StampMapViewController: MKMapViewDelegate {
         guard isStampMapViewController(viewController: self) else { return }
         
         guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else {
-            distanceLabel.showNoNearbyPlace()
+            placeTitleLabel.showNoNearbyPlace()
             return
         }
         
@@ -306,7 +324,8 @@ extension StampMapViewController: MKMapViewDelegate {
         
         guard let annotationTitle = nearestAnnotation.title else { return }
         
-        distanceLabel.showPlaceTitleWithDistance(title: annotationTitle, distance: nearestDistance)
+        distanceLabel.showDistanceInMeter(distance: nearestDistance)
+        placeTitleLabel.showPlaceTitle(title: annotationTitle)
         
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true

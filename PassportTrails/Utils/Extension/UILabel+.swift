@@ -8,12 +8,16 @@
 import UIKit
 
 extension UILabel {
-    func showPlaceTitleWithDistance(title: String, distance: Double) {
-        self.text = "🍀 \(Int(distance))m\n\(title)"
+    func showDistanceInMeter(distance: Double) {
+        self.text = "🧭 \(Int(distance))m"
+    }
+    
+    func showPlaceTitle(title: String) {
+        self.text = "\(title)"
     }
     
     func showNoNearbyPlace() {
-        self.text = "주변 \(Int(Constants.Distance.isNearbyPlace)) m 내에 가까운 장소가 없습니다"
+        self.text = "반경 \(Int(Constants.Distance.isNearbyPlace)) m 내에 가까운 장소가 없습니다"
     }
     
     func configureSpaceBetweenLines(lineSpacing: CGFloat) {
