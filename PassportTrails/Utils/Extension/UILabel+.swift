@@ -16,8 +16,8 @@ extension UILabel {
         self.text = "\(title)"
     }
     
-    func showNoNearbyPlace() {
-        self.text = "반경 \(Int(Constants.Distance.isNearbyPlace)) m 내에 가까운 장소가 없습니다"
+    func showNotNearbyPlace() {
+        self.text = "\(Int(Constants.Distance.isNearbyPlace))m 내에 일상 공간이 없습니다"
     }
     
     func configureSpaceBetweenLines(lineSpacing: CGFloat) {
