@@ -43,8 +43,6 @@ final class StampListViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        super.setConstraints()
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

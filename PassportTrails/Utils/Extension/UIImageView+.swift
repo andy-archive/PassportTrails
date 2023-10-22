@@ -19,7 +19,10 @@ extension UIImageView {
         
         let processor = DownsamplingImageProcessor(size: CGSize(width: size, height: size))
         
-        guard let url = URL(string: urlString) else { return }
+        guard let urlEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: urlEncoded)
+        else { return }
+        
         let resource = KF.ImageResource(downloadURL: url)
         
         KingfisherManager.shared.retrieveImage(

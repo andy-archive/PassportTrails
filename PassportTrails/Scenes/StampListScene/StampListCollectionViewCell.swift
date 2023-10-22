@@ -34,12 +34,6 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    private let cloverLabel = {
-        let view = UILabel()
-        view.text = Constants.Text.clover
-        return view
-    }()
-    
     func fetchPlaceData(place: PlaceRealm) {
         titleLabel.text = place.title
         stampImageView.fetchStampImage(urlString: place.image, width: Constants.Screen.width * Constants.Design.listStampRatio, height: Constants.Screen.height * Constants.Design.listStampRatio)
@@ -54,8 +48,6 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         contentView.addSubview(stampStackView)
-        contentView.addSubview(cloverLabel)
-        
         stampStackView.addArrangedSubview(stampImageView)
         stampStackView.addArrangedSubview(titleLabel)
     }
@@ -74,14 +66,6 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
         ])
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        let cloverConstant = contentView.frame.size.width / 15
-        
-        cloverLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cloverLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cloverConstant),
-            cloverLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cloverConstant),
-        ])
     }
     
     override func prepareForReuse() {
