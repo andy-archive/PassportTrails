@@ -29,9 +29,8 @@ extension Constants {
         static let leaf = UIImage(systemName: "leaf")
         static let selectedLeaf = UIImage(systemName: "leaf.fill")
         static let leafCircle = UIImage(systemName: "leaf.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        static let upChevron = UIImage(systemName: "chevron.up")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         static let downChevron = UIImage(systemName: "chevron.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        static let compactUpChevron = UIImage(systemName: "chevron.compact.up")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        static let compactDownChevron = UIImage(systemName: "chevron.compact.down")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
     }
     
     static let Screen = UIScreen.main.bounds

@@ -44,7 +44,10 @@ final class StampDetailViewController: BaseViewController {
     
     private lazy var dismissButton = {
         let view = UIButton()
-        view.setImage(Constants.Image.downChevron, for: .normal)
+        let sizeConfig = UIImage.SymbolConfiguration(pointSize: Constants.FontSize.title, weight: .medium, scale: .large)
+        let colorConfig = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.tertiaryLabel)
+        let config = sizeConfig.applying(colorConfig)
+        view.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: config), for: .normal)
         return view
     }()
     
@@ -72,7 +75,7 @@ final class StampDetailViewController: BaseViewController {
     
     private lazy var detailButton = {
         let view = UIButton()
-        view.setImage(Constants.Image.compactDownChevron, for: .normal)
+        view.setImage(Constants.Image.downChevron, for: .normal)
         return view
     }()
     
@@ -112,10 +115,10 @@ final class StampDetailViewController: BaseViewController {
     
     private func changeDetail() {
         if isDetailed {
-            detailButton.setImage(Constants.Image.compactUpChevron, for: .normal)
+            detailButton.setImage(Constants.Image.upChevron, for: .normal)
             detailLabel.numberOfLines = 0
         } else {
-            detailButton.setImage(Constants.Image.compactDownChevron, for: .normal)
+            detailButton.setImage(Constants.Image.downChevron, for: .normal)
             detailLabel.numberOfLines = 3
         }
     }
