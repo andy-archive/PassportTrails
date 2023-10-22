@@ -7,6 +7,8 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import CoreLocationUI
 import RealmSwift
 
 final class StampMapViewController: BaseViewController {
@@ -55,6 +57,17 @@ final class StampMapViewController: BaseViewController {
         return view
     }()
     
+    private lazy var currentLocationButton = {
+        let buttonRect = CGRect(x: 0, y: 0, width: Constants.MKButton.height, height: Constants.MKButton.width)
+        let view = CLLocationButton(frame: buttonRect)
+        view.icon = .arrowFilled
+        view.tintColor = Constants.Color.buttonTitle
+        view.backgroundColor = Constants.Color.buttonBackground
+        view.cornerRadius = Constants.MKButton.height / 2
+        view.addTarget(self, action: #selector(showCurrentLocation), for: .touchUpInside)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +79,11 @@ final class StampMapViewController: BaseViewController {
         configureNotification()
         
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    @objc
+    private func showCurrentLocation() {
+        self.locationManager.startUpdatingLocation()
     }
     
     //MARK: Annotation Functions
@@ -188,6 +206,8 @@ final class StampMapViewController: BaseViewController {
         view.addSubview(mapView)
         view.addSubview(radarView)
         view.addSubview(labelStackView)
+        view.addSubview(currentLocationButton)
+        
         labelStackView.addArrangedSubview(distanceLabel)
         labelStackView.addArrangedSubview(placeTitleLabel)
     }
@@ -214,6 +234,12 @@ final class StampMapViewController: BaseViewController {
             labelStackView.leadingAnchor.constraint(equalTo: radarView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
             labelStackView.trailingAnchor.constraint(lessThanOrEqualTo: radarView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
             labelStackView.centerYAnchor.constraint(equalTo: radarView.centerYAnchor)
+        ])
+        
+        currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            currentLocationButton.topAnchor.constraint(equalTo: radarView.safeAreaLayoutGuide.bottomAnchor, constant: Constants.MKButton.verticalConstant),
+            currentLocationButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.MKButton.horizontalConstant)
         ])
     }
     
