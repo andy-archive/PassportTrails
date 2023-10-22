@@ -47,12 +47,12 @@ enum Constants {
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
         static let horizontalConstant: CGFloat = 8
-        static let verticalConstant: CGFloat = 64
+        static let verticalConstant: CGFloat = 8
     }
     
-    enum NearestDistanceView {
-        static let height: CGFloat = 120
-        static let sizeRatio: CGFloat = 1.4
+    enum RadarView {
+        static let heightRatio: CGFloat = 1.4
+        static let widthRatio: CGFloat = 0.6
     }
     
     enum Cell {

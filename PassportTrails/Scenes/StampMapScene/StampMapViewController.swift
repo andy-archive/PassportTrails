@@ -53,6 +53,7 @@ final class StampMapViewController: BaseViewController {
         view.textColor = Constants.Color.buttonTitle
         view.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
         view.textAlignment = .left
+        view.lineBreakStrategy = .hangulWordPriority
         view.numberOfLines = 0
         return view
     }()
@@ -225,8 +226,8 @@ final class StampMapViewController: BaseViewController {
         NSLayoutConstraint.activate([
             radarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
             radarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
-            radarView.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
-            radarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)//Constants.NearestDistanceView.sizeRatio)
+            radarView.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: Constants.RadarView.heightRatio),
+            radarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.RadarView.widthRatio)
         ])
         
         labelStackView.translatesAutoresizingMaskIntoConstraints = false
