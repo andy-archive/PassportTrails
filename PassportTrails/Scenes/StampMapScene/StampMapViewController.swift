@@ -25,6 +25,7 @@ final class StampMapViewController: BaseViewController {
         let view = UIView()
         view.backgroundColor = Constants.Color.buttonBackground.withAlphaComponent(0.8)
         view.layer.cornerRadius = Constants.Button.cornerRadius
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -32,6 +33,7 @@ final class StampMapViewController: BaseViewController {
         let view = UIStackView()
         view.axis = .vertical
         view.distribution = .fill
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -60,7 +62,7 @@ final class StampMapViewController: BaseViewController {
         
         configureLocationManager()
         configureMapView()
-        configureDistanceView()
+        configureRadarView()
         configureNotification()
         
         navigationController?.navigationBar.isHidden = true
@@ -87,16 +89,16 @@ final class StampMapViewController: BaseViewController {
     }
     
     @objc
-    private func distanceViewClicked(_ sender: UITapGestureRecognizer) {
+    private func radarViewClicked(_ sender: UITapGestureRecognizer) {
         guard let nearestAnnotation else { return }
-        guard !mapView.centerCoordinate.isEqualTo(coordinate: nearestAnnotation.coordinate) else { return }
-        
         mapView.setCenter(nearestAnnotation.coordinate, animated: true)
     }
     
-    private func configureDistanceView() {
-        let distanceViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(distanceViewClicked(_:)))
-        radarView.addGestureRecognizer(distanceViewTapGesture)
+    private func configureRadarView() {
+        let radarViewGesture = UITapGestureRecognizer(target: self, action: #selector(radarViewClicked(_:)))
+        let labelStackViewGesture = UITapGestureRecognizer(target: self, action: #selector(radarViewClicked(_:)))
+        radarView.addGestureRecognizer(radarViewGesture)
+        labelStackView.addGestureRecognizer(labelStackViewGesture)
     }
     
     private func configureNotification() {
@@ -294,7 +296,6 @@ final class StampMapViewController: BaseViewController {
 
 extension StampMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if annotation is MKUserLocation { return nil }
         
         guard let annotation = annotation as? PlaceAnnotation,
@@ -314,7 +315,8 @@ extension StampMapViewController: MKMapViewDelegate {
         guard isStampMapViewController(viewController: self) else { return }
         
         guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else {
-            placeTitleLabel.showNoNearbyPlace()
+            distanceLabel.text?.removeAll()
+            placeTitleLabel.showNotNearbyPlace()
             return
         }
         
