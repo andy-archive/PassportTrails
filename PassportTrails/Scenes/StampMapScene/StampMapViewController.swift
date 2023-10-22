@@ -65,7 +65,7 @@ final class StampMapViewController: BaseViewController {
         view.tintColor = Constants.Color.buttonTitle
         view.backgroundColor = Constants.Color.buttonBackground
         view.cornerRadius = Constants.MKButton.height / 2
-        view.addTarget(self, action: #selector(showCurrentLocation), for: .touchUpInside)
+        view.addTarget(self, action: #selector(currentLocationClicked), for: .touchUpInside)
         return view
     }()
     
@@ -83,7 +83,7 @@ final class StampMapViewController: BaseViewController {
     }
     
     @objc
-    private func showCurrentLocation() {
+    private func currentLocationClicked() {
         self.locationManager.startUpdatingLocation()
     }
     
