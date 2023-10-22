@@ -16,13 +16,13 @@ final class StampDetailViewController: BaseViewController {
     private lazy var scrollView = {
         let view = UIScrollView()
         view.isScrollEnabled = true
-        view.backgroundColor = Constants.Color.cellBackground
+        view.backgroundColor = Constants.Color.background
         return view
     }()
     
     private let contentView = {
         let view = UIView()
-        view.backgroundColor = Constants.Color.cellBackground
+        view.backgroundColor = Constants.Color.background
         return view
     }()
     
