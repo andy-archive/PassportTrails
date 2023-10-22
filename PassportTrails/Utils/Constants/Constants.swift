@@ -70,7 +70,8 @@ enum Constants {
     
     enum Sheet {
         static let placeArrivalHeight: CGFloat = 220
-        static let stampDetailHeightRatio: Double = 0.3
+        static let smallHeightRatio: Double = 0.3
+        static let largeHeightRatio: Double = 0.8
         static let cornerRadius: CGFloat = 30
     }
 }
