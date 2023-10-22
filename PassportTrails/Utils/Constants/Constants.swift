@@ -33,19 +33,26 @@ enum Constants {
         static let borderWidth: CGFloat = 0.5
         static let listStampRatio = 0.7
         static let detailStampRatio = 0.3
+        static let gloomFilterIntensityRatio = 1.0
+        static let stampRoundBorderWidth: CGFloat = 2.0
     }
     
     enum Button {
         static let height: CGFloat = 60
-        static let radius: CGFloat = 20
+        static let cornerRadius: CGFloat = 20
     }
     
-    enum UserTrackingButton {
+    enum MKButton {
         static let height: CGFloat = 42
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
         static let horizontalConstant: CGFloat = 8
         static let verticalConstant: CGFloat = 64
+    }
+    
+    enum NearestDistanceView {
+        static let height: CGFloat = 120
+        static let sizeRatio: CGFloat = 1.4
     }
     
     enum Cell {
@@ -58,11 +65,12 @@ enum Constants {
     enum Distance {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
-        static let isNearbyPlace: Double = 45
+        static let isNearbyPlace: Double = 300
     }
     
     enum Sheet {
-        static let mediumHeightRatio: Double = 0.35
+        static let placeArrivalHeight: CGFloat = 220
+        static let stampDetailHeightRatio: Double = 0.3
         static let cornerRadius: CGFloat = 30
     }
 }

@@ -13,7 +13,7 @@ extension Constants {
         static let secondaryLabel = UIColor.secondaryLabel
         static let background = UIColor.systemBackground
         static let cellBackground = UIColor.systemGray6.withAlphaComponent(0.5)
-        static let cellBorder = UIColor.systemGray4.cgColor
+        static let cellBorder = UIColor.systemGray6.withAlphaComponent(0.5).cgColor
         static let separator = UIColor.systemGray3.cgColor
         static let buttonTitle = UIColor.white
         static let buttonBackground = UIColor.systemBlue

@@ -25,7 +25,7 @@ extension UIImage {
             filter.setDefaults()
             filter.setValue(ciImage, forKey: kCIInputImageKey)
             filter.setValue(size / 40, forKey: "inputRadius")
-            filter.setValue(1, forKey: "inputIntensity")
+            filter.setValue(Constants.Design.gloomFilterIntensityRatio, forKey: "inputIntensity")
             
             guard let outputImage = filter.outputImage,
                   let cgImage = CIContext().createCGImage(outputImage, from: ciImage.extent)

@@ -21,19 +21,51 @@ final class StampMapViewController: BaseViewController {
     private let repository = PlaceRepository()
     private let realm = try! Realm()
     
+    private lazy var radarView = {
+        let view = UIView()
+        view.backgroundColor = Constants.Color.buttonBackground.withAlphaComponent(0.8)
+        view.layer.cornerRadius = Constants.Button.cornerRadius
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    private let labelStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    private lazy var distanceLabel = {
+        let view = UILabel()
+        view.textColor = Constants.Color.buttonTitle
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.title)
+        view.textAlignment = .left
+        view.numberOfLines = 0
+        return view
+    }()
+    
+    private lazy var placeTitleLabel = {
+        let view = UILabel()
+        view.textColor = Constants.Color.buttonTitle
+        view.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
+        view.textAlignment = .left
+        view.numberOfLines = 0
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
+        fetchGeoJson(fileName: "place")
         
         configureLocationManager()
         configureMapView()
+        configureRadarView()
+        configureNotification()
         
-        fetchGeoJson(fileName: "place")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotation), name: NSNotification.Name.stampButtonClicked, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(selectAnnotation), name: NSNotification.Name.selectAnnotation, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deselectAnnotation), name: NSNotification.Name.deselectAnnotation, object: nil)
+        navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: Annotation Functions
@@ -54,6 +86,25 @@ final class StampMapViewController: BaseViewController {
     private func deselectAnnotation() {
         guard let nearestAnnotation else { return }
         mapView.deselectAnnotation(nearestAnnotation, animated: true)
+    }
+    
+    @objc
+    private func radarViewClicked(_ sender: UITapGestureRecognizer) {
+        guard let nearestAnnotation else { return }
+        mapView.setCenter(nearestAnnotation.coordinate, animated: true)
+    }
+    
+    private func configureRadarView() {
+        let radarViewGesture = UITapGestureRecognizer(target: self, action: #selector(radarViewClicked(_:)))
+        let labelStackViewGesture = UITapGestureRecognizer(target: self, action: #selector(radarViewClicked(_:)))
+        radarView.addGestureRecognizer(radarViewGesture)
+        labelStackView.addGestureRecognizer(labelStackViewGesture)
+    }
+    
+    private func configureNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotation), name: NSNotification.Name.stampButtonClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectAnnotation), name: NSNotification.Name.selectAnnotation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deselectAnnotation), name: NSNotification.Name.deselectAnnotation, object: nil)
     }
     
     private func saveAnnotationToRealm() {
@@ -135,15 +186,34 @@ final class StampMapViewController: BaseViewController {
     
     override func configureHierarchy() {
         view.addSubview(mapView)
+        view.addSubview(radarView)
+        view.addSubview(labelStackView)
+        labelStackView.addArrangedSubview(distanceLabel)
+        labelStackView.addArrangedSubview(placeTitleLabel)
     }
     
     override func setConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+        
+        radarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            radarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
+            radarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
+            radarView.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: Constants.NearestDistanceView.sizeRatio),
+            radarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)//Constants.NearestDistanceView.sizeRatio)
+        ])
+        
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            labelStackView.leadingAnchor.constraint(equalTo: radarView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
+            labelStackView.trailingAnchor.constraint(lessThanOrEqualTo: radarView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
+            labelStackView.centerYAnchor.constraint(equalTo: radarView.centerYAnchor)
         ])
     }
     
@@ -154,10 +224,10 @@ final class StampMapViewController: BaseViewController {
         
         mapView.mapType = .standard
         mapView.showsUserLocation = true
-        mapView.showsCompass = true
-        mapView.showsScale = true
+        mapView.showsCompass = false
         
         mapView.configureUserTrackingButton()
+        mapView.configureCompassButton()
     }
     
     private func configureLocationManager() {
@@ -225,9 +295,7 @@ final class StampMapViewController: BaseViewController {
 //MARK: MKMapViewDelegate
 
 extension StampMapViewController: MKMapViewDelegate {
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if annotation is MKUserLocation { return nil }
         
         guard let annotation = annotation as? PlaceAnnotation,
@@ -246,12 +314,20 @@ extension StampMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard isStampMapViewController(viewController: self) else { return }
         
-        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else { return }
+        guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else {
+            distanceLabel.text?.removeAll()
+            placeTitleLabel.showNotNearbyPlace()
+            return
+        }
+        
         self.nearestAnnotation = nearestAnnotation
         
-        let nearestAnnotationLocation = CLLocation(latitude: nearestAnnotation.coordinate.latitude, longitude: nearestAnnotation.coordinate.longitude)
-        let currentUserLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let nearestDistance = currentUserLocation.distance(from: nearestAnnotationLocation)
+        let nearestDistance = userLocation.showDistance(from: nearestAnnotation)
+        
+        guard let annotationTitle = nearestAnnotation.title else { return }
+        
+        distanceLabel.showDistanceInMeter(distance: nearestDistance)
+        placeTitleLabel.showPlaceTitle(title: annotationTitle)
         
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true
@@ -280,7 +356,6 @@ extension StampMapViewController: MKMapViewDelegate {
 //MARK: CLLocationManagerDelegate
 
 extension StampMapViewController: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)

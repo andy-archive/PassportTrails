@@ -29,7 +29,7 @@ class PlaceArrivalViewController: BaseViewController {
         view.backgroundColor = Constants.Color.buttonBackground
         view.titleLabel?.font = .boldSystemFont(ofSize: Constants.FontSize.buttonTitle)
         view.setTitleColor(Constants.Color.buttonTitle, for: .normal)
-        view.layer.cornerRadius = Constants.Button.radius
+        view.layer.cornerRadius = Constants.Button.cornerRadius
         view.layer.masksToBounds = true
         return view
     }()
@@ -83,22 +83,22 @@ class PlaceArrivalViewController: BaseViewController {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.Design.verticalConstant),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: -Constants.Design.verticalConstant),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
-            subtitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subtitleLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant),
+            subtitleLabel.bottomAnchor.constraint(equalTo: stampButton.topAnchor, constant: -Constants.Design.verticalConstant / 2),
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         stampButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stampButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant),
             stampButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Design.horizontalConstant),
             stampButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Design.horizontalConstant),
+            stampButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant / 2),
             stampButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stampButton.heightAnchor.constraint(equalToConstant: Constants.Button.height)
         ])
