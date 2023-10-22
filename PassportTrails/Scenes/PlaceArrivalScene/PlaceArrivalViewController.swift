@@ -71,16 +71,12 @@ class PlaceArrivalViewController: BaseViewController {
     }
     
     override func configureHierarchy() {
-        super.configureHierarchy()
-        
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(stampButton)
     }
     
     override func setConstraints() {
-        super.setConstraints()
-        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: -Constants.Design.verticalConstant),
