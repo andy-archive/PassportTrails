@@ -239,8 +239,8 @@ final class StampMapViewController: BaseViewController {
         
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            currentLocationButton.topAnchor.constraint(equalTo: radarView.safeAreaLayoutGuide.bottomAnchor, constant: Constants.MKButton.verticalConstant),
-            currentLocationButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: Constants.MKButton.horizontalConstant)
+            currentLocationButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
+            currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.verticalConstant)
         ])
     }
     
@@ -253,7 +253,6 @@ final class StampMapViewController: BaseViewController {
         mapView.showsUserLocation = true
         mapView.showsCompass = false
         
-        mapView.configureUserTrackingButton()
         mapView.configureCompassButton()
     }
     
