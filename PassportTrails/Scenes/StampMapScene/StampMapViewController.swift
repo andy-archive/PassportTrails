@@ -207,7 +207,8 @@ final class StampMapViewController: BaseViewController {
         view.addSubview(mapView)
         view.addSubview(radarView)
         view.addSubview(labelStackView)
-        view.addSubview(currentLocationButton)
+        
+        mapView.addSubview(currentLocationButton)
         
         labelStackView.addArrangedSubview(distanceLabel)
         labelStackView.addArrangedSubview(placeTitleLabel)
@@ -224,7 +225,7 @@ final class StampMapViewController: BaseViewController {
         
         radarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            radarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.horizontalConstant),
+            radarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
             radarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
             radarView.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: Constants.RadarView.heightRatio),
             radarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.RadarView.widthRatio)
@@ -240,7 +241,7 @@ final class StampMapViewController: BaseViewController {
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             currentLocationButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
-            currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.verticalConstant)
+            currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant)
         ])
     }
     

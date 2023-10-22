@@ -46,7 +46,7 @@ enum Constants {
         static let height: CGFloat = 42
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
-        static let horizontalConstant: CGFloat = 8
+        static let horizontalConstant: CGFloat = 12
         static let verticalConstant: CGFloat = 8
     }
     

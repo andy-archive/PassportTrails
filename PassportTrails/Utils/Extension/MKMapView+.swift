@@ -15,7 +15,7 @@ extension MKMapView {
         self.addSubview(compassButton)
         compassButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            compassButton.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.MKButton.verticalConstant * 1.8),
+            compassButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.height + Constants.MKButton.verticalConstant * 1.5),
             compassButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
             compassButton.widthAnchor.constraint(equalToConstant: Constants.MKButton.width),
             compassButton.heightAnchor.constraint(equalToConstant: Constants.MKButton.height)
