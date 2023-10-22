@@ -32,11 +32,12 @@ extension UIViewController {
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [
                 .custom(identifier: .medium, resolver: { context in
-                    return UIScreen.main.bounds.height * Constants.Sheet.stampDetailHeightRatio
+                    return UIScreen.main.bounds.height * Constants.Sheet.smallHeightRatio
                 }),
-                .large()
+                .custom(identifier: .large, resolver: { context in
+                    return UIScreen.main.bounds.height * Constants.Sheet.largeHeightRatio
+                }),
             ]
-            sheet.selectedDetentIdentifier = .medium
             sheet.prefersGrabberVisible = true
             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
             sheet.preferredCornerRadius = Constants.Sheet.cornerRadius
