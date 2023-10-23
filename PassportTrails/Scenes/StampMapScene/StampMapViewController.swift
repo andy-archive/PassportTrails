@@ -270,14 +270,14 @@ final class StampMapViewController: BaseViewController {
         
         directionButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            directionButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
-            directionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
+            directionButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
+            directionButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant / 2),
         ])
         
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
-            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.MKButton.width * 3),
+            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant * 2),
             currentLocationButton.heightAnchor.constraint(equalToConstant: Constants.CLLocationButton.height),
             currentLocationButton.widthAnchor.constraint(equalToConstant: Constants.CLLocationButton.height)
         ])
