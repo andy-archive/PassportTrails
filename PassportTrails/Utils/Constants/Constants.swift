@@ -47,7 +47,12 @@ enum Constants {
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
         static let horizontalConstant: CGFloat = 12
-        static let verticalConstant: CGFloat = 8
+        static let verticalConstant: CGFloat = 12
+    }
+    
+    enum CLLocationButton {
+        static let width: CGFloat = 50
+        static let height: CGFloat = 50
     }
     
     enum RadarView {
