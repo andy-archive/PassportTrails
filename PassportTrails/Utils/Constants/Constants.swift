@@ -46,13 +46,18 @@ enum Constants {
         static let height: CGFloat = 42
         static let width: CGFloat = 42
         static let corderRadius: CGFloat = 5
-        static let horizontalConstant: CGFloat = 8
-        static let verticalConstant: CGFloat = 64
+        static let horizontalConstant: CGFloat = 12
+        static let verticalConstant: CGFloat = 12
     }
     
-    enum NearestDistanceView {
-        static let height: CGFloat = 120
-        static let sizeRatio: CGFloat = 1.4
+    enum CLLocationButton {
+        static let width: CGFloat = 50
+        static let height: CGFloat = 50
+    }
+    
+    enum RadarView {
+        static let heightRatio: CGFloat = 1.4
+        static let widthRatio: CGFloat = 0.6
     }
     
     enum Cell {
@@ -66,6 +71,9 @@ enum Constants {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
         static let isNearbyPlace: Double = 300
+        static let standardAltitude: Double = 5000
+        static let minimumAltitude: Double = 150
+        static let maximumAltitude: Double = 60000
     }
     
     enum Sheet {
