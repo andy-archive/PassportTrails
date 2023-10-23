@@ -59,12 +59,12 @@ final class StampMapViewController: BaseViewController {
     }()
     
     private lazy var currentLocationButton = {
-        let buttonRect = CGRect(x: 0, y: 0, width: Constants.MKButton.height, height: Constants.MKButton.width)
+        let buttonRect = CGRect(x: 0, y: 0, width: Constants.CLLocationButton.height, height: Constants.CLLocationButton.height)
         let view = CLLocationButton(frame: buttonRect)
         view.icon = .arrowFilled
-        view.tintColor = Constants.Color.buttonTitle
-        view.backgroundColor = Constants.Color.buttonBackground
-        view.cornerRadius = Constants.MKButton.height / 2
+        view.tintColor = Constants.Color.buttonBackground
+        view.backgroundColor = Constants.Color.buttonTitle
+        view.cornerRadius = Constants.CLLocationButton.height / 2
         view.addTarget(self, action: #selector(currentLocationClicked), for: .touchUpInside)
         return view
     }()
@@ -80,11 +80,6 @@ final class StampMapViewController: BaseViewController {
         configureNotification()
         
         navigationController?.navigationBar.isHidden = true
-    }
-    
-    @objc
-    private func currentLocationClicked() {
-        self.locationManager.startUpdatingLocation()
     }
     
     //MARK: Annotation Functions
@@ -107,10 +102,19 @@ final class StampMapViewController: BaseViewController {
         mapView.deselectAnnotation(nearestAnnotation, animated: true)
     }
     
+    //MARK: LocationButton
+    
+    @objc
+    private func currentLocationClicked() {
+        self.locationManager.startUpdatingLocation()
+    }
+    
+    //MARK: RadarView
+    
     @objc
     private func radarViewClicked(_ sender: UITapGestureRecognizer) {
         guard let nearestAnnotation else { return }
-        mapView.setCenter(nearestAnnotation.coordinate, animated: true)
+        mapView.showLocationOnCenter(coordinate: nearestAnnotation.coordinate)
     }
     
     private func configureRadarView() {
@@ -240,8 +244,10 @@ final class StampMapViewController: BaseViewController {
         
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            currentLocationButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
-            currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant)
+            currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
+            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.MKButton.width * 3),
+            currentLocationButton.heightAnchor.constraint(equalToConstant: Constants.CLLocationButton.height),
+            currentLocationButton.widthAnchor.constraint(equalToConstant: Constants.CLLocationButton.height)
         ])
     }
     
@@ -386,7 +392,7 @@ extension StampMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-            mapView.setRegion(region, animated: true)
+            mapView.showLocationOnCenter(coordinate: coordinate)
         }
         locationManager.stopUpdatingLocation()
     }
