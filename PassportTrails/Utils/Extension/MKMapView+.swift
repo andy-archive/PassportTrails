@@ -15,11 +15,28 @@ extension MKMapView {
         self.addSubview(compassButton)
         compassButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            compassButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.height + Constants.MKButton.verticalConstant * 1.5),
             compassButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
+            compassButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             compassButton.widthAnchor.constraint(equalToConstant: Constants.MKButton.width),
             compassButton.heightAnchor.constraint(equalToConstant: Constants.MKButton.height)
         ])
+    }
+    
+    func showLocationOnCenter(coordinate: CLLocationCoordinate2D) {
+        var altitude = self.camera.altitude
+        
+        if self.camera.altitude > Constants.Distance.maximumAltitude {
+            altitude = Constants.Distance.standardAltitude
+        } else if self.camera.altitude < Constants.Distance.minimumAltitude {
+            altitude = Constants.Distance.standardAltitude
+        }
+        
+        let camera = MKMapCamera(lookingAtCenter: coordinate, fromEyeCoordinate: coordinate, eyeAltitude: altitude)
+        
+        camera.heading = self.camera.heading
+        camera.pitch = 0
+        
+        self.setCamera(camera, animated: true)
     }
 }
 
