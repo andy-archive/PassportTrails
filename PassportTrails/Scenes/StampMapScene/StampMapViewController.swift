@@ -58,6 +58,16 @@ final class StampMapViewController: BaseViewController {
         return view
     }()
     
+    private lazy var directionButton = {
+        let view = UIButton()
+        let sizeConfig = UIImage.SymbolConfiguration(pointSize: Constants.CLLocationButton.height, weight: .medium, scale: .medium)
+        let colorConfig = UIImage.SymbolConfiguration(paletteColors: [Constants.Color.buttonTitle, Constants.Color.buttonBackground.withAlphaComponent(0.8)])
+        let config = sizeConfig.applying(colorConfig)
+        view.setImage(UIImage(systemName: "arrow.triangle.turn.up.right.circle.fill", withConfiguration: config), for: .normal)
+        view.addTarget(self, action: #selector(directionButtonClicked), for: .touchUpInside)
+        return view
+    }()
+    
     private lazy var currentLocationButton = {
         let buttonRect = CGRect(x: 0, y: 0, width: Constants.CLLocationButton.height, height: Constants.CLLocationButton.height)
         let view = CLLocationButton(frame: buttonRect)
@@ -102,14 +112,29 @@ final class StampMapViewController: BaseViewController {
         mapView.deselectAnnotation(nearestAnnotation, animated: true)
     }
     
-    //MARK: LocationButton
+    //MARK: Button Actions
+    
+    @objc
+    private func directionButtonClicked() {
+        guard let nearestAnnotation else { return }
+        let userlocation = mapView.userLocation
+        
+        let middleCoordinate = userlocation.coordinate.showMiddleCoordinate(between: nearestAnnotation.coordinate)
+        var distance = userlocation.showDistance(from: nearestAnnotation)
+        
+        if distance <= Constants.Distance.minimumDirectionAltitude { distance = Constants.Distance.minimumDirectionAltitude }
+        
+        let altitude = distance * Constants.Distance.directionAltitudeRatio
+        
+        let camera = MKMapCamera(lookingAtCenter: middleCoordinate, fromEyeCoordinate: userlocation.coordinate, eyeAltitude: altitude)
+        camera.pitch = 0
+        mapView.setCamera(camera, animated: true)
+    }
     
     @objc
     private func currentLocationClicked() {
         self.locationManager.startUpdatingLocation()
     }
-    
-    //MARK: RadarView
     
     @objc
     private func radarViewClicked(_ sender: UITapGestureRecognizer) {
@@ -212,6 +237,7 @@ final class StampMapViewController: BaseViewController {
         view.addSubview(radarView)
         view.addSubview(labelStackView)
         
+        mapView.addSubview(directionButton)
         mapView.addSubview(currentLocationButton)
         
         labelStackView.addArrangedSubview(distanceLabel)
@@ -240,6 +266,12 @@ final class StampMapViewController: BaseViewController {
             labelStackView.leadingAnchor.constraint(equalTo: radarView.leadingAnchor, constant: Constants.MKButton.horizontalConstant),
             labelStackView.trailingAnchor.constraint(lessThanOrEqualTo: radarView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
             labelStackView.centerYAnchor.constraint(equalTo: radarView.centerYAnchor)
+        ])
+        
+        directionButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            directionButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.MKButton.verticalConstant),
+            directionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
         ])
         
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
@@ -350,6 +382,7 @@ extension StampMapViewController: MKMapViewDelegate {
         guard let nearestAnnotation = findNearestAnnotation(userLocation.coordinate) else {
             distanceLabel.text?.removeAll()
             placeTitleLabel.showNotNearbyPlace()
+            directionButton.isHidden = true
             return
         }
         
@@ -361,6 +394,7 @@ extension StampMapViewController: MKMapViewDelegate {
         
         distanceLabel.showDistanceInMeter(distance: nearestDistance)
         placeTitleLabel.showPlaceTitle(title: annotationTitle)
+        directionButton.isHidden = false
         
         if nearestDistance <= Constants.Distance.didArrivePlace && isArrivedToPlace == false {
             isArrivedToPlace = true
@@ -391,7 +425,6 @@ extension StampMapViewController: MKMapViewDelegate {
 extension StampMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
             mapView.showLocationOnCenter(coordinate: coordinate)
         }
         locationManager.stopUpdatingLocation()
