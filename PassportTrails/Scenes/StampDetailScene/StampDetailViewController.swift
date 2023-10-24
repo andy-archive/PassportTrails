@@ -31,6 +31,7 @@ final class StampDetailViewController: BaseViewController {
         view.font = .boldSystemFont(ofSize: Constants.FontSize.title)
         view.numberOfLines = 0
         view.textColor = Constants.Color.label
+        view.lineBreakStrategy = .hangulWordPriority
         return view
     }()
     
@@ -39,12 +40,13 @@ final class StampDetailViewController: BaseViewController {
         view.font = .systemFont(ofSize: Constants.FontSize.subtitle)
         view.numberOfLines = 0
         view.textColor = Constants.Color.secondaryLabel
+        view.lineBreakStrategy = .hangulWordPriority
         return view
     }()
     
     private lazy var dismissButton = {
         let view = UIButton()
-        let sizeConfig = UIImage.SymbolConfiguration(pointSize: Constants.FontSize.title, weight: .medium, scale: .large)
+        let sizeConfig = UIImage.SymbolConfiguration(pointSize: Constants.FontSize.title, weight: .medium, scale: .medium)
         let colorConfig = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.tertiaryLabel)
         let config = sizeConfig.applying(colorConfig)
         view.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: config), for: .normal)
@@ -70,6 +72,7 @@ final class StampDetailViewController: BaseViewController {
         view.numberOfLines = 3
         view.textColor = .label
         view.isUserInteractionEnabled = true
+        view.lineBreakStrategy = .hangulWordPriority
         return view
     }()
     
@@ -166,12 +169,6 @@ final class StampDetailViewController: BaseViewController {
     override func setConstraints() {
         super.setConstraints()
         
-        dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dismissButton.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: Constants.Design.horizontalConstant),
-            dismissButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.Design.horizontalConstant)
-        ])
-        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -194,18 +191,24 @@ final class StampDetailViewController: BaseViewController {
         contentViewHeight.priority = .defaultLow
         contentViewHeight.isActive = true
         
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dismissButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.Design.verticalConstant),
+            dismissButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.Design.horizontalConstant),
+        ])
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.Design.verticalConstant),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.Design.horizontalConstant),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: dismissButton.trailingAnchor, constant: -Constants.Design.horizontalConstant),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: dismissButton.leadingAnchor, constant: -Constants.Design.horizontalConstant),
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Design.verticalConstant / 4),
             subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.Design.horizontalConstant),
-            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -Constants.Design.horizontalConstant)
+            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: dismissButton.trailingAnchor, constant: -Constants.Design.horizontalConstant)
         ])
         
         stampImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -250,7 +253,7 @@ final class StampDetailViewController: BaseViewController {
             addressLabel.topAnchor.constraint(equalTo: detailSeparator.bottomAnchor, constant: Constants.Design.verticalConstant),
             addressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.Design.horizontalConstant),
             addressLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -Constants.Design.horizontalConstant),
-            addressLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)//, constant: -Constants.Design.verticalConstant)
+            addressLabel.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant)
         ])
     }
 }
