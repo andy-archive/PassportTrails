@@ -76,6 +76,11 @@ final class StampMapViewController: BaseViewController {
         view.backgroundColor = Constants.Color.buttonTitle
         view.cornerRadius = Constants.CLLocationButton.height / 2
         view.addTarget(self, action: #selector(currentLocationClicked), for: .touchUpInside)
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 3, height: 3)
         return view
     }()
     
@@ -277,7 +282,7 @@ final class StampMapViewController: BaseViewController {
         currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             currentLocationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -Constants.MKButton.horizontalConstant),
-            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Design.verticalConstant * 2),
+            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Sheet.placeArrivalHeight),
             currentLocationButton.heightAnchor.constraint(equalToConstant: Constants.CLLocationButton.height),
             currentLocationButton.widthAnchor.constraint(equalToConstant: Constants.CLLocationButton.height)
         ])
