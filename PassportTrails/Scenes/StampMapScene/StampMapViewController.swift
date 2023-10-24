@@ -309,7 +309,7 @@ final class StampMapViewController: BaseViewController {
     //MARK: LocationAuthorization
     
     private func showLocationSettingAlert() {
-        let alert = UIAlertController(title: "위치 권한 설정", message: "스탬프 투어를 위해서는 위치 권한이 필요합니다.\n'설정 → 개인 정보 보호'에서\n위치를 허용해 주세요.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "위치 권한 설정", message: "주변의 일상 공간을 찾기 위해서 위치 권한이 필요합니다.\n'설정 → 개인 정보 보호'에서\n위치를 허용해 주세요.", preferredStyle: .alert)
         let goSetting = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
             if let appSetting = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(appSetting)
