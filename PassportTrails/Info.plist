@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 정보를 기반으로 스탬프 투어를 하기 위하여 사용자 위치에 대한 권한이 필요합니다</string>
+	<string>위치 정보를 기반으로 지도 내의 현재 위치, 주변 일상 공간과의 거리를 제공합니다. (필수 권한)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
