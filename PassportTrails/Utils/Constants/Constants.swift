@@ -43,9 +43,6 @@ enum Constants {
     }
     
     enum MKButton {
-        static let height: CGFloat = 42
-        static let width: CGFloat = 42
-        static let corderRadius: CGFloat = 5
         static let horizontalConstant: CGFloat = 12
         static let verticalConstant: CGFloat = 12
     }
@@ -70,9 +67,11 @@ enum Constants {
     enum Distance {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
-        static let isNearbyPlace: Double = 300
+        static let minimumDirectionAltitude: Double = 100
+        static let directionAltitudeRatio: Double = 3.5
+        static let isNearbyPlace: Double = 1000
         static let standardAltitude: Double = 5000
-        static let minimumAltitude: Double = 150
+        static let minimumAltitude: Double = 180
         static let maximumAltitude: Double = 60000
     }
     
