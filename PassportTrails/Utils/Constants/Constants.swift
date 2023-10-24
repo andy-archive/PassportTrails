@@ -68,7 +68,7 @@ enum Constants {
         static let didArrivePlace: Double = 15
         static let willLeavePlace: Double = 30
         static let minimumDirectionAltitude: Double = 100
-        static let directionAltitudeRatio: Double = 3
+        static let directionAltitudeRatio: Double = 3.5
         static let isNearbyPlace: Double = 1000
         static let standardAltitude: Double = 5000
         static let minimumAltitude: Double = 180
