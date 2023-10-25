@@ -72,7 +72,7 @@ enum Constants {
         static let isNearbyPlace: Double = 1000
         static let standardAltitude: Double = 5000
         static let minimumAltitude: Double = 180
-        static let maximumAltitude: Double = 60000
+        static let maximumAltitude: Double = 50000
     }
     
     enum Sheet {
