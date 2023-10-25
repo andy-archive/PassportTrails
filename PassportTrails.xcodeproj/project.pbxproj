@@ -327,10 +327,10 @@
 			};
 			buildConfigurationList = 388C90052AC2D3540072C3F1 /* Build configuration list for PBXProject "PassportTrails" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 388C90012AC2D3530072C3F1;
@@ -537,6 +537,7 @@
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일공이";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 기반으로 지도 내의 현재 위치, 주변 일상 공간과의 거리를 제공합니다. (필수 권한)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -570,6 +571,7 @@
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일공이";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 기반으로 지도 내의 현재 위치, 주변 일상 공간과의 거리를 제공합니다. (필수 권한)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
