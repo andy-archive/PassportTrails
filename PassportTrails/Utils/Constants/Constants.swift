@@ -8,13 +8,21 @@
 import Foundation
 
 enum Constants {
+    enum System {
+        static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
     enum Text {
         enum TabBar {
             static let mapTitle = "지도"
             static let listTitle = "목록"
-            static let settingsTitle = "설정"
+            static let settingTitle = "설정"
         }
-        static let stampListTitle = "스탬프 목록"
+        enum NavigationBar {
+            static let stampListTitle = "스탬프 목록"
+            static let settingTitle = "설정"
+        }
+        
         static let arrivedTitle = "🎉 장소에 도착했습니다 🎉"
         static let arrivedSubtitle = "아래 버튼을 눌러 스탬프를 받으세요 👇"
         static let arrivedButtonTitle = "스탬프 받기"

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let firstNav = UINavigationController(rootViewController: StampMapViewController())
         let secondNav = UINavigationController(rootViewController: StampListViewController())
-        let thirdNav = UINavigationController(rootViewController: AppSettingsViewController())
+        let thirdNav = UINavigationController(rootViewController: AppSettingViewController())
 
         firstNav.configureAppearance()
         secondNav.configureAppearance()
@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             items[2].image = Constants.Image.TabBar.settings
             items[2].selectedImage = Constants.Image.TabBar.selectedSettings
-            items[2].title = Constants.Text.TabBar.settingsTitle
+            items[2].title = Constants.Text.TabBar.settingTitle
         }
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
