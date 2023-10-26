@@ -1,0 +1,278 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Urban forest",
+                "subtitle": "문래동의 공공미술",
+                "category": "예술공간",
+                "address": "서울 영등포구 선유로9길 30",
+                "town": "문래동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/05/08/22/artwork-8295159_1280.jpg",
+                "url": "",
+                "detail": "풍부한 녹음과 자연이 스며 있는 도시 속 싱그러운 자연과 어우러져 숲을 이루는 3그루의 나무 이미지를 형상화 하였다. 2020년 조각가 윤성욱"
+            },
+            "geometry": {
+                "coordinates": [
+                    126.88658425063113,
+                    37.518275230600935
+                ],
+                "type": "Point"
+            },
+            "id": 0
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "문래소공원",
+                "subtitle": "금속제조 공장지대에서 녹지 공간으로 탈바꿈한 공원",
+                "category": "공원",
+                "address": "서울 영등포구 선유로13길 20 소공원",
+                "town": "문래동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/05/09/49/park-8295311_1280.jpg",
+                "url": "https://www.lafent.com/inews/news_view.html?news_id=7055",
+                "detail": "기존에 금속제조 공장지대가 있던 자리에 공원을 조성하였다. 2007년 이곳을 공장용지에서 공공용지로 변경하였고 2008년 11월에 개원하였다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.88694348456971,
+                    37.51983860515908
+                ],
+                "type": "Point"
+            },
+            "id": 1
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "구 경성방직 사무동",
+                "subtitle": "영등포의 근대문화유산",
+                "category": "역사공간",
+                "address": "서울 영등포구 영중로 15",
+                "town": "영등포동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/20/08/17/modern-8328868_1280.jpg",
+                "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=79,01350000,11&pageNo=1_1_1_0",
+                "detail": "1936년 일제강점기에 민족 자본으로 설립한 (주) 경성방직의 사무동으로 벽돌조 건물이다. 당시 영등포에 들어선 공장지대는 대부분 일본인이 소유한 반면 경성방직은 민족자본으로 설립한 유일한 공장이었다. 한국전쟁 때 공장시설은 파괴되거나 소실되어 복구해야 했지만, 이 건물은 피해를 입지 않았다. 건립 이후 건물의 원형을 대부분 간직하고 있는 점에서 역사적, 건축사적으로 가치가 크다. 2004년 대한민국 국가등록문화재 제135호로 지정되었다. 현재 내부에는 카페 및 베이커리가 들어서 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.90435,
+                    37.51678472
+                ],
+                "type": "Point"
+            },
+            "id": 2
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "문래근린공원 물레 조형물",
+                "subtitle": "문래동의 유래는 물레?",
+                "category": "공원",
+                "address": "서울 영등포구 문래동3가 61",
+                "town": "문래동",
+                "image": "https://www.ydp.go.kr/site/tour/images/contents/cts5313_img_02.jpg",
+                "url": "https://www.ydp.go.kr/tour/contents.do?key=5313",
+                "detail": "1930년대 일제강점기 당시 동양방적, 종연방적 등 군소 방적공장이 들어섰다. 경성부에 편입된 이후 유실동(실이 있는 동네), 사옥정(실을 뽑는 마을) 등으로 불리다가 1946년 영등포구 사옥동이 되었다. 이어서 1952년 동명을 우리식 이름으로 바꿀 때 \"물레\"라는 방적기계의 발음을 살려 문래동으로 바뀌었다는 설이 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.8939,
+                    37.51755
+                ],
+                "type": "Point"
+            },
+            "id": 3
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "자매근린공원 앙카라하우스",
+                "subtitle": "서울시와 앙카라시의 자매결연을 기념하다",
+                "category": "공원",
+                "address": "서울 영등포구 의사당대로 166",
+                "town": "여의도동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/20/07/22/park-8328560_1280.jpg",
+                "url": "https://parks.seoul.go.kr/parks/detailView.do?pIdx=73&tabTarget=1",
+                "detail": "자매근린공원(앙카라공원)은 1971년 8월 23일 서울시와 터키의 수도인 앙카라시의 자매결연 체결을 기념하기 위해 조성하여 1977년 5월 개원하였다. 앙카라하우스는 터키의 앙카라시에 있는 전통적인 포도원 주택모양으로 1992년 8월 앙카라공원 내에 2층 건물로 건립하였으며, 앙카라시가 터키의 민속품을 기증, 내부를 장식하여 1995년 7월 개관하였다. 건물 1층에는 기도실, 거실, 주방이 있고 2층에는 응접실, 객실, 침실 등이 재현되어 있으며 전통생활기구와 농기구 등 800여 점이 전시되어 있어 터키의 역사와 전통 생활상을 엿볼 수 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.93018,
+                    37.51778
+                ],
+                "type": "Point"
+            },
+            "id": 4
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "여의도공원 C-47 비행기 전시관",
+                "subtitle": "대한민국임시정부 기념공간",
+                "category": "공원",
+                "address": "서울 영등포구 여의공원로 68",
+                "town": "여의도동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/21/03/25/park-8330620_1280.jpg",
+                "url": "https://parks.seoul.go.kr/template/sub/yeouido.do",
+                "detail": "1945년 8월 18일, 대한민국임시정부 광복군 정진대원 4명이 미국 전략사무국(OSS) 대원 18명과 같이 C-47 미 공군 수송기로 경성비행장(현 여의도공원)에 착륙한 지점에 실제 비행기를 전시하였다. 광복 70주년인 2015년 8월에 비행기를 전시하기 시작하여 2018년에 4월에 3·1 운동 100주년을 1년 앞두고 전시관으로 재단장하여 개관하였다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.9212381762652,
+                    37.52528581940672
+                ],
+                "type": "Point"
+            },
+            "id": 5
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "영등포공원 담금솥",
+                "subtitle": "OB맥주 영등포 공장이 있던 곳",
+                "category": "공원",
+                "address": "서울 영등포구 신길로 2",
+                "town": "영등포동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/20/07/51/park-8328757_1280.jpg",
+                "url": "https://www.ydp.go.kr/tour/viewTnTursmResrceU.do?resrceNo=71&sc1=%ED%96%A5%ED%86%A0%EB%AC%B8%ED%99%94%EC%9C%A0%EC%A0%81&rcpp=9&key=4006",
+                "detail": "영등포 공원은 60여 년 동안 OB맥주공장이 있던 자리로써 1997년 공장이 다른 지역으로 이주하자 서울시가 주민들에게 여가 공간을 제공하기 위해 공원으로 조성하였다. 공원의 원형 광장에는 당시 맥주 제조에 사용한 '순동제 담금솥'이 남아 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.910722,
+                    37.51518
+                ],
+                "type": "Point"
+            },
+            "id": 6
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "문래근린공원 지하벙커",
+                "subtitle": "5·16 군사정변 당시 지휘부로 사용한 지하벙커",
+                "category": "공원",
+                "address": "서울 영등포구 문래동3가 61",
+                "town": "문래동",
+                "image": "https://archive.much.go.kr/archiveImage/service.do?idnbr=2016033719",
+                "url": "https://archive.much.go.kr/data/JD008/folderView.do?searchGroupNm=&jobdirSeq=533&idnbr=2016033719",
+                "detail": "1961년 5·16 군사정변의 발상지이다. 지금의 문래근린공원은 당시 육군 제6관구 사령부가 주둔했던 곳이며, 박정희 전 대통령은 5·16 군사정변 직전인 1960년 1월 21일까지 6관구사령관으로 재직하였다. 현재 남아 있는 지하벙커는 정변을 일으켰을 때 참모들을 지휘했던 장소로 추정되고 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.89442863804999,
+                    37.517741232293616
+                ],
+                "type": "Point"
+            },
+            "id": 7
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SeSAC 영등포캠퍼스",
+                "subtitle": "청년취업사관학교 '1호' 캠퍼스",
+                "category": "교육공간",
+                "address": "서울 영등포구 선유로9길 30 106동",
+                "town": "문래동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/17/06/15/campus-8320473_1280.jpg",
+                "url": "https://sesac.seoul.kr/common/menu/html/900006004001/detail.do",
+                "detail": "2020년 10월에 영등포구 문래동에 개관한 서울특별시 청년취업사관학교 1호 캠퍼스. 캠퍼스의 교육브랜드 명칭은 새싹(SeSAC; Seoul Software ACademy)으로, 서울시에서 SW인재 양성을 위해 '싹'을 틔우고 성장시켜, 개발자를 꿈꾸는 청년들이 'SW개발자로 데뷔' 할 수 있도록 돕는 교육 프로그램을 의미한다. (설명 출처: 서울경제진흥원)"
+            },
+            "geometry": {
+                "coordinates": [
+                    126.88639051296502,
+                    37.517686827640034
+                ],
+                "type": "Point"
+            },
+            "id": 8
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "샛강다리 조망지점",
+                "subtitle": "다리와 여의도의 야경이 아름다운 곳",
+                "category": "육교",
+                "address": "서울 영등포구 신길동 23-2",
+                "town": "신길동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/17/05/57/saetgang-8320457_1280.jpg",
+                "url": "https://www.ydp.go.kr/tour/viewTnTursmResrceU.do?resrceNo=77&sc1=%EA%B4%80%EA%B4%91%EB%AA%85%EC%86%8C&key=4007",
+                "detail": "이곳 조망지점은 여의도의 고층 빌딩과 샛강다리 주탑, 샛강생태공원을 감상할 수 있는 장소이다. 특히 야경은 빌딩과 다리의 주탑이 아름답기로 유명하다. 샛강다리(샛강생태공원 문화다리)는 샛강과 올림픽대로 등에 의해 단절된 신길동과 여의도동을 이어주는 보행자 전용 육교이다. 기존의 한강의 육교와는 다르게 일직선이 아닌 S자의 구불구불한 형태를 띠고 있다. 두 개의 주탑은 날아오르는 학을, 다리의 상판은 한강의 물줄기를 형상화하였다. 주탑 두 곳 모두 전망대를 설치하여 생태공원과 올림픽대로를 쉽게 내려다 볼 수 있다. 중간에는 계단이 있어 생태공원으로 갈 수 있다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.91709,
+                    37.51783
+                ],
+                "type": "Point"
+            },
+            "id": 9
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "샛강생태공원 관찰마루",
+                "subtitle": "국내 최초의 생태 공원",
+                "category": "공원",
+                "address": "서울 영등포구 여의동로 48",
+                "town": "여의도동",
+                "image": "https://hangang.seoul.go.kr/www/file/down.do?fkey=880fa673921c7b7631fa4f945af37227a6f7d346d4dab9ea21a569b73bbedb975f3b31955f8da770256e51ab549ffb07442707a173d85362e499eb5c9d987151",
+                "url": "https://love.seoul.go.kr/asp/articleView.asp?intSeq=2252",
+                "detail": "여의도 샛강생태공원은 1997년 9월에 조성한 국내 최초의 생태 공원이다. 자연생태 보존을 위해 가로등이나 벤치, 콘크리트와 같은 인공 시설을 최소화하였다. 63빌딩 남쪽 여의상류 교차로부터 국회의사당 서쪽 여의하류 교차로까지 약 4km의 샛강을 따라 조성되어 있다. 갈대와 억새, 버드나무 등의 군락을 이루고 있고, 인근 지하철에서 발생하는 지하수를 이용하여 연못을 조성하였다. 천연기념물인 수달이나 황조롱이 서식할 수 있을 정도로 생태계 보전이 잘 되어 있는 공원이다. (스탬프 이미지 출처: 서울특별시 한강사업본부)"
+            },
+            "geometry": {
+                "coordinates": [
+                    126.92051,
+                    37.51901
+                ],
+                "type": "Point"
+            },
+            "id": 10
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SeMA 벙커",
+                "subtitle": "숨겨진 지하벙커가 예술 공간으로",
+                "category": "예술공간",
+                "address": "서울 영등포구 여의대로 지하 76",
+                "town": "여의도동",
+                "image": "https://cdn.pixabay.com/photo/2023/10/21/03/20/museum-8330614_1280.jpg",
+                "url": "https://sema.seoul.go.kr/kr/visit/sema_bunker",
+                "detail": "이 벙커는 2005년 여의도 환승센터 건립을 위해 현지 조사 중 발견되었다. 1970년대 군사 정권 시절 조성된 것으로 추정된다. 2016년부터 설계 및 리모델링 공사를 시작하여 2017년 서울시립미술관이 운영하는 SeMA 벙커로 개관하였다. 현대 미술 작품이나 각종 프로그램을 관람할 수 있는 전시실과 벙커의 모습을 보존하고 여의도의 역사를 엿볼 수 있는 역사갤러리가 있다. 2013년 서울미래유산으로 선정되었다."
+            },
+            "geometry": {
+                "coordinates": [
+                    126.923891,
+                    37.525071
+                ],
+                "type": "Point"
+            },
+            "id": 11
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "봉은사 승과평",
+                "subtitle": "탄압 받은 불교 중흥의 씨앗, '중의 벌'",
+                "category": "역사공간",
+                "address": "서울 강남구 영동대로 517",
+                "town": "삼성동",
+                "image": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201202/28/htm_201202288252437003790.jpg",
+                "url": "http://www.bongeunsa.org:90/common/common.do?jsp_path=user/introduction/history02",
+                "detail": "지금의 코엑스(COEX) 자리는 승려들의 과거시험인 승과(僧科)를 치렀던 뜰이었다. 유교 국가인 조선에서 불교는 점점 자리를 잃었고 고려부터 이어진 승과는 1507년(중종 2)에 폐지 되었다. 하지만 1552년(명종 7) 문정왕후의 수렴청정 시기에 승과가 다시 시행되었다. 불교 선종의 수사찰인 봉은사에서 보우스님이 주도하는 선종 승과가 시행되어 봉은사 앞 들판은 승과평(僧科坪; 중의 벌)이 되었다. 이후 약 10년 간 이어진 승과는 다시 폐지 되었지만, 조선 불교의 중흥이라는 점에서 의의가 있고, 그 중심에는 봉은사가 있었다. (스탬프 이미지 출처: 봉은사)"
+            },
+            "geometry": {
+                "coordinates": [
+                    127.05863919626239,
+                    37.513836781561324
+                ],
+                "type": "Point"
+            },
+            "id": 12
+        }
+    ]
+}

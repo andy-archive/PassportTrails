@@ -7,20 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040D92AE037FD00B79C43 /* UILabel+.swift */; };
+		380040DC2AE0456600B79C43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DB2AE0456600B79C43 /* Constants.swift */; };
+		380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040DD2AE0531200B79C43 /* SeparatorView.swift */; };
+		380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E22AE10A3C00B79C43 /* Constants+UI.swift */; };
+		380040E62AE1233700B79C43 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 380040E52AE1233700B79C43 /* Kingfisher */; };
+		380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E72AE1589E00B79C43 /* UIImageView+.swift */; };
+		380040EA2AE2CF6400B79C43 /* MKAnnotation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040E92AE2CF6400B79C43 /* MKAnnotation+.swift */; };
+		380040EC2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040EB2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift */; };
+		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
+		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
+		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
+		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
+		38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D072AD970820038E852 /* ReusableViewProtocol.swift */; };
+		38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */; };
+		38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0B2ADA73770038E852 /* UINavigationController+.swift */; };
+		38668D0E2ADA75F00038E852 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D0D2ADA75F00038E852 /* UITabBarController+.swift */; };
 		388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900D2AC2D3540072C3F1 /* AppDelegate.swift */; };
 		388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */; };
 		388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388C90162AC2D3560072C3F1 /* Assets.xcassets */; };
 		388C901A2AC2D3560072C3F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388C90182AC2D3560072C3F1 /* LaunchScreen.storyboard */; };
 		388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90262AC2D4A10072C3F1 /* Observable.swift */; };
-		388C90652ACD428C0072C3F1 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */; };
-		388C90672ACD42E60072C3F1 /* CustomClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */; };
+		388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */; };
 		388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90682ACD43930072C3F1 /* StampMapViewController.swift */; };
-		388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */; };
+		388C906B2ACD44EE0072C3F1 /* StampListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */; };
 		388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */; };
 		388C90742ACD505C0072C3F1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 388C90732ACD505C0072C3F1 /* .gitignore */; };
+		388C907A2ACED16A0072C3F1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C90792ACED16A0072C3F1 /* Place.swift */; };
+		388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */; };
+		388C90882ACEE4D20072C3F1 /* place.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 388C90872ACEE4D20072C3F1 /* place.geojson */; };
+		388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */; };
+		38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */; };
+		38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C48B2AD5730B007EA06F /* UIViewController+.swift */; };
+		38E1C4942AD6D090007EA06F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 38E1C4932AD6D090007EA06F /* Realm */; };
+		38E1C4962AD6D090007EA06F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 38E1C4952AD6D090007EA06F /* RealmSwift */; };
+		38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C4982AD6E68A007EA06F /* PlaceRealm.swift */; };
+		38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C4AF2AD7A241007EA06F /* PlaceRepository.swift */; };
+		38E1C4B22AD7CC12007EA06F /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C4B12AD7CC12007EA06F /* Notification+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380040D92AE037FD00B79C43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		380040DB2AE0456600B79C43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		380040DD2AE0531200B79C43 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		380040E22AE10A3C00B79C43 /* Constants+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+UI.swift"; sourceTree = "<group>"; };
+		380040E72AE1589E00B79C43 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		380040E92AE2CF6400B79C43 /* MKAnnotation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKAnnotation+.swift"; sourceTree = "<group>"; };
+		380040EB2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+.swift"; sourceTree = "<group>"; };
+		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
+		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
+		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		38668D072AD970820038E852 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+.swift"; sourceTree = "<group>"; };
+		38668D0B2ADA73770038E852 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		38668D0D2ADA75F00038E852 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		388C900A2AC2D3540072C3F1 /* PassportTrails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassportTrails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388C900D2AC2D3540072C3F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388C900F2AC2D3540072C3F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,12 +69,20 @@
 		388C90192AC2D3560072C3F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		388C901B2AC2D3560072C3F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		388C90262AC2D4A10072C3F1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
-		388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClusterAnnotationView.swift; sourceTree = "<group>"; };
+		388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		388C90682ACD43930072C3F1 /* StampMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampMapViewController.swift; sourceTree = "<group>"; };
-		388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportListViewController.swift; sourceTree = "<group>"; };
+		388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListViewController.swift; sourceTree = "<group>"; };
 		388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		388C90732ACD505C0072C3F1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		388C90792ACED16A0072C3F1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		388C90872ACEE4D20072C3F1 /* place.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = place.geojson; sourceTree = "<group>"; };
+		388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+.swift"; sourceTree = "<group>"; };
+		38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceArrivalViewController.swift; sourceTree = "<group>"; };
+		38E1C48B2AD5730B007EA06F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		38E1C4982AD6E68A007EA06F /* PlaceRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRealm.swift; sourceTree = "<group>"; };
+		38E1C4AF2AD7A241007EA06F /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
+		38E1C4B12AD7CC12007EA06F /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +90,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380040E62AE1233700B79C43 /* Kingfisher in Frameworks */,
+				38E1C4962AD6D090007EA06F /* RealmSwift in Frameworks */,
+				38E1C4942AD6D090007EA06F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380040E12AE109DA00B79C43 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				380040DB2AE0456600B79C43 /* Constants.swift */,
+				380040E22AE10A3C00B79C43 /* Constants+UI.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		380F5A6E2ADFE233007E3BF5 /* StampDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */,
+			);
+			path = StampDetailScene;
+			sourceTree = "<group>";
+		};
+		38668CF92AD9122D0038E852 /* PlaceArrivalScene */ = {
+			isa = PBXGroup;
+			children = (
+				38E1C4892AD54878007EA06F /* PlaceArrivalViewController.swift */,
+			);
+			path = PlaceArrivalScene;
+			sourceTree = "<group>";
+		};
 		388C90012AC2D3530072C3F1 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +148,8 @@
 				388C90162AC2D3560072C3F1 /* Assets.xcassets */,
 				388C901B2AC2D3560072C3F1 /* Info.plist */,
 				388C90182AC2D3560072C3F1 /* LaunchScreen.storyboard */,
+				388C90782ACED15F0072C3F1 /* Model */,
+				388C90752ACE90AC0072C3F1 /* Resources */,
 				388C90292AC2D4E40072C3F1 /* Scenes */,
 				388C90282AC2D4C80072C3F1 /* Utils */,
 			);
@@ -89,9 +168,12 @@
 		388C90282AC2D4C80072C3F1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				388C906E2ACD4E0D0072C3F1 /* Observable */,
+				380040E12AE109DA00B79C43 /* Constants */,
 				388C906D2ACD4E000072C3F1 /* BaseView */,
 				388C90632ACD42290072C3F1 /* Custom */,
+				38E1C4972AD6E680007EA06F /* Database */,
+				388C908C2AD3EF300072C3F1 /* Extension */,
+				388C906E2ACD4E0D0072C3F1 /* Observable */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -99,7 +181,9 @@
 		388C90292AC2D4E40072C3F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				388C90622ACD41F50072C3F1 /* PassportListScene */,
+				38668CF92AD9122D0038E852 /* PlaceArrivalScene */,
+				380F5A6E2ADFE233007E3BF5 /* StampDetailScene */,
+				388C90622ACD41F50072C3F1 /* StampListScene */,
 				388C90612ACD41D10072C3F1 /* StampMapScene */,
 			);
 			path = Scenes;
@@ -113,19 +197,20 @@
 			path = StampMapScene;
 			sourceTree = "<group>";
 		};
-		388C90622ACD41F50072C3F1 /* PassportListScene */ = {
+		388C90622ACD41F50072C3F1 /* StampListScene */ = {
 			isa = PBXGroup;
 			children = (
-				388C906A2ACD44EE0072C3F1 /* PassportListViewController.swift */,
+				38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */,
+				388C906A2ACD44EE0072C3F1 /* StampListViewController.swift */,
 			);
-			path = PassportListScene;
+			path = StampListScene;
 			sourceTree = "<group>";
 		};
 		388C90632ACD42290072C3F1 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				388C90642ACD428C0072C3F1 /* CustomAnnotationView.swift */,
-				388C90662ACD42E60072C3F1 /* CustomClusterAnnotationView.swift */,
+				388C90642ACD428C0072C3F1 /* PlaceAnnotationView.swift */,
+				380040DD2AE0531200B79C43 /* SeparatorView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -133,7 +218,9 @@
 		388C906D2ACD4E000072C3F1 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */,
 				388C906F2ACD4E1F0072C3F1 /* BaseViewController.swift */,
+				38668D072AD970820038E852 /* ReusableViewProtocol.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -144,6 +231,58 @@
 				388C90262AC2D4A10072C3F1 /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		388C90752ACE90AC0072C3F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				388C90762ACE90B50072C3F1 /* GeoJSON */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		388C90762ACE90B50072C3F1 /* GeoJSON */ = {
+			isa = PBXGroup;
+			children = (
+				388C90872ACEE4D20072C3F1 /* place.geojson */,
+			);
+			path = GeoJSON;
+			sourceTree = "<group>";
+		};
+		388C90782ACED15F0072C3F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				388C90792ACED16A0072C3F1 /* Place.swift */,
+				388C907B2ACED4790072C3F1 /* PlaceAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		388C908C2AD3EF300072C3F1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				380040EB2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift */,
+				380040E92AE2CF6400B79C43 /* MKAnnotation+.swift */,
+				388C908F2AD3F4C70072C3F1 /* MKMapView+.swift */,
+				38E1C4B12AD7CC12007EA06F /* Notification+.swift */,
+				38668D092AD970BA0038E852 /* UICollectionViewLayout+.swift */,
+				382A93812ADD43D3005DF3B3 /* UIImage+.swift */,
+				380040E72AE1589E00B79C43 /* UIImageView+.swift */,
+				380040D92AE037FD00B79C43 /* UILabel+.swift */,
+				38668D0B2ADA73770038E852 /* UINavigationController+.swift */,
+				38668D0D2ADA75F00038E852 /* UITabBarController+.swift */,
+				38E1C48B2AD5730B007EA06F /* UIViewController+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		38E1C4972AD6E680007EA06F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				38E1C4982AD6E68A007EA06F /* PlaceRealm.swift */,
+				38E1C4AF2AD7A241007EA06F /* PlaceRepository.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +301,11 @@
 			dependencies = (
 			);
 			name = PassportTrails;
+			packageProductDependencies = (
+				38E1C4932AD6D090007EA06F /* Realm */,
+				38E1C4952AD6D090007EA06F /* RealmSwift */,
+				380040E52AE1233700B79C43 /* Kingfisher */,
+			);
 			productName = PassportTrails;
 			productReference = 388C900A2AC2D3540072C3F1 /* PassportTrails.app */;
 			productType = "com.apple.product-type.application";
@@ -183,13 +327,17 @@
 			};
 			buildConfigurationList = 388C90052AC2D3540072C3F1 /* Build configuration list for PBXProject "PassportTrails" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 388C90012AC2D3530072C3F1;
+			packageReferences = (
+				38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				380040E42AE1233700B79C43 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 388C900B2AC2D3540072C3F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				388C901A2AC2D3560072C3F1 /* LaunchScreen.storyboard in Resources */,
+				388C90882ACEE4D20072C3F1 /* place.geojson in Resources */,
 				388C90742ACD505C0072C3F1 /* .gitignore in Resources */,
 				388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */,
 			);
@@ -218,13 +367,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				388C90272AC2D4A10072C3F1 /* Observable.swift in Sources */,
+				380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */,
+				38668D0C2ADA73770038E852 /* UINavigationController+.swift in Sources */,
+				380040EA2AE2CF6400B79C43 /* MKAnnotation+.swift in Sources */,
 				388C900E2AC2D3540072C3F1 /* AppDelegate.swift in Sources */,
+				38E1C4992AD6E68A007EA06F /* PlaceRealm.swift in Sources */,
+				38E1C48C2AD5730B007EA06F /* UIViewController+.swift in Sources */,
+				382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */,
+				380040DC2AE0456600B79C43 /* Constants.swift in Sources */,
+				388C907C2ACED4790072C3F1 /* PlaceAnnotation.swift in Sources */,
 				388C90102AC2D3540072C3F1 /* SceneDelegate.swift in Sources */,
-				388C90652ACD428C0072C3F1 /* CustomAnnotationView.swift in Sources */,
-				388C906B2ACD44EE0072C3F1 /* PassportListViewController.swift in Sources */,
+				388C90652ACD428C0072C3F1 /* PlaceAnnotationView.swift in Sources */,
+				38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */,
+				388C906B2ACD44EE0072C3F1 /* StampListViewController.swift in Sources */,
+				38E1C4B22AD7CC12007EA06F /* Notification+.swift in Sources */,
+				380040EC2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift in Sources */,
+				38668D0E2ADA75F00038E852 /* UITabBarController+.swift in Sources */,
 				388C90702ACD4E1F0072C3F1 /* BaseViewController.swift in Sources */,
+				38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */,
+				380040E32AE10A3C00B79C43 /* Constants+UI.swift in Sources */,
+				38E1C4B02AD7A241007EA06F /* PlaceRepository.swift in Sources */,
+				380040DE2AE0531200B79C43 /* SeparatorView.swift in Sources */,
+				380040E82AE1589E00B79C43 /* UIImageView+.swift in Sources */,
+				380040DA2AE037FD00B79C43 /* UILabel+.swift in Sources */,
+				388C907A2ACED16A0072C3F1 /* Place.swift in Sources */,
+				38668D0A2AD970BA0038E852 /* UICollectionViewLayout+.swift in Sources */,
+				38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */,
 				388C90692ACD43930072C3F1 /* StampMapViewController.swift in Sources */,
-				388C90672ACD42E60072C3F1 /* CustomClusterAnnotationView.swift in Sources */,
+				388C90902AD3F4C70072C3F1 /* MKMapView+.swift in Sources */,
+				38E1C48A2AD54878007EA06F /* PlaceArrivalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +517,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -366,6 +537,9 @@
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일공이";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 기반으로 지도 내의 현재 위치, 주변 일상 공간과의 거리를 제공합니다. (필수 권한)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -376,7 +550,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.PassportTrails;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.OneOTwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -397,6 +571,9 @@
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일공이";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 기반으로 지도 내의 현재 위치, 주변 일상 공간과의 거리를 제공합니다. (필수 권한)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -407,7 +584,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.PassportTrails;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.OneOTwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -440,6 +617,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		380040E42AE1233700B79C43 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		380040E52AE1233700B79C43 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 380040E42AE1233700B79C43 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		38E1C4932AD6D090007EA06F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		38E1C4952AD6D090007EA06F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 388C90022AC2D3540072C3F1 /* Project object */;
 }
