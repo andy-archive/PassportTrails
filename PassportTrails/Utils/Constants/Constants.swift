@@ -8,14 +8,29 @@
 import Foundation
 
 enum Constants {
+    
+    enum System {
+        static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        static let bundleID = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
+        static let appID = 6470292190
+    }
+    
     enum Text {
-        static let stampListTitle = "스탬프 목록"
+        
+        enum TabBar {
+            static let mapTitle = "지도"
+            static let listTitle = "목록"
+            static let settingTitle = "설정"
+        }
+        
+        enum NavigationBar {
+            static let stampListTitle = "스탬프 목록"
+            static let settingTitle = "설정"
+        }
+        
         static let arrivedTitle = "🎉 장소에 도착했습니다 🎉"
         static let arrivedSubtitle = "아래 버튼을 눌러 스탬프를 받으세요 👇"
         static let arrivedButtonTitle = "스탬프 받기"
-        static let clover = "🍀"
-        static let tabBarMapTitle = "지도"
-        static let tabBarListTitle = "목록"
     }
     
     enum FontSize {
@@ -80,5 +95,36 @@ enum Constants {
         static let smallHeightRatio: Double = 0.3
         static let largeHeightRatio: Double = 0.8
         static let cornerRadius: CGFloat = 30
+    }
+    
+    enum Setting {
+        
+        enum Section {
+            static let support = "문의하기"
+            static let appInfo = "앱 정보"
+        }
+        
+        enum Item {
+            static let latestVersion = "최신 버전"
+            static let updateAvailable = "업데이트 하기"
+        }
+        
+        static let supportList = ["📷 인스타그램 문의", "📝 구글 폼 문의"]
+        static let appInfoList = ["📖 개인정보 처리방침", "🪪 오픈소스 라이선스", "📦 앱 버전"]
+    }
+    
+    enum LinkUrl {
+        enum AppSupport {
+            static let instagram = "https://www.instagram.com/oneotwo_102/"
+            static let googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSeZWDyXjjR9i2IOLYd9X61xLnOmGrfoevv2faCUfRgde60zZg/viewform?usp=sf_link"
+        }
+        
+        enum AppInfo {
+            static let privacyPolicy = "https://www.notion.so/eee7789919b44b53ba3561c569a50893?pvs=4"
+            static let openSourceLicence = "https://www.notion.so/3b8bc3c919bb427f973c857d984049d4?pvs=4"
+            static let appStore = "https://apps.apple.com/kr/app/%EC%9D%BC%EA%B3%B5%EC%9D%B4-102-%EC%9D%BC%EC%83%81-%EA%B3%B5%EA%B0%84%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0/id6470292190"
+            static let itunesBundleID = "https://itunes.apple.com/lookup?bundleId=com.andyarchive.OneOTwo&country=kr"
+            static let itunesAppID = "https://itunes.apple.com/app/6470292190"
+        }
     }
 }

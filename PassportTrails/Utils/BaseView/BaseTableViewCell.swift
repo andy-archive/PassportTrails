@@ -1,17 +1,16 @@
 //
-//  BaseCollectionViewCell.swift
+//  BaseTableViewCell.swift
 //  PassportTrails
 //
-//  Created by Taekwon Lee on 2023/10/13.
+//  Created by Taekwon Lee on 2023/10/27.
 //
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+class BaseTableViewCell: UITableViewCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
         configureHierarchy()
         setConstraints()
@@ -22,9 +21,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView() {
-        contentView.backgroundColor = Constants.Color.secondaryGroupedBackground
-    }
+    func configureView() { }
     
     func configureHierarchy() { }
     

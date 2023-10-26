@@ -23,3 +23,10 @@ extension UICollectionViewCell: ReusableViewProtocol {
         return NSStringFromClass(self)
     }
 }
+
+extension UITableViewCell: ReusableViewProtocol {
+    public static var reuseIdentifier: String {
+        return NSStringFromClass(self)
+    }
+}
+
