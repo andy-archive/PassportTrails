@@ -22,10 +22,14 @@ extension Constants {
     }
     
     enum Image {
-        static let map = UIImage(systemName: "map")
-        static let selectedMap = UIImage(systemName: "map.fill")
-        static let list = UIImage(systemName: "list.bullet.rectangle")
-        static let selectedList = UIImage(systemName: "list.bullet.rectangle")
+        enum TabBar {
+            static let map = UIImage(systemName: "map")
+            static let selectedMap = UIImage(systemName: "map.fill")
+            static let list = UIImage(systemName: "list.bullet.rectangle")
+            static let selectedList = UIImage(systemName: "list.bullet.rectangle.fill")
+            static let settings = UIImage(systemName: "gearshape")
+            static let selectedSettings = UIImage(systemName: "gearshape.fill")
+        }
         static let leaf = UIImage(systemName: "leaf")
         static let selectedLeaf = UIImage(systemName: "leaf.fill")
         static let leafCircle = UIImage(systemName: "leaf.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
