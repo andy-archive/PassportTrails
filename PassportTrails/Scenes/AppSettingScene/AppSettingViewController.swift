@@ -19,8 +19,8 @@ final class AppSettingViewController: BaseViewController {
     private lazy var latestVersionLabel = {
         let view = UILabel()
         view.textColor = Constants.Color.secondaryLabel
-        view.font = .systemFont(ofSize: Constants.FontSize.subtitle, weight: .semibold)
-        view.backgroundColor = Constants.Color.background
+        view.font = .systemFont(ofSize: Constants.FontSize.subtitle, weight: .regular)
+        view.backgroundColor = Constants.Color.secondaryGroupedBackground
         return view
     }()
     
@@ -38,6 +38,8 @@ final class AppSettingViewController: BaseViewController {
         
         navigationController?.navigationBar.topItem?.title = Constants.Text.NavigationBar.settingTitle
         
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = .label
         tableView.register(AppSettingTableViewCell.self, forCellReuseIdentifier: AppSettingTableViewCell.reuseIdentifier)
         
         guard let latestVersion = Constants.System.appVersion else { return }
@@ -68,9 +70,9 @@ final class AppSettingViewController: BaseViewController {
             
             if indexPath.row == 3 {
                 self.latestVersionLabel.sizeToFit()
+                cell.backgroundColor = Constants.Color.secondaryGroupedBackground
                 cell.accessoryView = self.latestVersionLabel
             }
-            
             return cell
         })
         

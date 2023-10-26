@@ -22,7 +22,7 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     func configureView() {
-        contentView.backgroundColor = Constants.Color.background
+        contentView.backgroundColor = Constants.Color.secondaryGroupedBackground
     }
     
     func configureHierarchy() { }

@@ -41,9 +41,6 @@ class StampListCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         super.configureView()
-        
-        contentView.layer.borderColor = Constants.Color.cellBorder
-        contentView.layer.borderWidth = Constants.Cell.borderWidth
     }
     
     override func configureHierarchy() {
