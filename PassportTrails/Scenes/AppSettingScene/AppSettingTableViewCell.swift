@@ -12,14 +12,9 @@ class AppSettingTableViewCell: BaseTableViewCell {
     lazy var titleLabel = {
         let view = UILabel()
         view.textColor = Constants.Color.label
-        view.backgroundColor = Constants.Color.secondaryGroupedBackground
         view.font = .systemFont(ofSize: Constants.FontSize.subtitle)
         return view
     }()
-    
-    override func configureView() {
-        super.configureView()
-    }
     
     override func configureHierarchy() {
         contentView.addSubview(titleLabel)

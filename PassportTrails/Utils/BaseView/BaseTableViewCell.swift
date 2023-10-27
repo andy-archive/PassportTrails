@@ -21,9 +21,7 @@ class BaseTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView() {
-        contentView.backgroundColor = Constants.Color.secondaryGroupedBackground
-    }
+    func configureView() { }
     
     func configureHierarchy() { }
     

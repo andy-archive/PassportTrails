@@ -12,6 +12,7 @@ extension Constants {
         static let label = UIColor.label
         static let secondaryLabel = UIColor.secondaryLabel
         static let background = UIColor.systemBackground
+        static let groupedBackground = UIColor.systemGroupedBackground
         static let secondaryGroupedBackground = UIColor.secondarySystemGroupedBackground
         static let separator = UIColor.systemGray3.cgColor
         static let buttonTitle = UIColor.white

@@ -8,16 +8,19 @@
 import Foundation
 
 enum Constants {
+    
     enum System {
         static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
     enum Text {
+        
         enum TabBar {
             static let mapTitle = "지도"
             static let listTitle = "목록"
             static let settingTitle = "설정"
         }
+        
         enum NavigationBar {
             static let stampListTitle = "스탬프 목록"
             static let settingTitle = "설정"
@@ -90,5 +93,18 @@ enum Constants {
         static let smallHeightRatio: Double = 0.3
         static let largeHeightRatio: Double = 0.8
         static let cornerRadius: CGFloat = 30
+    }
+    
+    enum Setting {
+        
+        enum Section {
+            static let support = "문의하기"
+            static let appInfo = "앱 정보"
+        }
+        
+        static let supportList = ["📷 인스타그램 문의", "📝 구글 폼 문의"]
+        static let appInfoList = ["📖 개인정보 처리방침", "🪪 오픈소스 라이선스", "📦 앱 버전"]
+    }
+    
     }
 }
