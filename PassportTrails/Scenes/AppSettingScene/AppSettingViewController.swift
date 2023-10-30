@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 final class AppSettingViewController: BaseViewController {
     
@@ -101,6 +102,25 @@ final class AppSettingViewController: BaseViewController {
         
         dataSource.apply(snapshot)
     }
+    
+    private func openSafari(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        let vc = SFSafariViewController(url: url)
+        
+        present(vc, animated:  true)
+    }
+    
+    private func openInstagram(urlString: String) {
+        guard let instagramURL = NSURL(string: urlString) else { return }
+        
+        if UIApplication.shared.canOpenURL(instagramURL as URL) {
+            UIApplication.shared.open(
+                instagramURL as URL,
+                options: [:],
+                completionHandler: nil
+            )
+        }
+    }
 }
 
 //MARK: UITableViewDiffableDataSource
@@ -120,6 +140,22 @@ extension AppSettingViewController {
 
 extension AppSettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0: openInstagram(urlString: Constants.LinkUrl.AppSupport.instagram)
+            case 1: openSafari(urlString: Constants.LinkUrl.AppSupport.googleForm)
+            default: break
+            }
+        } else if
+            indexPath.section == 1 {
+            switch indexPath.row {
+            case 0: openSafari(urlString: Constants.LinkUrl.AppInfo.privacyPolicy)
+            case 1: openSafari(urlString: Constants.LinkUrl.AppInfo.openSourceLicence)
+            default: break
+            }
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

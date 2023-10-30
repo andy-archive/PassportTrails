@@ -106,5 +106,16 @@ enum Constants {
         static let appInfoList = ["📖 개인정보 처리방침", "🪪 오픈소스 라이선스", "📦 앱 버전"]
     }
     
+    enum LinkUrl {
+        enum AppSupport {
+            static let instagram = "https://www.instagram.com/oneotwo_102/"
+            static let googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSeZWDyXjjR9i2IOLYd9X61xLnOmGrfoevv2faCUfRgde60zZg/viewform?usp=sf_link"
+        }
+        
+        enum AppInfo {
+            static let privacyPolicy = "https://www.notion.so/eee7789919b44b53ba3561c569a50893?pvs=4"
+            static let openSourceLicence = "https://www.notion.so/3b8bc3c919bb427f973c857d984049d4?pvs=4"
+            static let appStore = "https://apps.apple.com/kr/app/%EC%9D%BC%EA%B3%B5%EC%9D%B4-102-%EC%9D%BC%EC%83%81-%EA%B3%B5%EA%B0%84%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0/id6470292190"
+        }
     }
 }
