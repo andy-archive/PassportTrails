@@ -11,6 +11,8 @@ enum Constants {
     
     enum System {
         static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        static let bundleID = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
+        static let appID = 6470292190
     }
     
     enum Text {
@@ -102,6 +104,11 @@ enum Constants {
             static let appInfo = "앱 정보"
         }
         
+        enum Item {
+            static let latestVersion = "최신 버전"
+            static let updateAvailable = "업데이트 하기"
+        }
+        
         static let supportList = ["📷 인스타그램 문의", "📝 구글 폼 문의"]
         static let appInfoList = ["📖 개인정보 처리방침", "🪪 오픈소스 라이선스", "📦 앱 버전"]
     }
@@ -116,6 +123,8 @@ enum Constants {
             static let privacyPolicy = "https://www.notion.so/eee7789919b44b53ba3561c569a50893?pvs=4"
             static let openSourceLicence = "https://www.notion.so/3b8bc3c919bb427f973c857d984049d4?pvs=4"
             static let appStore = "https://apps.apple.com/kr/app/%EC%9D%BC%EA%B3%B5%EC%9D%B4-102-%EC%9D%BC%EC%83%81-%EA%B3%B5%EA%B0%84%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0/id6470292190"
+            static let itunesBundleID = "https://itunes.apple.com/lookup?bundleId=com.andyarchive.OneOTwo&country=kr"
+            static let itunesAppID = "https://itunes.apple.com/app/6470292190"
         }
     }
 }

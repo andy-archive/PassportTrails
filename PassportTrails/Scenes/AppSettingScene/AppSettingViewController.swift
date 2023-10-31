@@ -55,8 +55,7 @@ final class AppSettingViewController: BaseViewController {
         tableView.delegate = self
         tableView.register(AppSettingTableViewCell.self, forCellReuseIdentifier: AppSettingTableViewCell.reuseIdentifier)
         
-        guard let latestVersion = Constants.System.appVersion else { return }
-        latestVersionLabel.text = latestVersion
+        checkAppVersion()
     }
     
     override func configureHierarchy() {
@@ -110,7 +109,7 @@ final class AppSettingViewController: BaseViewController {
         present(vc, animated:  true)
     }
     
-    private func openInstagram(urlString: String) {
+    private func openApplication(urlString: String) {
         guard let instagramURL = NSURL(string: urlString) else { return }
         
         if UIApplication.shared.canOpenURL(instagramURL as URL) {
@@ -120,6 +119,49 @@ final class AppSettingViewController: BaseViewController {
                 completionHandler: nil
             )
         }
+    }
+    
+    private func checkAppVersion() {
+        isLatestAppVersion { [weak self] isLatest in
+            self?.latestVersionLabel.text = isLatest ? Constants.Setting.Item.latestVersion : Constants.Setting.Item.updateAvailable
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func isLatestAppVersion(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: Constants.LinkUrl.AppInfo.itunesBundleID) else {
+            completion(false)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse,
+                          (200..<300).contains(response.statusCode) else {
+                    completion(false)
+                    return
+                }
+                
+                guard let data = data,
+                      let jsonObject = try? JSONSerialization.jsonObject(with: data),
+                      let json = jsonObject as? [String: Any],
+                      let results = json["results"] as? [[String: Any]], results.count > 0,
+                      let appStoreVersion = results[0]["version"] as? String,
+                      let localAppVersion = Constants.System.appVersion
+                else {
+                    completion(false)
+                    return
+                }
+                
+                let result = localAppVersion == appStoreVersion
+                completion(result)
+            }
+        }.resume()
     }
 }
 
@@ -139,11 +181,12 @@ extension AppSettingViewController {
 //MARK: UITableViewDelegate
 
 extension AppSettingViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
             switch indexPath.row {
-            case 0: openInstagram(urlString: Constants.LinkUrl.AppSupport.instagram)
+            case 0: openApplication(urlString: Constants.LinkUrl.AppSupport.instagram)
             case 1: openSafari(urlString: Constants.LinkUrl.AppSupport.googleForm)
             default: break
             }
@@ -152,6 +195,7 @@ extension AppSettingViewController: UITableViewDelegate {
             switch indexPath.row {
             case 0: openSafari(urlString: Constants.LinkUrl.AppInfo.privacyPolicy)
             case 1: openSafari(urlString: Constants.LinkUrl.AppInfo.openSourceLicence)
+            case 2: openApplication(urlString: Constants.LinkUrl.AppInfo.appStore)
             default: break
             }
         }
