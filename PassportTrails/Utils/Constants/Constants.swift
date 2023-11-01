@@ -123,8 +123,8 @@ enum Constants {
             static let privacyPolicy = "https://www.notion.so/eee7789919b44b53ba3561c569a50893?pvs=4"
             static let openSourceLicence = "https://www.notion.so/3b8bc3c919bb427f973c857d984049d4?pvs=4"
             static let appStore = "https://apps.apple.com/kr/app/%EC%9D%BC%EA%B3%B5%EC%9D%B4-102-%EC%9D%BC%EC%83%81-%EA%B3%B5%EA%B0%84%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0/id6470292190"
-            static let itunesBundleID = "https://itunes.apple.com/lookup?bundleId=com.andyarchive.OneOTwo&country=kr"
-            static let itunesAppID = "https://itunes.apple.com/app/6470292190"
+            static let itunesBundleID = "https://itunes.apple.com/lookup?bundleId=com.andyarchive.oneotwo&country=kr"
+            static let itunesAppID = "https://itunes.apple.com/lookup?id=6470292190&country=kr"
         }
     }
 }

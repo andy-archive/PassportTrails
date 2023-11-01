@@ -129,7 +129,9 @@ final class AppSettingViewController: BaseViewController {
     }
     
     private func isLatestAppVersion(completion: @escaping (Bool) -> Void) {
-        guard let url = URL(string: Constants.LinkUrl.AppInfo.itunesBundleID) else {
+        let urlString = Constants.LinkUrl.AppInfo.itunesAppID
+        
+        guard let url = URL(string: urlString) else {
             completion(false)
             return
         }
