@@ -21,8 +21,6 @@ final class StampListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.title = Constants.Text.stampListTitle
-        
         tasks = repository.fetchByDate()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadStampCollectionView), name: NSNotification.Name.reloadStampCollectionView, object: nil)
     }
@@ -33,6 +31,8 @@ final class StampListViewController: BaseViewController {
     }
     
     override func configureView() {
+        navigationController?.navigationBar.topItem?.title = Constants.Text.NavigationBar.stampListTitle
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(StampListCollectionViewCell.self, forCellWithReuseIdentifier: StampListCollectionViewCell.reuseIdentifier)

@@ -16,23 +16,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let firstNav = UINavigationController(rootViewController: StampMapViewController())
         let secondNav = UINavigationController(rootViewController: StampListViewController())
+        let thirdNav = UINavigationController(rootViewController: AppSettingViewController())
 
         firstNav.configureAppearance()
         secondNav.configureAppearance()
+        thirdNav.configureAppearance()
 
         let tabBarController = UITabBarController()
         
         tabBarController.configureAppearance()
-        tabBarController.setViewControllers([firstNav, secondNav], animated: true)
+        tabBarController.setViewControllers([firstNav, secondNav, thirdNav], animated: true)
 
         if let items = tabBarController.tabBar.items {
-            items[0].image = Constants.Image.map
-            items[0].selectedImage = Constants.Image.selectedMap
-            items[0].title = Constants.Text.tabBarMapTitle
+            items[0].image = Constants.Image.TabBar.map
+            items[0].selectedImage = Constants.Image.TabBar.selectedMap
+            items[0].title = Constants.Text.TabBar.mapTitle
             
-            items[1].image = Constants.Image.list
-            items[1].selectedImage = Constants.Image.selectedList
-            items[1].title = Constants.Text.tabBarListTitle
+            items[1].image = Constants.Image.TabBar.list
+            items[1].selectedImage = Constants.Image.TabBar.selectedList
+            items[1].title = Constants.Text.TabBar.listTitle
+            
+            items[2].image = Constants.Image.TabBar.settings
+            items[2].selectedImage = Constants.Image.TabBar.selectedSettings
+            items[2].title = Constants.Text.TabBar.settingTitle
         }
         
         guard let windowScene = (scene as? UIWindowScene) else { return }

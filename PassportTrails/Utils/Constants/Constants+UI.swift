@@ -12,8 +12,8 @@ extension Constants {
         static let label = UIColor.label
         static let secondaryLabel = UIColor.secondaryLabel
         static let background = UIColor.systemBackground
-        static let cellBackground = UIColor.systemGray6.withAlphaComponent(0.5)
-        static let cellBorder = UIColor.systemGray6.withAlphaComponent(0.5).cgColor
+        static let groupedBackground = UIColor.systemGroupedBackground
+        static let secondaryGroupedBackground = UIColor.secondarySystemGroupedBackground
         static let separator = UIColor.systemGray3.cgColor
         static let buttonTitle = UIColor.white
         static let buttonBackground = UIColor.systemBlue
@@ -22,10 +22,14 @@ extension Constants {
     }
     
     enum Image {
-        static let map = UIImage(systemName: "map")
-        static let selectedMap = UIImage(systemName: "map.fill")
-        static let list = UIImage(systemName: "list.bullet.rectangle")
-        static let selectedList = UIImage(systemName: "list.bullet.rectangle")
+        enum TabBar {
+            static let map = UIImage(systemName: "map")
+            static let selectedMap = UIImage(systemName: "map.fill")
+            static let list = UIImage(systemName: "list.bullet.rectangle")
+            static let selectedList = UIImage(systemName: "list.bullet.rectangle.fill")
+            static let settings = UIImage(systemName: "gearshape")
+            static let selectedSettings = UIImage(systemName: "gearshape.fill")
+        }
         static let leaf = UIImage(systemName: "leaf")
         static let selectedLeaf = UIImage(systemName: "leaf.fill")
         static let leafCircle = UIImage(systemName: "leaf.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)

@@ -12,7 +12,7 @@ extension UITabBarController {
         if #available(iOS 15.0, *) {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = Constants.Color.background
+            tabBarAppearance.backgroundColor = Constants.Color.secondaryGroupedBackground
             
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
