@@ -17,6 +17,7 @@
 		380040EC2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040EB2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift */; };
 		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
+		3847EB742B0068F700E086EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3847EB732B0068F700E086EB /* GoogleService-Info.plist */; };
 		3847EB772B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB762B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		3847EB792B006A6500E086EB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB782B006A6500E086EB /* FirebaseCrashlytics */; };
 		3847EB7B2B006A6500E086EB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB7A2B006A6500E086EB /* FirebaseMessaging */; };
@@ -63,6 +64,7 @@
 		380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDetailViewController.swift; sourceTree = "<group>"; };
 		382A93812ADD43D3005DF3B3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		3847EB722AFF3FFB00E086EB /* PassportTrails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PassportTrails.entitlements; sourceTree = "<group>"; };
+		3847EB732B0068F700E086EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampListCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		38668D072AD970820038E852 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
