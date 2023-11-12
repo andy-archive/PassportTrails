@@ -17,6 +17,9 @@
 		380040EC2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380040EB2AE3C53600B79C43 /* CLLocationCoordinate2D+.swift */; };
 		380F5A702ADFE247007E3BF5 /* StampDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380F5A6F2ADFE247007E3BF5 /* StampDetailViewController.swift */; };
 		382A93822ADD43D3005DF3B3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A93812ADD43D3005DF3B3 /* UIImage+.swift */; };
+		3847EB772B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB762B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		3847EB792B006A6500E086EB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB782B006A6500E086EB /* FirebaseCrashlytics */; };
+		3847EB7B2B006A6500E086EB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3847EB7A2B006A6500E086EB /* FirebaseMessaging */; };
 		38668D042AD96FF30038E852 /* StampListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D032AD96FF30038E852 /* StampListCollectionViewCell.swift */; };
 		38668D062AD9703A0038E852 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D052AD9703A0038E852 /* BaseCollectionViewCell.swift */; };
 		38668D082AD970820038E852 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38668D072AD970820038E852 /* ReusableViewProtocol.swift */; };
@@ -97,9 +100,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3847EB7B2B006A6500E086EB /* FirebaseMessaging in Frameworks */,
 				380040E62AE1233700B79C43 /* Kingfisher in Frameworks */,
 				38E1C4962AD6D090007EA06F /* RealmSwift in Frameworks */,
+				3847EB792B006A6500E086EB /* FirebaseCrashlytics in Frameworks */,
 				38E1C4942AD6D090007EA06F /* Realm in Frameworks */,
+				3847EB772B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +134,7 @@
 			children = (
 				388C90162AC2D3560072C3F1 /* Assets.xcassets */,
 				388C901B2AC2D3560072C3F1 /* Info.plist */,
+				3847EB732B0068F700E086EB /* GoogleService-Info.plist */,
 				388C90182AC2D3560072C3F1 /* LaunchScreen.storyboard */,
 			);
 			path = AppInfo;
@@ -332,6 +339,9 @@
 				38E1C4932AD6D090007EA06F /* Realm */,
 				38E1C4952AD6D090007EA06F /* RealmSwift */,
 				380040E52AE1233700B79C43 /* Kingfisher */,
+				3847EB762B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport */,
+				3847EB782B006A6500E086EB /* FirebaseCrashlytics */,
+				3847EB7A2B006A6500E086EB /* FirebaseMessaging */,
 			);
 			productName = PassportTrails;
 			productReference = 388C900A2AC2D3540072C3F1 /* PassportTrails.app */;
@@ -364,6 +374,7 @@
 			packageReferences = (
 				38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */,
 				380040E42AE1233700B79C43 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3847EB752B006A6500E086EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 388C900B2AC2D3540072C3F1 /* Products */;
 			projectDirPath = "";
@@ -381,6 +392,7 @@
 			files = (
 				388C901A2AC2D3560072C3F1 /* LaunchScreen.storyboard in Resources */,
 				388C90882ACEE4D20072C3F1 /* place.geojson in Resources */,
+				3847EB742B0068F700E086EB /* GoogleService-Info.plist in Resources */,
 				388C90742ACD505C0072C3F1 /* .gitignore in Resources */,
 				388C90172AC2D3560072C3F1 /* Assets.xcassets in Resources */,
 			);
@@ -564,7 +576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PassportTrails/PassportTrails.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "20231112-01";
+				CURRENT_PROJECT_VERSION = "20231112-02";
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Resources/AppInfo/Info.plist;
@@ -599,7 +611,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PassportTrails/PassportTrails.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "20231112-01";
+				CURRENT_PROJECT_VERSION = "20231112-02";
 				DEVELOPMENT_TEAM = 3UNP2C529F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassportTrails/Resources/AppInfo/Info.plist;
@@ -659,6 +671,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		3847EB752B006A6500E086EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		38E1C4922AD6D090007EA06F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -674,6 +694,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 380040E42AE1233700B79C43 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3847EB762B006A6500E086EB /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3847EB752B006A6500E086EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		3847EB782B006A6500E086EB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3847EB752B006A6500E086EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		3847EB7A2B006A6500E086EB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3847EB752B006A6500E086EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		38E1C4932AD6D090007EA06F /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
