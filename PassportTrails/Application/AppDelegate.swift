@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///MARK: Firebase
         FirebaseApp.configure()
         
+        ///MARK: Firebase Messaging
+        Messaging.messaging().delegate = self
+        
         ///MARK: UserNotification
         UNUserNotificationCenter.current().delegate = self
         
@@ -28,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         application.registerForRemoteNotifications()
-        
-        ///MARK: Firebase Messaging
-        Messaging.messaging().delegate = self
         
         ///MARK: RealmSwift
         let config = Realm.Configuration(schemaVersion: 0)
